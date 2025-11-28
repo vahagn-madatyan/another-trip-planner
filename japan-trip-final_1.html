@@ -1,0 +1,2610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japan Trip 2025 | Ultimate Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: rgba(30, 41, 59, 0.7);
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary: #f472b6; /* Pink */
+            --secondary: #38bdf8; /* Cyan */
+            --accent: #8b5cf6; /* Violet */
+            --success: #34d399;
+            --warning: #fbbf24;
+            --danger: #f87171;
+            --glass: rgba(30, 41, 59, 0.6);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --gradient-main: linear-gradient(135deg, #f472b6 0%, #8b5cf6 100%);
+            --gradient-bg: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--gradient-bg);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+            background-attachment: fixed;
+        }
+
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: var(--bg-card); border-radius: 5px; border: 1px solid var(--glass-border); }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(15, 23, 42, 0.5);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 24px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .header {
+            background: rgba(0,0,0,0.2);
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%; width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+        }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+        .header h1 {
+            font-size: 3.5em; font-weight: 800; margin-bottom: 15px;
+            background: var(--gradient-main); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+            position: relative; z-index: 1; letter-spacing: -1px;
+        }
+
+        .header .dates {
+            font-size: 1.2em; color: var(--text-muted); position: relative; z-index: 1;
+            font-weight: 500; letter-spacing: 1px; text-transform: uppercase;
+        }
+
+        .nav-tabs {
+            display: flex; justify-content: center; gap: 15px; padding: 20px;
+            background: rgba(0,0,0,0.2); border-bottom: 1px solid var(--glass-border); flex-wrap: wrap;
+        }
+
+        .nav-tab {
+            padding: 12px 24px; cursor: pointer; background: transparent;
+            border: 1px solid transparent; border-radius: 50px;
+            font-size: 1em; font-weight: 600; color: var(--text-muted);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); font-family: 'Outfit', sans-serif;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .nav-tab:hover { color: var(--text-main); background: rgba(255,255,255,0.05); }
+        .nav-tab.active {
+            background: var(--gradient-main); color: white;
+            box-shadow: 0 4px 15px rgba(244, 114, 182, 0.4); border: none;
+        }
+        .nav-tab.active::after { display: none; }
+
+        .tab-content { display: none; animation: slideUp 0.5s ease-out; }
+        .tab-content.active { display: block; }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; padding: 40px; }
+        .summary-card {
+            background: var(--bg-card); padding: 25px; border-radius: 20px;
+            border: 1px solid var(--glass-border); text-align: center; transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        .summary-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px -5px rgba(0,0,0,0.3); border-color: var(--primary); }
+        .summary-card .icon { font-size: 2.5em; margin-bottom: 15px; filter: drop-shadow(0 0 10px rgba(255,255,255,0.2)); }
+        .summary-card .label { color: var(--text-muted); font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .summary-card .value { font-size: 1.5em; font-weight: 700; color: var(--text-main); }
+
+        .content { display: grid; grid-template-columns: 1fr 400px; gap: 40px; padding: 40px; }
+        .timeline { position: relative; }
+        .day-section { margin-bottom: 40px; border-left: 2px solid var(--glass-border); padding-left: 30px; position: relative; }
+        .day-section::before {
+            content: ''; position: absolute; left: -9px; top: 0; width: 16px; height: 16px;
+            background: var(--bg-dark); border-radius: 50%; border: 4px solid var(--primary); box-shadow: 0 0 15px var(--primary);
+        }
+
+        .day-header {
+            background: linear-gradient(90deg, rgba(244, 114, 182, 0.1) 0%, transparent 100%);
+            color: var(--text-main); padding: 20px; border-radius: 15px; margin-bottom: 25px;
+            display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--glass-border);
+            cursor: pointer; transition: all 0.3s;
+        }
+        .day-header:hover { transform: translateX(10px); border-color: var(--primary); background: linear-gradient(90deg, rgba(244, 114, 182, 0.2) 0%, transparent 100%); }
+        .day-date { font-size: 1.4em; font-weight: 700; }
+        .day-location { background: rgba(255,255,255,0.1); padding: 6px 16px; border-radius: 20px; font-size: 0.85em; border: 1px solid var(--glass-border); }
+
+        .event {
+            background: var(--bg-card); border-radius: 16px; padding: 20px; margin-bottom: 20px;
+            border: 1px solid var(--glass-border); border-left: 4px solid var(--success); transition: all 0.3s;
+        }
+        .event:hover { transform: scale(1.02); background: rgba(255,255,255,0.05); }
+        .event.transport { border-left-color: var(--secondary); }
+        .event.accommodation { border-left-color: var(--warning); }
+        .event.meeting { border-left-color: var(--danger); }
+        .event.attraction { border-left-color: var(--accent); background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, transparent 100%); }
+        .event.free-time { border-left-color: var(--text-muted); background: transparent; border-style: dashed; border-width: 1px 1px 1px 4px; }
+
+        .event-time { font-weight: 700; color: var(--secondary); margin-bottom: 8px; font-size: 0.95em; display: flex; align-items: center; gap: 8px; }
+        .event-title { font-size: 1.2em; font-weight: 700; color: var(--text-main); margin-bottom: 8px; }
+        .event-details { color: var(--text-muted); font-size: 0.95em; line-height: 1.7; }
+        .event-icon {
+            float: left; margin-right: 15px; font-size: 1.8em; background: rgba(255,255,255,0.1);
+            width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 12px;
+        }
+
+        .transport-info, .tip-box {
+            background: rgba(56, 189, 248, 0.1); padding: 12px; border-radius: 8px; margin-top: 12px;
+            font-size: 0.9em; border: 1px solid rgba(56, 189, 248, 0.2); color: #bae6fd;
+        }
+        .tip-box { background: rgba(251, 191, 36, 0.1); border-color: rgba(251, 191, 36, 0.2); color: #fde68a; border-left: 3px solid var(--warning); }
+        .time-estimate { background: rgba(52, 211, 153, 0.2); color: #6ee7b7; padding: 4px 10px; border-radius: 12px; font-size: 0.8em; margin-left: 10px; }
+
+        #map, #fullMap {
+            height: 500px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); margin-bottom: 25px;
+            border: 2px solid var(--glass-border); filter: grayscale(20%) contrast(110%);
+        }
+        #fullMap { height: calc(100vh - 250px); margin: 30px; }
+
+        .custom-div-icon {
+            background: var(--gradient-main); border-radius: 50%; width: 40px; height: 40px;
+            display: flex; align-items: center; justify-content: center; color: white; font-weight: bold;
+            font-size: 16px; border: 3px solid white; box-shadow: 0 0 20px var(--primary);
+        }
+
+        .city-stats, .legend, .food-guide {
+            background: var(--bg-card); border-radius: 20px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid var(--glass-border); margin-bottom: 25px;
+        }
+        .city-stat { border-bottom: 1px solid var(--glass-border); padding: 12px 0; }
+        .city-name { color: var(--text-main); }
+        .city-days { background: var(--gradient-main); }
+        .legend h3, .food-guide h3 { color: var(--text-main); margin-bottom: 20px; font-size: 1.4em; }
+
+        .city-title {
+            background: rgba(255,255,255,0.05); color: var(--text-main); padding: 15px 20px; border-radius: 12px;
+            border: 1px solid var(--glass-border); margin-bottom: 15px; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+        }
+        .city-title:hover { background: rgba(255,255,255,0.1); border-color: var(--primary); }
+        .city-title .toggle-icon { transition: transform 0.3s; }
+        .city-title.collapsed .toggle-icon { transform: rotate(-90deg); }
+
+        .food-categories { display: none; padding-left: 10px; }
+        .food-categories.show { display: block; }
+        .category-title {
+            font-weight: 600; color: var(--text-main); font-size: 1.1em; margin-bottom: 10px; cursor: pointer;
+            display: flex; align-items: center; gap: 10px; padding: 10px; border-radius: 8px; transition: background 0.2s;
+        }
+        .category-title:hover { background: rgba(255,255,255,0.05); color: var(--primary); }
+        
+        .restaurant-list { display: none; margin-top: 10px; }
+        .restaurant-list.show { display: block; }
+
+        .restaurant-item {
+            background: rgba(0,0,0,0.2); padding: 15px; margin-bottom: 10px; border-radius: 10px;
+            border-left: 3px solid var(--success); color: var(--text-muted);
+        }
+        .restaurant-name { color: var(--text-main); font-size: 1.1em; font-weight: 600; margin-bottom: 5px; }
+        .restaurant-specialty { color: var(--text-muted); font-size: 0.9em; }
+        .price-tag { background: rgba(255,255,255,0.1); color: var(--text-main); padding: 2px 8px; border-radius: 10px; font-size: 0.8em; margin-left: 8px; }
+
+        .footer { background: rgba(0,0,0,0.3); padding: 30px; text-align: center; color: var(--text-muted); border-top: 1px solid var(--glass-border); }
+
+        .highlight-box {
+            margin: 30px 0; padding: 25px; border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(5px);
+        }
+        .highlight-box h2 {
+            color: white; margin-bottom: 20px; font-size: 1.8em;
+            display: flex; align-items: center; gap: 10px;
+            text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+        .highlight-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;
+        }
+        .highlight-card {
+            background: rgba(30, 41, 59, 0.8); padding: 20px; border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2); border: 1px solid var(--glass-border);
+            transition: transform 0.3s;
+        }
+        .highlight-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .highlight-card-header {
+            display: flex; align-items: center; gap: 10px; margin-bottom: 10px;
+        }
+        .highlight-card-body {
+            border-top: 1px solid var(--glass-border); padding-top: 10px; margin-top: 10px;
+        }
+        .info-row { margin-bottom: 8px; font-size: 0.95em; color: var(--text-muted); }
+        .info-row strong { color: var(--text-main); }
+        .success-badge {
+            background: rgba(52, 211, 153, 0.1); color: var(--success);
+            padding: 8px; border-radius: 5px; margin-top: 10px; font-size: 0.9em;
+            border: 1px solid rgba(52, 211, 153, 0.3);
+        }
+        .schedule-list { list-style: none; padding: 0; color: var(--text-muted); line-height: 1.8; }
+        .schedule-list li { margin-bottom: 5px; }
+        .schedule-list strong { color: var(--text-main); }
+
+        @media (max-width: 1024px) { .content { grid-template-columns: 1fr; } .side-panel { position: static; } }
+        @media (max-width: 768px) { .header h1 { font-size: 2.5em; } .summary { grid-template-columns: repeat(2, 1fr); } .nav-tab { padding: 10px 15px; font-size: 0.9em; } }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌸 Japan Adventure 2025 🗾</h1>
+            <div class="dates">November 28 - December 8, 2025</div>
+            <div style="margin-top: 10px; color: var(--secondary); font-weight: 600;">Complete Itinerary + Food Guide</div>
+        </div>
+
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="showTab('overview')"><i class="fas fa-chart-pie"></i> Overview</button>
+            <button class="nav-tab" onclick="showTab('itinerary')"><i class="fas fa-calendar-alt"></i> Full Itinerary</button>
+            <button class="nav-tab" onclick="showTab('food')"><i class="fas fa-utensils"></i> Food Guide</button>
+            <button class="nav-tab" onclick="showTab('map')"><i class="fas fa-map-marked-alt"></i> Interactive Map</button>
+        </div>
+        <div id="overview" class="tab-content active">
+            <div class="summary">
+                <div class="summary-card">
+                    <div class="icon">✈️</div>
+                    <div class="label">Total Duration</div>
+                    <div class="value">11 Days</div>
+                </div>
+                <div class="summary-card">
+                    <div class="icon">🏙️</div>
+                    <div class="label">Cities</div>
+                    <div class="value">3 Cities</div>
+                </div>
+                <div class="summary-card">
+                    <div class="icon">🏨</div>
+                    <div class="label">Hotels</div>
+                    <div class="value">4 Stays</div>
+                </div>
+                <div class="summary-card">
+                    <div class="icon">🚅</div>
+                    <div class="label">Shinkansen Rides</div>
+                    <div class="value">4 Journeys</div>
+                </div>
+                <div class="summary-card">
+                    <div class="icon">⛩️</div>
+                    <div class="label">Major Attractions</div>
+                    <div class="value">8 Experiences</div>
+                </div>
+                <div class="summary-card">
+                    <div class="icon">🍜</div>
+                    <div class="label">Food Categories</div>
+                    <div class="value">14 Types</div>
+                </div>
+                <div class="summary-card" style="border-color: var(--danger); box-shadow: 0 0 15px rgba(248, 113, 113, 0.2);">
+                    <div class="icon">⭐</div>
+                    <div class="label" style="color: var(--danger);">Confirmed Reservations</div>
+                    <div class="value" style="color: var(--danger);">7 Booked</div>
+                </div>
+            </div>
+            
+            <!-- CONFIRMED RESERVATIONS BOX -->
+            <div class="highlight-box" style="border-left: 4px solid var(--danger); background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(200, 35, 51, 0.05) 100%);">
+                <h2 style="color: var(--danger);">
+                    ⭐ CONFIRMED RESERVATIONS ⭐
+                </h2>
+                <div class="highlight-grid">
+                    
+                    <!-- Reservation 1: Ginza Shimada -->
+                    <div class="highlight-card">
+                        <div class="highlight-card-header">
+                            <div style="font-size: 2em;">🍽️</div>
+                            <div>
+                                <div style="font-weight: 700; font-size: 1.2em; color: var(--danger);">Ginza Shimada</div>
+                                <div style="color: var(--text-muted); font-size: 0.9em;">Standing Izakaya</div>
+                            </div>
+                        </div>
+                        <div class="highlight-card-body">
+                            <div class="info-row"><strong>📅 Date:</strong> Saturday, November 29, 2025</div>
+                            <div class="info-row"><strong>🕐 Time:</strong> 8:00 PM</div>
+                            <div class="info-row"><strong>📍 Location:</strong> Ginza, Tokyo</div>
+                            <div class="info-row"><strong>💴 Price:</strong> ¥3,000-5,000/person</div>
+                            <div class="success-badge">
+                                ✓ First night special dinner - Michelin kaiseki chef!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reservation 2: Kobe Beef Yakiniku -->
+                    <div class="highlight-card">
+                        <div class="highlight-card-header">
+                            <div style="font-size: 2em;">🥩</div>
+                            <div>
+                                <div style="font-weight: 700; font-size: 1.2em; color: var(--danger);">Umeda Kobe Beef Yakiniku</div>
+                                <div style="color: var(--text-muted); font-size: 0.9em;">Certified Kobe Beef</div>
+                            </div>
+                        </div>
+                        <div class="highlight-card-body">
+                            <div class="info-row"><strong>📅 Date:</strong> Thursday, December 4, 2025</div>
+                            <div class="info-row"><strong>🕐 Time:</strong> Dinner (Evening)</div>
+                            <div class="info-row"><strong>📍 Location:</strong> Umeda Ohatsutenjin, Osaka</div>
+                            <div class="info-row"><strong>💴 Price:</strong> Premium pricing</div>
+                            <div class="success-badge">
+                                ✓ Authentic certified Kobe beef experience!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reservation 3: Tea Ceremony -->
+                    <div class="highlight-card">
+                        <div class="highlight-card-header">
+                            <div style="font-size: 2em;">🍵</div>
+                            <div>
+                                <div style="font-weight: 700; font-size: 1.2em; color: var(--danger);">Kimono Tea Ceremony</div>
+                                <div style="color: var(--text-muted); font-size: 0.9em;">Cultural Experience</div>
+                            </div>
+                        </div>
+                        <div class="highlight-card-body">
+                            <div class="info-row"><strong>📅 Date:</strong> Friday, December 5, 2025</div>
+                            <div class="info-row"><strong>🕐 Time:</strong> 1:00 PM - 3:00 PM</div>
+                            <div class="info-row"><strong>📍 Location:</strong> Gion Kiyomizu area, Kyoto</div>
+                            <div class="info-row"><strong>🏛️ Venue:</strong> Registered Cultural Property</div>
+                            <div class="success-badge">
+                                ✓ Kimono wearing & traditional tea ceremony included!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reservation 4: teamLab Planets -->
+                    <div class="highlight-card">
+                        <div class="highlight-card-header">
+                            <div style="font-size: 2em;">🌊</div>
+                            <div>
+                                <div style="font-weight: 700; font-size: 1.2em; color: var(--danger);">teamLab Planets TOKYO</div>
+                                <div style="color: var(--text-muted); font-size: 0.9em;">Digital Art Museum</div>
+                            </div>
+                        </div>
+                        <div class="highlight-card-body">
+                            <div class="info-row"><strong>📅 Date:</strong> Tuesday, December 2, 2025</div>
+                            <div class="info-row"><strong>🕐 Time:</strong> 1:30 PM Entry</div>
+                            <div class="info-row"><strong>📍 Location:</strong> 6-1-16 Toyosu, Koto City, Tokyo</div>
+                            <div class="info-row"><strong>⏱️ Duration:</strong> 2-3 hours</div>
+                            <div class="success-badge">
+                                ✓ Immersive digital art - walk through water barefoot!
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- Reservation: Asakusa Sarashina Tenko -->
+                    <div class="highlight-card">
+                        <div class="highlight-card-header">
+                            <div style="font-size: 2em;">🍜</div>
+                            <div>
+                                <div style="font-weight: 700; font-size: 1.2em; color: var(--danger);">Asakusa Sarashina Tenko</div>
+                                <div style="color: var(--text-muted); font-size: 0.9em;">Traditional Soba</div>
+                            </div>
+                        </div>
+                        <div class="highlight-card-body">
+                            <div class="info-row"><strong>📅 Date:</strong> Monday, December 1, 2025</div>
+                            <div class="info-row"><strong>🕐 Time:</strong> 12:30 PM</div>
+                            <div class="info-row"><strong>📍 Location:</strong> Asakusa, Tokyo</div>
+                            <div class="info-row"><strong>💴 Price:</strong> ¥1,500-2,500</div>
+                            <div class="success-badge">
+                                ✓ Confirmed lunch reservation!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reservation: Imafuku -->
+                    <div class="highlight-card">
+                        <div class="highlight-card-header">
+                            <div style="font-size: 2em;">🍲</div>
+                            <div>
+                                <div style="font-weight: 700; font-size: 1.2em; color: var(--danger);">Imafuku</div>
+                                <div style="color: var(--text-muted); font-size: 0.9em;">Sukiyaki & Shabu-Shabu</div>
+                            </div>
+                        </div>
+                        <div class="highlight-card-body">
+                            <div class="info-row"><strong>📅 Date:</strong> Monday, December 1, 2025</div>
+                            <div class="info-row"><strong>🕐 Time:</strong> 9:00 PM</div>
+                            <div class="info-row"><strong>📍 Location:</strong> Tokyo</div>
+                            <div class="info-row"><strong>💴 Price:</strong> Premium</div>
+                            <div class="success-badge">
+                                ✓ Confirmed dinner reservation!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reservation: TAKAHASHIYA -->
+                    <div class="highlight-card">
+                        <div class="highlight-card-header">
+                            <div style="font-size: 2em;">🦎</div>
+                            <div>
+                                <div style="font-weight: 700; font-size: 1.2em; color: var(--danger);">TAKAHASHIYA Ginza</div>
+                                <div style="color: var(--text-muted); font-size: 0.9em;">Specialty Unagi</div>
+                            </div>
+                        </div>
+                        <div class="highlight-card-body">
+                            <div class="info-row"><strong>📅 Date:</strong> Tuesday, December 2, 2025</div>
+                            <div class="info-row"><strong>🕐 Time:</strong> 7:30 PM</div>
+                            <div class="info-row"><strong>📍 Location:</strong> Ginza, Tokyo</div>
+                            <div class="info-row"><strong>💴 Price:</strong> Premium</div>
+                            <div class="success-badge">
+                                ✓ Confirmed dinner reservation!
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; color: var(--text-main); text-align: center; font-weight: 600; border: 1px solid var(--glass-border);">
+                    💡 All reservations confirmed! Keep confirmation details handy for each venue.
+                </div>
+            </div>
+            
+            <!-- SHINKANSEN TRAIN SCHEDULE -->
+            <div class="highlight-box" style="border-left: 4px solid var(--secondary); background: linear-gradient(135deg, rgba(56, 189, 248, 0.1) 0%, rgba(14, 165, 233, 0.05) 100%);">
+                <h2 style="color: var(--secondary);">
+                    🚅 SHINKANSEN BULLET TRAIN SCHEDULE 🚅
+                </h2>
+                <div class="highlight-grid">
+                    
+                    <!-- Train 1: Tokyo to Osaka -->
+                    <div class="highlight-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <div style="font-weight: 700; font-size: 1.3em; color: var(--secondary);">Nozomi 11</div>
+                            <div style="background: var(--secondary); color: white; padding: 4px 12px; border-radius: 15px; font-size: 0.85em; font-weight: 600;">2h 30m</div>
+                        </div>
+                        <div class="highlight-card-body">
+                            <div style="margin-bottom: 12px;">
+                                <div style="font-weight: 600; color: var(--text-main); margin-bottom: 4px;">📅 Wednesday, December 3, 2025</div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; margin-bottom: 10px;">
+                                <div>
+                                    <div style="font-size: 0.85em; color: var(--text-muted);">Departure</div>
+                                    <div style="font-size: 1.4em; font-weight: 700; color: var(--secondary);">7:37 AM</div>
+                                    <div style="font-size: 0.9em; color: var(--text-main); margin-top: 2px;">Shinagawa Station</div>
+                                </div>
+                                <div style="font-size: 2em; color: var(--secondary);">→</div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 0.85em; color: var(--text-muted);">Arrival</div>
+                                    <div style="font-size: 1.4em; font-weight: 700; color: var(--success);">10:07 AM</div>
+                                    <div style="font-size: 0.9em; color: var(--text-main); margin-top: 2px;">Shin-Osaka</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Train 2: Osaka to Kyoto -->
+                    <div class="highlight-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <div style="font-weight: 700; font-size: 1.3em; color: var(--secondary);">Nozomi 218</div>
+                            <div style="background: var(--success); color: white; padding: 4px 12px; border-radius: 15px; font-size: 0.85em; font-weight: 600;">13 min</div>
+                        </div>
+                        <div class="highlight-card-body">
+                            <div style="margin-bottom: 12px;">
+                                <div style="font-weight: 600; color: var(--text-main); margin-bottom: 4px;">📅 Friday, December 5, 2025</div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; margin-bottom: 10px;">
+                                <div>
+                                    <div style="font-size: 0.85em; color: var(--text-muted);">Departure</div>
+                                    <div style="font-size: 1.4em; font-weight: 700; color: var(--secondary);">7:39 AM</div>
+                                    <div style="font-size: 0.9em; color: var(--text-main); margin-top: 2px;">Shin-Osaka</div>
+                                </div>
+                                <div style="font-size: 2em; color: var(--secondary);">→</div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 0.85em; color: var(--text-muted);">Arrival</div>
+                                    <div style="font-size: 1.4em; font-weight: 700; color: var(--success);">7:52 AM</div>
+                                    <div style="font-size: 0.9em; color: var(--text-main); margin-top: 2px;">Kyoto Station</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Train 3: Kyoto to Tokyo -->
+                    <div class="highlight-card">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <div style="font-weight: 700; font-size: 1.3em; color: var(--secondary);">Nozomi 10</div>
+                            <div style="background: var(--secondary); color: white; padding: 4px 12px; border-radius: 15px; font-size: 0.85em; font-weight: 600;">2h 12m</div>
+                        </div>
+                        <div class="highlight-card-body">
+                            <div style="margin-bottom: 12px;">
+                                <div style="font-weight: 600; color: var(--text-main); margin-bottom: 4px;">📅 Sunday, December 7, 2025</div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.05); padding: 12px; border-radius: 8px; margin-bottom: 10px;">
+                                <div>
+                                    <div style="font-size: 0.85em; color: var(--text-muted);">Departure</div>
+                                    <div style="font-size: 1.4em; font-weight: 700; color: var(--secondary);">10:45 AM</div>
+                                    <div style="font-size: 0.9em; color: var(--text-main); margin-top: 2px;">Kyoto Station</div>
+                                </div>
+                                <div style="font-size: 2em; color: var(--secondary);">→</div>
+                                <div style="text-align: right;">
+                                    <div style="font-size: 0.85em; color: var(--text-muted);">Arrival</div>
+                                    <div style="font-size: 1.4em; font-weight: 700; color: var(--success);">12:57 PM</div>
+                                    <div style="font-size: 0.9em; color: var(--text-main); margin-top: 2px;">Tokyo Station</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.05); border-radius: 10px; color: var(--text-main); text-align: center; font-weight: 600; border: 1px solid var(--glass-border);">
+                    💡 Arrive at stations 15-20 minutes early. Keep your passport handy for ticket validation!
+                </div>
+            </div>
+            
+            <div style="padding: 30px;">
+                <h2 style="margin-bottom: 20px; color: var(--text-main);">Scheduled Attractions & Free Time</h2>
+                <div class="highlight-grid">
+                    <div class="highlight-card" style="border-left: 4px solid var(--accent);">
+                        <h3 style="color: var(--accent); margin-bottom: 10px;">🗼 Tokyo</h3>
+                        <ul class="schedule-list">
+                            <li><strong>Nov 29 Evening:</strong> Ginza shopping + Ginza Shimada dinner ⭐</li>
+                            <li>⏰ 5:00-10:30 PM (confirmed reservation 8 PM)</li>
+                            <li><strong>Nov 30:</strong> Model trains, temples, Shibuya + Ramen Street 🚂</li>
+                            <li>⏰ Kato → Meiji Jingu → Harajuku → Shibuya → Ramen</li>
+                            <li><strong>Dec 1:</strong> Asakusa + Akihabara mega shopping day</li>
+                            <li>⏰ Senso-ji → Sarashina Tenko lunch (12:30 PM) ⭐ → Akihabara → Imafuku dinner (9 PM) ⭐</li>
+                            <li><strong>Dec 2:</strong> Tsukiji Market + teamLab Planets</li>
+                            <li>⏰ Morning market → teamLab (1:30 PM) → TAKAHASHIYA unagi dinner (7:30 PM) ⭐</li>
+                            <li><strong>Dec 7:</strong> Matcha shopping! Ippodo Tea + Ippuku & Matcha 🍵</li>
+                            <li>⏰ 1:15-3:30 PM, then dinner with Crystal at 6 PM</li>
+                            <li><strong>Dec 8:</strong> 4 hours for last-minute shopping</li>
+                        </ul>
+                    </div>
+                    <div class="highlight-card" style="border-left: 4px solid var(--success);">
+                        <h3 style="color: var(--success); margin-bottom: 10px;">🏯 Osaka</h3>
+                        <ul class="schedule-list">
+                            <li><strong>Dec 3 PM:</strong> Dotonbori (scheduled)</li>
+                            <li>⏱️ 6:00-10:00 PM (4 hours)</li>
+                            <li><strong>Dec 4 AM:</strong> Osaka Castle (scheduled)</li>
+                            <li>⏱️ 9:00 AM-12:00 PM (3 hours)</li>
+                            <li><strong>Dec 4 PM:</strong> Free time (12:30-6:30 PM)</li>
+                            <li><strong>Dec 4 7:00 PM:</strong> Kobe Beef Yakiniku Dinner ⭐ (BOOKED!)</li>
+                            <li>✓ Free time options: Universal Studios, Kuromon Market</li>
+                        </ul>
+                    </div>
+                    <div class="highlight-card" style="border-left: 4px solid var(--warning);">
+                        <h3 style="color: var(--warning); margin-bottom: 10px;">⛩️ Kyoto</h3>
+                        <ul class="schedule-list">
+                            <li><strong>Dec 5 AM:</strong> Fushimi Inari (9:30 AM-12:30 PM)</li>
+                            <li><strong>Dec 5 PM:</strong> Tea Ceremony (1:00-3:00 PM)</li>
+                            <li><strong>Dec 5 PM:</strong> Kiyomizu-dera sunset (3:30-6:00 PM)</li>
+                            <li><strong>Dec 5 Eve:</strong> Gion district (6:00-9:00 PM)</li>
+                            <li><strong>Dec 6 AM:</strong> Arashiyama - Monkey Park & Bamboo Grove</li>
+                            <li><strong>Dec 6 PM:</strong> Nishiki Market - Kyoto La-yu Furikake shopping! 🌶️</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ESSENTIAL PHRASES -->
+            <div class="highlight-box" style="border-left: 4px solid var(--accent); background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(124, 58, 237, 0.05) 100%);">
+                <h2 style="color: var(--accent);">
+                    🗣️ ESSENTIAL JAPANESE PHRASES 🗣️
+                </h2>
+                <div class="highlight-grid">
+                    
+                    <!-- Greetings & Basics -->
+                    <div class="highlight-card">
+                        <h3 style="color: var(--accent); margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">👋 Greetings & Basics</h3>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Konnichiwa (こんにちは)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">kohn-nee-chee-wah</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Hello/Good afternoon (Late morning - evening)</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Arigatou gozaimasu (ありがとうございます)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">ah-ree-gah-toh goh-zah-ee-mahs</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Thank you (polite) - Add a small bow</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Sumimasen (すみません)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">soo-mee-mah-sen</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Excuse me / I'm sorry - Get attention/apologize</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Onegaishimasu (お願いします)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">oh-neh-gah-ee-shee-mahs</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Please - Add after any request</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Hai / Iie (はい / いいえ)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">hai / ee-eh</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Yes / No (Hai also means "I understand")</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div style="font-weight: 700; color: var(--text-main);">Chotto matte kudasai (ちょっと待ってください)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">choht-toh maht-teh koo-dah-sai</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Please wait a moment</div>
+                        </div>
+                    </div>
+
+                    <!-- Understanding & Communication -->
+                    <div class="highlight-card">
+                        <h3 style="color: var(--accent); margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">👂 Understanding</h3>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Wakarimasen (わかりません)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">wah-kah-ree-mah-sen</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">I don't understand (Polite/apologetic tone)</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Wakarimashita (わかりました)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">wah-kah-ree-mahsh-tah</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">I understand / Got it</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Eigo ga wakarimasu ka? (英語がわかりますか)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">eh-goh gah wah-kah-ree-mahs kah</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Do you understand English?</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Nihongo ga sukoshi dake (日本語が少しだけ)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">nee-hohn-goh gah skoh-shee dah-keh</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">I only speak a little Japanese</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div style="font-weight: 700; color: var(--text-main);">Mou ichido onegaishimasu (もう一度お願いします)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">moh ee-chee-doh oh-neh-gah-ee-shee-mahs</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">One more time, please</div>
+                        </div>
+                    </div>
+
+                    <!-- At Restaurants -->
+                    <div class="highlight-card">
+                        <h3 style="color: var(--accent); margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">🍜 At Restaurants</h3>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Itadakimasu (いただきます)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">ee-tah-dah-kee-mahs</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">"I humbly receive" (Before eating)</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Gochisousama deshita (ごちそうさまでした)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">goh-chee-soh-sah-mah desh-tah</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Said after eating (to staff)</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Oishii (美味しい)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">oy-shee</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Delicious!</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Hitori desu / Futari desu (一人です / 二人です)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">hee-toh-ree des / foo-tah-ree des</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">One person / Two people</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Osusume wa arimasu ka? (おすすめはありますか)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">oh-soo-soo-meh wah ah-ree-mahs kah</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Do you have any recommendations?</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Kore (o) kudasai (これ(を)ください)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">koh-reh (oh) koo-dah-sai</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">I'll have this one (Point at menu)</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div style="font-weight: 700; color: var(--text-main);">Okaikei onegaishimasu (お会計お願いします)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">oh-kai-keh oh-neh-gah-ee-shee-mahs</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Check, please</div>
+                        </div>
+                    </div>
+
+                    <!-- Payment & Shopping -->
+                    <div class="highlight-card">
+                        <h3 style="color: var(--accent); margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">💳 Payment & Shopping</h3>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Kurejitto kaado tsukaemasu ka?</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">koo-reh-jeet-toh kah-doh tsoo-kah-eh-mahs kah</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Can I use a credit card?</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">IC kaado tsukaemasu ka?</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">ai-shee kah-doh tsoo-kah-eh-mahs kah</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Can I use an IC card (Suica/Pasmo)?</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Ikura desu ka? (いくらですか)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">ee-koo-rah des kah</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">How much is it?</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Fukuro onegaishimasu (袋お願いします)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">foo-koo-roh oh-neh-gah-ee-shee-mahs</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">A bag, please</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div style="font-weight: 700; color: var(--text-main);">Kore o misete kudasai (これを見せてください)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">koh-reh oh mee-seh-teh koo-dah-sai</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Please show me this</div>
+                        </div>
+                    </div>
+
+                    <!-- Navigation & Help -->
+                    <div class="highlight-card">
+                        <h3 style="color: var(--accent); margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">🗺️ Navigation & Help</h3>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">...wa doko desu ka? (…はどこですか)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">wah doh-koh des kah</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Where is...? (Insert place name before "wa")</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Toire wa doko desu ka? (トイレはどこですか)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">toy-reh wah doh-koh des kah</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">Where is the restroom?</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Iie, daijoubu desu (いいえ、大丈夫です)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">ee-eh, dai-joh-boo des</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">No, I'm okay / No thank you (Decline offers)</div>
+                        </div>
+                        <div class="phrase-item" style="margin-bottom: 15px;">
+                            <div style="font-weight: 700; color: var(--text-main);">Shashin o totte moratte mo ii desu ka?</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">shah-sheen oh toht-teh moh-raht-teh moh ee des kah</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">May I ask you to take a photo?</div>
+                        </div>
+                        <div class="phrase-item">
+                            <div style="font-weight: 700; color: var(--text-main);">Yoyaku ga arimasu (予約があります)</div>
+                            <div style="color: var(--secondary); font-size: 0.9em;">yoh-yah-koo gah ah-ree-mahs</div>
+                            <div style="color: var(--text-muted); font-size: 0.85em;">I have a reservation</div>
+                        </div>
+                    </div>
+
+                    <!-- General Tips -->
+                    <div class="highlight-card" style="border-left: 4px solid var(--warning);">
+                        <h3 style="color: var(--warning); margin-bottom: 15px; border-bottom: 1px solid var(--glass-border); padding-bottom: 10px;">💡 Pro Tips</h3>
+                        <ul class="schedule-list">
+                            <li><strong>Speak Softly:</strong> Volume matters — speak softly on trains and in public.</li>
+                            <li><strong>Bow Slightly:</strong> A small bow when thanking someone goes a long way.</li>
+                            <li><strong>Pronunciation:</strong> Many phrases end in "masu/desu" — pronounce as "mahs/des" (the 'u' is nearly silent).</li>
+                            <li><strong>Magic Combo:</strong> "Sumimasen" before a question and "Arigatou gozaimasu" after help.</li>
+                            <li><strong>Effort Counts:</strong> Speaking even a few words in Japanese delights locals!</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Itinerary Tab -->
+        <div id="itinerary" class="tab-content">
+            <div class="content">
+                <div class="timeline">
+                    <!-- Day 1: Nov 28 (Fri) - Departure -->
+                    <div class="day-section">
+                        <div class="day-header">
+                            <div class="day-date">Day 1: Friday, Nov 28</div>
+                            <div class="day-location">Seattle ✈️ In Transit</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">✈️</div>
+                            <div class="event-time">10:15 AM PST</div>
+                            <div class="event-title">Flight Departure - Delta 0167</div>
+                            <div class="event-details">Seattle-Tacoma International Airport (SEA) → Tokyo Haneda (HND)<br>
+                            Duration: ~11 hours (crosses date line)</div>
+                        </div>
+                    </div>
+
+                    <!-- Day 2: Nov 29 (Sat) - Arrival in Tokyo -->
+                    <div class="day-section">
+                        <div class="day-header">
+                            <div class="day-date">Day 2: Saturday, Nov 29</div>
+                            <div class="day-location">Tokyo 🏙️</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">✈️</div>
+                            <div class="event-time">2:05 PM JST</div>
+                            <div class="event-title">Arrival at Haneda Airport</div>
+                            <div class="event-details">Clear customs and immigration<br>
+                            Terminal: International Terminal</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚂</div>
+                            <div class="event-time">~3:00 PM - 3:30 PM</div>
+                            <div class="event-title">Train to Shinagawa</div>
+                            <div class="event-details">Keikyu Airport Line Express<br>
+                            Duration: ~20-30 minutes<br>
+                            Cost: ¥330 (~$3)</div>
+                            <div class="transport-info">📍 Follow signs to Keikyu Line from arrivals</div>
+                        </div>
+                        <div class="event accommodation">
+                            <div class="event-icon">🏨</div>
+                            <div class="event-time">~4:00 PM</div>
+                            <div class="event-title">Check-in: Shinagawa Prince Hotel</div>
+                            <div class="event-details">2-minute walk from Shinagawa Station<br>
+                            Stay: Nov 29 - Dec 3 (4 nights)</div>
+                        </div>
+                        <div class="event free-time">
+                            <div class="event-icon">🛍️</div>
+                            <div class="event-time">4:30 PM - 5:00 PM</div>
+                            <div class="event-title">Rest & Refresh at Hotel</div>
+                            <div class="event-details">Quick break after flight and check-in</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚇</div>
+                            <div class="event-time">5:00 PM</div>
+                            <div class="event-title">Travel to Ginza</div>
+                            <div class="event-details">Shinagawa Station → Yurakucho/Ginza Station<br>
+                            JR Yamanote Line (~15 minutes)<br>
+                            Alternative: Tokyo Metro to Ginza Station</div>
+                            <div class="transport-info">🚇 Direct line, very convenient</div>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🛍️</div>
+                            <div class="event-time">5:30 PM - 8:00 PM</div>
+                            <div class="event-title">Ginza Evening Exploration</div>
+                            <div class="event-details"><strong>Tokyo's Luxury Shopping District</strong><br>
+                            • <strong>GINZA SIX</strong> - Rooftop garden (free!), luxury mall, art installations<br>
+                            • <strong>Chuo Dori</strong> - Main shopping boulevard with evening illuminations<br>
+                            • <strong>Uniqlo Flagship</strong> - 12 floors of Japanese fashion<br>
+                            • <strong>Nissan Crossing Cafe</strong> - Face scan on coffee foam art!<br>
+                            Window shopping: Louis Vuitton, Gucci, Dior, Hermès<br>
+                            Beautiful architecture and neon lights</div>
+                            <div class="tip-box">💡 Visit GINZA SIX rooftop for great photos and city views!</div>
+                            <span class="time-estimate">2.5 hours exploration</span>
+                        </div>
+                        <div class="event meeting">
+                            <div class="event-icon">🍽️</div>
+                            <div class="event-time">8:00 PM</div>
+                            <div class="event-title">Dinner at Ginza Shimada ⭐</div>
+                            <div class="event-details"><strong>RESERVATION CONFIRMED!</strong><br>
+                            Standing izakaya with elevated seasonal Japanese dishes<br>
+                            Chef trained at Michelin kaiseki restaurants<br>
+                            Walk-in only usually, but you have reservation!<br>
+                            Budget: ¥3,000-5,000 per person</div>
+                            <div class="tip-box">💡 First night special dinner - authentic local experience!</div>
+                        </div>
+                        <div class="event free-time">
+                            <div class="event-icon">🌃</div>
+                            <div class="event-time">9:30 PM - 10:30 PM</div>
+                            <div class="event-title">Evening Stroll & Return</div>
+                            <div class="event-details">Post-dinner walk through illuminated Ginza streets<br>
+                            Return to Shinagawa via JR Yamanote Line (15 min)<br>
+                            Rest after first day in Tokyo!</div>
+                        </div>
+                    </div>
+
+                    <!-- Day 3: Nov 30 (Sun) - Tokyo -->
+                    <div class="day-section">
+                        <div class="day-header">
+                            <div class="day-date">Day 3: Sunday, Nov 30</div>
+                            <div class="day-location">Tokyo 🗼 Model Trains, Temples & Shibuya</div>
+                        </div>
+                        <div class="event free-time">
+                            <div class="event-icon">🥐</div>
+                            <div class="event-time">8:45 AM - 9:30 AM</div>
+                            <div class="event-title">Breakfast at Shinagawa Station</div>
+                            <div class="event-details">Japanese bakery at Atre Shinagawa building<br>
+                            Options: The City Bakery Shinagawa, Dean & Deluca Market<br>
+                            Budget: ¥500-1,000</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚇</div>
+                            <div class="event-time">9:30 AM</div>
+                            <div class="event-title">Travel to Hobby Center Kato</div>
+                            <div class="event-details">Shinagawa → JR Yamanote → Shinjuku (20 min)<br>
+                            → Toei Oedo Line → Ochiai-minami-nagasaki (8 min)<br>
+                            → 5 min walk</div>
+                            <div class="transport-info">🚇 Total: 40-45 minutes</div>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🚂</div>
+                            <div class="event-time">10:30 AM - 12:00 PM</div>
+                            <div class="event-title">Hobby Center Kato</div>
+                            <div class="event-details"><strong>Address:</strong> 1-24-10 Nishi-Ochiai, Shinjuku-ku<br>
+                            <strong>Hours:</strong> 10 AM - 6 PM<br>
+                            • Massive N-scale dioramas (floors 1 & 2)<br>
+                            • Complete Kato train collection<br>
+                            • Test track layouts (¥500+ purchase = 30 min track time)<br>
+                            • "Junk section" with 50% off items<br>
+                            • All spare parts available</div>
+                            <div class="tip-box">💡 Browse and take notes/photos - plan purchases for Akihabara later!</div>
+                            <span class="time-estimate">1.5 hours</span>
+                        </div>
+                        <div class="event meeting">
+                            <div class="event-icon">🍛</div>
+                            <div class="event-time">12:15 PM - 1:30 PM</div>
+                            <div class="event-title">Lunch: Tonkatsu - Two Great Options!</div>
+                            <div class="event-details"><strong>Option 1: Tonkatsu Aoki no Curry Ya Ippekoppe</strong><br>
+                            <strong>Location:</strong> Nishi-Shinjuku (near Shinjuku West Exit)<br>
+                            <strong>Specialty:</strong> Loin Katsu Curry with Hayashi SPF pork<br>
+                            Crispy katsu + homemade curry, pink & Himalayan salt at table<br>
+                            <strong>Price:</strong> ¥1,200-1,800<br>
+                            <strong>Transport:</strong> 8 min walk from Oedo Line Shinjuku West Exit<br>
+                            <br>
+                            <strong>Option 2: Tonkatsu Hinata ⭐ (Michelin Bib Gourmand)</strong><br>
+                            <strong>Location:</strong> Takadanobaba, 2-13-9 Takadanobaba, Shinjuku-ku<br>
+                            <strong>Specialty:</strong> Premium whole-pig sourcing, various cuts available<br>
+                            • Famous for truffle salt & extra virgin olive oil<br>
+                            • Two pork brands: sweet fat, tender meat, firm texture<br>
+                            • Surprisingly light despite being fried!<br>
+                            • 14-seat counter, clean & intimate<br>
+                            <strong>Price:</strong> ¥1,400-2,100 (lunch)<br>
+                            <strong>Note:</strong> NO reservations for lunch - walk-in only<br>
+                            <strong>Transport:</strong> JR Yamanote Shinjuku → Takadanobaba (4 min, 2 stops)<br>
+                            Then 2-5 min walk from station</div>
+                            <div class="tip-box">💡 Hinata often has lines but quick turnover. Arrive just before noon for best chance!</div>
+                        </div>
+                        <div class="event shopping">
+                            <div class="event-icon">🎴</div>
+                            <div class="event-time">1:30 PM - 2:15 PM</div>
+                            <div class="event-title">Hareruya Tournament Center Tokyo (Quick MTG Browse)</div>
+                            <div class="event-details"><strong>Location:</strong> 2F OC Building, 3-12-2 Takadanobaba, Shinjuku-ku<br>
+                            <strong>Distance:</strong> 2-5 min walk from Tonkatsu Hinata!<br>
+                            <br>
+                            🎴 Quick browse of Japan's largest MTG-exclusive retailer<br>
+                            • Check singles prices (English & Japanese cards)<br>
+                            • See Power 9 displays<br>
+                            • Japanese booster boxes ¥10,500-12,000<br>
+                            • Note prices for comparison shopping in Akihabara tomorrow<br>
+                            <br>
+                            <strong>Payment:</strong> Credit Cards ✅, Cash<br>
+                            <strong>English:</strong> Computer terminals available</div>
+                            <div class="tip-box">💡 Just a quick browse - save detailed shopping for Akihabara tomorrow!</div>
+                            <span class="time-estimate">30-45 min</span>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚇</div>
+                            <div class="event-time">2:15 PM</div>
+                            <div class="event-title">Travel to Meiji Jingu Shrine</div>
+                            <div class="event-details">JR Yamanote Line: Takadanobaba → Harajuku (7 min, 3 stops)</div>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">⛩️</div>
+                            <div class="event-time">2:15 PM - 3:15 PM</div>
+                            <div class="event-title">Meiji Jingu Shrine</div>
+                            <div class="event-details">5-minute walk through forest path from Harajuku Station<br>
+                            • Tokyo's most famous Shinto shrine<br>
+                            • Peaceful forest setting with massive torii gates<br>
+                            • Main shrine complex<br>
+                            • Entry: Free</div>
+                            <span class="time-estimate">1 hour</span>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🎨</div>
+                            <div class="event-time">3:15 PM - 4:15 PM</div>
+                            <div class="event-title">Harajuku Exploration</div>
+                            <div class="event-details">• <strong>Takeshita Street</strong> - Youth culture, quirky shops<br>
+                            • <strong>Omotesando</strong> - Upscale shopping avenue<br>
+                            • <strong>Cat Street</strong> - Trendy boutiques<br>
+                            Street fashion, crepe stands, unique Tokyo atmosphere</div>
+                            <span class="time-estimate">1 hour</span>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚇</div>
+                            <div class="event-time">4:15 PM</div>
+                            <div class="event-title">Travel to Shibuya</div>
+                            <div class="event-details">JR Yamanote Line: Harajuku → Shibuya (2 min, 1 stop)</div>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🌆</div>
+                            <div class="event-time">4:15 PM - 8:30 PM</div>
+                            <div class="event-title">Shibuya Crossing & Evening</div>
+                            <div class="event-details"><strong>Shibuya Crossing</strong> - World's busiest intersection<br>
+                            • Best view: Starbucks 2F at Tsutaya building or Shibuya Sky<br>
+                            • <strong>Hachiko Statue</strong> - Famous meeting spot<br>
+                            • <strong>Shibuya 109</strong> - Fashion mall<br>
+                            • <strong>Center Gai</strong> - Shopping street<br>
+                            Explore, shop, experience Tokyo's energy!</div>
+                            <span class="time-estimate">4+ hours</span>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚇</div>
+                            <div class="event-time">8:30 PM</div>
+                            <div class="event-title">Travel to Tokyo Station</div>
+                            <div class="event-details">JR Yamanote Line: Shibuya → Tokyo Station (20 min)</div>
+                        </div>
+                        <div class="event meeting">
+                            <div class="event-icon">🍜</div>
+                            <div class="event-time">9:00 PM - 9:45 PM</div>
+                            <div class="event-title">Dinner: Tokyo Station Ramen Street</div>
+                            <div class="event-details"><strong>🗺️ HOW TO FIND RAMEN STREET:</strong><br>
+                            1️⃣ At Tokyo Station, follow signs for <strong>Yaesu Exit</strong> (八重洲口)<br>
+                            2️⃣ Go THROUGH the ticket gates (EXIT the ticketed area)<br>
+                            3️⃣ Look for stairs going DOWN to B1 basement level<br>
+                            4️⃣ Follow signs for "<strong>First Avenue Tokyo Station</strong>"<br>
+                            5️⃣ You'll see queues - that's Ramen Street!<br>
+                            ℹ️ It's in the PUBLIC area (no ticket needed once you exit gates)<br>
+                            ℹ️ Near Tokyo Character Street in basement<br>
+                            ℹ️ If lost, ask station staff - they know it well!<br>
+                            <br>
+                            <strong>10 Ramen Shops to Choose From:</strong><br>
+                            • <strong>ROKURINSHA</strong> ⭐ - Most famous tsukemen (dipping ramen)<br>
+                            • <strong>KAKUSHINKA TOKYO</strong> ⭐ - Bold broth, thick noodles, locals' favorite<br>
+                            • <strong>ROKKAKUYA</strong> - Michelin-awarded, pork belly<br>
+                            • <strong>HIRUGAO</strong> - Shio (salt), whole chicken broth<br>
+                            • <strong>MUTEKIYA</strong> - Thick 24-hour tonkotsu<br>
+                            • <strong>SORANOIRO NIPPON</strong> - Seafood tonkotsu, 20+ years<br>
+                            • Plus 4 more shops!<br>
+                            <strong>Price:</strong> ¥900-1,500 per bowl<br>
+                            <strong>Hours:</strong> Most shops 10 AM-11 PM</div>
+                            <div class="transport-info">🎫 Buy meal tickets from vending machine at each shop entrance (cash or IC card)</div>
+                            <div class="tip-box">💡 Some shops have 20+ person queues, others have none - walk around and pick one! KAKUSHINKA and ROKURINSHA are top choices.</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚇</div>
+                            <div class="event-time">10:00 PM</div>
+                            <div class="event-title">Return to Shinagawa</div>
+                            <div class="event-details">JR Yamanote Line: Tokyo Station → Shinagawa (10 min)<br>
+                            Rest up after full day exploring Tokyo!</div>
+                        </div>
+                    </div>
+
+                    <!-- Day 4: Dec 1 (Mon) - Tokyo -->
+                    <div class="day-section">
+                        <div class="day-header">
+                            <div class="day-date">Day 4: Monday, Dec 1</div>
+                            <div class="day-location">Tokyo - Asakusa & Akihabara ⛩️</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚇</div>
+                            <div class="event-time">8:30 AM - 9:00 AM</div>
+                            <div class="event-title">Travel to Asakusa</div>
+                            <div class="event-details">From Shinagawa to Asakusa<br>
+                            Take JR Yamanote Line to Tokyo Station, transfer to Tokyo Metro Ginza Line to Asakusa Station<br>
+                            Duration: ~25-30 minutes</div>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">⛩️</div>
+                            <div class="event-time">9:00 AM - 12:00 PM</div>
+                            <div class="event-title">Senso-ji Temple (Asakusa Kannon Temple)</div>
+                            <div class="event-details"><strong>Location:</strong> Tokyo's oldest temple, founded in 628<br>
+                            <strong>Main Hall:</strong> Open 6:00 AM - 5:00 PM (Free admission)<br>
+                            <br>
+                            <strong>What to See:</strong><br>
+                            • <strong>Kaminarimon Gate</strong> - Iconic Thunder Gate with giant lantern<br>
+                            • <strong>Nakamise-dori</strong> - 250m shopping street with 90 traditional shops<br>
+                            • <strong>Main Hall</strong> - Dedicated to Kannon (Goddess of Mercy)<br>
+                            • <strong>Five-story Pagoda</strong> - Beautiful Buddhist architecture<br>
+                            • <strong>Asakusa Shrine</strong> - Adjacent Shinto shrine<br>
+                            <br>
+                            <strong>Activities:</strong><br>
+                            • Draw fortune slips (omikuji) - ¥100<br>
+                            • Purify with incense smoke<br>
+                            • Shop for traditional snacks: ningyo-yaki, kaminari-okoshi<br>
+                            • Try street food: taiyaki, melon bread</div>
+                            <div class="tip-box">💡 Morning is less crowded! Temple grounds open 24/7 but shops open ~9-10 AM</div>
+                            <span class="time-estimate">Visit: 2.5-3 hours</span>
+                        </div>
+                        <div class="event meeting">
+                            <div class="event-icon">🍜</div>
+                            <div class="event-time">12:30 PM - 1:30 PM</div>
+                            <div class="event-title">Lunch: Asakusa Sarashina Tenko (RESERVATION CONFIRMED)</div>
+                            <div class="event-details"><strong>Reservation:</strong> Monday, December 1, 2025 at 12:30 PM<br>
+                            <strong>Location:</strong> Asakusa (very close to Senso-ji Temple)<br>
+                            <br>
+                            🍜 Famous traditional soba restaurant<br>
+                            🏛️ Historic Asakusa establishment<br>
+                            🌟 Known for authentic Edo-style soba noodles<br>
+                            💎 High-quality buckwheat noodles<br>
+                            <br>
+                            <strong>What to Try:</strong><br>
+                            • Zaru soba (cold soba with dipping sauce)<br>
+                            • Ten-zaru (cold soba with tempura)<br>
+                            • Kamo-nanban (duck soba in hot broth)<br>
+                            • Traditional preparation methods<br>
+                            <br>
+                            <strong>Price Range:</strong> ¥1,500-2,500<br>
+                            <strong>Perfect timing</strong> - right after Senso-ji Temple visit!</div>
+                            <div class="tip-box">💡 This is your confirmed reservation at 12:30 PM! Traditional Japanese soba experience in historic Asakusa.</div>
+                            <span class="time-estimate">1 hour</span>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚇</div>
+                            <div class="event-time">1:30 PM - 1:45 PM</div>
+                            <div class="event-title">Travel to Akihabara</div>
+                            <div class="event-details">Asakusa to Akihabara<br>
+                            Take Tokyo Metro Ginza Line to Ueno, transfer to JR Yamanote Line to Akihabara<br>
+                            Duration: ~15 minutes</div>
+                            <div class="transport-info">📍 Or walk to Asakusa Station (Tobu Line), direct to Akihabara - 8 min</div>
+                        </div>
+                        <div class="event shopping">
+                            <div class="event-icon">🏬</div>
+                            <div class="event-time">2:00 PM - 3:00 PM</div>
+                            <div class="event-title">Yodobashi Camera Akiba (6F Hobby Section)</div>
+                            <div class="event-details"><strong>Location:</strong> 1-1 Kanda-Hanaokacho (directly connected to Akihabara Station)<br>
+                            <br>
+                            🚂 Start with train models at back of 6F<br>
+                            📦 Massive N gauge selection: KATO, Tomix, Micro Ace, Greenmax<br>
+                            💳 Get 10% points back with Gold Point Card<br>
+                            📍 Hobby section behind figures section<br>
+                            <br>
+                            <strong>Payment:</strong> All cards ✅, IC Cards, Mobile Pay<br>
+                            <strong>English:</strong> Very good - staff available<br>
+                            <strong>Tax-Free:</strong> Yes with passport (¥5,000 minimum)</div>
+                            <div class="tip-box">💡 Restaurant floor (8F) good for breaks if needed!</div>
+                            <span class="time-estimate">1 hour</span>
+                        </div>
+                        <div class="event shopping">
+                            <div class="event-icon">🎴</div>
+                            <div class="event-time">3:00 PM - 4:00 PM</div>
+                            <div class="event-title">Radio Kaikan: Big Magic (9F) + Yellow Submarine (6F)</div>
+                            <div class="event-details"><strong>Location:</strong> Radio Kaikan, 1-15-16 Sotokanda<br>
+                            <strong>Transport:</strong> 5-minute walk from Yodobashi, visible from station<br>
+                            <br>
+                            <strong>🎴 Big Magic (9F):</strong><br>
+                            • Museum-like Power 9 displays<br>
+                            • Tablet ordering system (English OK)<br>
+                            • Comprehensive buylist Alpha→newest sets<br>
+                            <br>
+                            <strong>🃏 Yellow Submarine (6F):</strong><br>
+                            • Best for older MTG singles in Radio Kaikan<br>
+                            • Great for Torment, Odyssey block<br>
+                            • ¥19 foil land bins - hunt for deals!<br>
+                            <br>
+                            <strong>Payment:</strong> Credit Cards ✅, Cash<br>
+                            <strong>English:</strong> Big Magic moderate, Yellow Sub limited</div>
+                            <span class="time-estimate">1 hour total</span>
+                        </div>
+                        <div class="event shopping">
+                            <div class="event-icon">🎴</div>
+                            <div class="event-time">4:00 PM - 4:45 PM</div>
+                            <div class="event-title">Tokyo MTG - Suidobashi (Optional)</div>
+                            <div class="event-details"><strong>Location:</strong> Near Tokyo Dome, Suidobashi<br>
+                            <strong>Transport:</strong> JR Chuo-Sobu Line, 2 stops from Akihabara (~5 min each way)<br>
+                            Exit west, 2-minute walk toward Tokyo Dome<br>
+                            <br>
+                            ⭐ Most tourist-friendly MTG shop in Tokyo<br>
+                            🌟 English-speaking foreign-born owners (Heiko & Brent)<br>
+                            🎨 Original MTG artwork, artist proofs, collectibles<br>
+                            💎 Legacy and Vintage staples competitively priced<br>
+                            📦 Free international shipping on singles<br>
+                            <br>
+                            <strong>Payment:</strong> Credit Cards ✅, Cash<br>
+                            <strong>English:</strong> Excellent!</div>
+                            <div class="tip-box">💡 Best for asking questions! But adds travel time - skip if short on time.</div>
+                            <span class="time-estimate">30-45 min</span>
+                        </div>
+                        <div class="event shopping">
+                            <div class="event-icon">🚂</div>
+                            <div class="event-time">4:45 PM - 5:30 PM</div>
+                            <div class="event-title">TamTam Hobby Shop (5F)</div>
+                            <div class="event-details"><strong>Location:</strong> Sakai Suehiro Building, 6-14-2 Sotokanda<br>
+                            <strong>Transport:</strong> Suehirocho Station (Ginza Line) or 4-5 blocks north on Chuo-dori<br>
+                            <br>
+                            🚂 Floor 5 dedicated to train models<br>
+                            🎯 Pure hobby shop - no anime distractions<br>
+                            💰 Better prices than Yodobashi<br>
+                            🌎 Unusual: stocks HO scale INCLUDING US rolling stock!<br>
+                            📦 Individual N scale cars in bags<br>
+                            <br>
+                            <strong>Adjacent:</strong> Leonardo stores (LG, LG2, ET) for rare finds<br>
+                            <strong>Payment:</strong> Credit Cards ✅, Cash<br>
+                            <strong>English:</strong> Limited - point and gesture</div>
+                            <span class="time-estimate">45 min</span>
+                        </div>
+                        <div class="event shopping">
+                            <div class="event-icon">🚂</div>
+                            <div class="event-time">5:30 PM - 6:15 PM</div>
+                            <div class="event-title">Popondetta Akihabara</div>
+                            <div class="event-details"><strong>Location:</strong> Rail Way BLD, 3-3-3 Sotokanda<br>
+                            <strong>Transport:</strong> 3 blocks west of main shopping street<br>
+                            <br>
+                            🏢 Five-floor specialty train model shop<br>
+                            🏙️ Giant Tokyo-inspired diorama on 2nd floor<br>
+                            🎮 Rent track time by the hour, run your own trains<br>
+                            📦 All major brands: KATO, Tomix, Micro Ace, Greenmax<br>
+                            🚂 Good HO scale selection, used section<br>
+                            <br>
+                            <strong>Payment:</strong> Cash, Visa, MC, JCB, Amex, IC Cards ✅<br>
+                            <strong>English:</strong> Moderate - tourist-aware staff</div>
+                            <div class="tip-box">💡 Special night-view illumination after 7 PM (open until 8:30 PM)!</div>
+                            <span class="time-estimate">45 min</span>
+                        </div>
+                        <div class="event shopping">
+                            <div class="event-icon">🚂</div>
+                            <div class="event-time">6:15 PM - 7:00 PM</div>
+                            <div class="event-title">Models IMON Akihabara (3F)</div>
+                            <div class="event-details"><strong>Location:</strong> 3F Uchida Building, 1-9-9 Sotokanda<br>
+                            <strong>Transport:</strong> Near Manseibashi crossing<br>
+                            Look up for sign on 3rd floor<br>
+                            <br>
+                            🏆 Best for serious HO scale collectors<br>
+                            ⭐ Specializes in HO (rare in N-gauge Japan)<br>
+                            🏭 Produces own models (Chinese railway QJ series)<br>
+                            💻 Real-time inventory at imon.co.jp<br>
+                            🛤️ Premium Shinohara Track systems<br>
+                            <br>
+                            <strong>Adjacent:</strong> Monta Imon for used/consignment<br>
+                            <strong>Payment:</strong> Credit Cards ✅, Cash<br>
+                            <strong>English:</strong> Limited<br>
+                            <strong>Tax-Free:</strong> Yes</div>
+                            <span class="time-estimate">45 min</span>
+                        </div>
+                        <div class="event free-time">
+                            <div class="event-icon">🎮</div>
+                            <div class="event-time">7:00 PM - 8:30 PM</div>
+                            <div class="event-title">Akihabara Evening - Final Shopping & Exploration</div>
+                            <div class="event-details">Wrap up your Akihabara day:<br>
+                            • Return to Popondetta for night diorama view (after 7 PM!)<br>
+                            • Final browsing at arcades and shops<br>
+                            • Quick evening snack if needed<br>
+                            • Head toward dinner location</div>
+                            <span class="free-time-available">1.5 hours</span>
+                        </div>
+                        <div class="event meeting">
+                            <div class="event-icon">🍲</div>
+                            <div class="event-time">9:00 PM - 11:00 PM</div>
+                            <div class="event-title">Dinner: Imafuku (RESERVATION CONFIRMED)</div>
+                            <div class="event-details"><strong>Reservation:</strong> Monday, December 1, 2025 at 9:00 PM (21:00)<br>
+                            <strong>Party Size:</strong> 2 people<br>
+                            <strong>Course:</strong> Imafuku Delight Course (Sukiyaki + Shabu-Shabu Combination)<br>
+                            <br>
+                            🥩 Premium black-haired Wagyu specialty restaurant<br>
+                            ⭐ Experience BOTH sukiyaki AND shabu-shabu in one meal!<br>
+                            🎯 Multi-course premium beef tasting<br>
+                            <br>
+                            <strong>What is Sukiyaki & Shabu-Shabu:</strong><br>
+                            • <strong>Sukiyaki:</strong> Beef simmered in sweet soy-based broth, dipped in raw egg<br>
+                            • <strong>Shabu-shabu:</strong> Thinly sliced beef swished in hot broth, light & delicate<br>
+                            • Both cooked at your table - interactive dining!<br>
+                            • Premium wagyu beef quality<br>
+                            <br>
+                            <strong>Imafuku Delight Course Includes:</strong><br>
+                            • <strong>Appetizer</strong><br>
+                            • <strong>Premium Sukiyaki Strip Loin</strong> - Sweet soy broth style<br>
+                            • <strong>Premium Shabu-Shabu Assorted Platter:</strong><br>
+                            &nbsp;&nbsp;- Wagyu Beef Tongue<br>
+                            &nbsp;&nbsp;- Filet<br>
+                            &nbsp;&nbsp;- Strip Loin<br>
+                            &nbsp;&nbsp;- 3 Daily Special Cuts<br>
+                            • <strong>Assorted Vegetables</strong><br>
+                            • <strong>Rice Porridge or Ramen</strong> (finish the meal with broth)<br>
+                            • <strong>Dessert</strong><br>
+                            <br>
+                            <strong>Why This Course is Special:</strong><br>
+                            • Can't choose between sukiyaki and shabu-shabu? Get BOTH!<br>
+                            • Experience two classic Japanese hot pot styles<br>
+                            • Premium black-haired Wagyu beef<br>
+                            • Multiple cuts to compare flavors and textures<br>
+                            <br>
+                            <strong>Note:</strong> Later dinner time (9 PM) perfect after full day of Akihabara shopping!</div>
+                            <div class="tip-box">💡 This is your confirmed dinner reservation! You'll experience both sukiyaki (sweet soy broth) and shabu-shabu (light broth) with premium wagyu. Perfect way to end your shopping day!</div>
+                            <span class="time-estimate">Dinner: 2 hours</span>
+                        </div>
+                    </div>
+
+                    <!-- Day 5: Dec 2 (Tue) - Tokyo -->
+                    <div class="day-section">
+                        <div class="day-header">
+                            <div class="day-date">Day 5: Tuesday, Dec 2</div>
+                            <div class="day-location">Tokyo - Tsukiji & teamLab 🍣</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚇</div>
+                            <div class="event-time">8:30 AM - 9:00 AM</div>
+                            <div class="event-title">Travel to Tsukiji Market</div>
+                            <div class="event-details">From Shinagawa to Tsukiji<br>
+                            Take JR Yamanote Line to Tokyo Station, transfer to Tokyo Metro Hibiya Line to Tsukiji Station<br>
+                            Duration: ~20-25 minutes</div>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🐟</div>
+                            <div class="event-time">9:00 AM - 12:30 PM</div>
+                            <div class="event-title">Tsukiji Outer Market Exploration</div>
+                            <div class="event-details"><strong>Location:</strong> Tsukiji Outer Market (Jogai Shijo)<br>
+                            <strong>Shopping & Street Food:</strong><br>
+                            • Fresh seafood, produce, and Japanese specialties<br>
+                            • Street food: tamagoyaki, grilled scallops, oysters<br>
+                            • Kitchen knives and cookware shops<br>
+                            • Best time: Morning for freshest items<br>
+                            <br>
+                            <strong>Lunch Options (Going with Mom):</strong><br>
+                            • <strong>Yoshino Kichiya</strong> - Anago (conger eel) bowls, grilled or simmered (cooked fish for mom!) - ¥2,800<br>
+                            • <strong>Tsukiji Koromo Sushi</strong> - Kaisendon & nigiri sets (sushi for you, can order cooked items too) - ¥1,650-4,400<br>
+                            • <strong>Torito Bunten</strong> - Chicken teriyaki, oyakodon, karaage (all cooked) - ¥1,000-1,500<br>
+                            • <strong>Shutoku Ganso</strong> - Fresh sushi, highest quality tuna - ¥2,000-4,000</div>
+                            <div class="tip-box">💡 Most shops close by 2-3 PM. Arrive early for best selection!</div>
+                            <span class="time-estimate">Visit: 3.5 hours</span>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚇</div>
+                            <div class="event-time">12:45 PM - 1:15 PM</div>
+                            <div class="event-title">Travel to teamLab Planets</div>
+                            <div class="event-details">Tsukiji → Toyosu area<br>
+                            Option 1: Hibiya Line to Ginza, transfer to Yurakucho Line to Toyosu Station (10 min walk)<br>
+                            Option 2: Walk to Tsukijishijo Station (Oedo Line), to Kachidoki, transfer to Yurikamome Line to Shin-Toyosu (1 min walk)<br>
+                            Duration: ~25-30 minutes</div>
+                            <div class="transport-info">📍 teamLab is 5 min walk from Toyosu Fish Market</div>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🌊</div>
+                            <div class="event-time">1:30 PM - 2:00 PM</div>
+                            <div class="event-title">teamLab Planets TOKYO Entry</div>
+                            <div class="event-details"><strong>Location:</strong> 6-1-16 Toyosu, Koto City<br>
+                            <strong>Entry Time:</strong> 1:30 PM (ticket time)<br>
+                            Immersive digital art museum - walk through water barefoot!<br>
+                            <br>
+                            <strong>What to Expect:</strong><br>
+                            • 4 large-scale artwork spaces + 2 gardens<br>
+                            • Wade through knee-deep water with digital koi fish<br>
+                            • Interactive light installations<br>
+                            • Infinite Crystal Universe<br>
+                            • Allow 2-3 hours for full experience<br>
+                            <br>
+                            <strong>Important:</strong> Wear pants/shorts you can roll up, avoid skirts (mirror rooms!)</div>
+                            <div class="tip-box">💡 Take photos freely (no flash). Download teamLab app for enhanced experience!</div>
+                            <span class="time-estimate">Experience: 2-3 hours</span>
+                        </div>
+                        <div class="event free-time">
+                            <div class="event-icon">🌆</div>
+                            <div class="event-time">4:00 PM - 7:00 PM</div>
+                            <div class="event-title">Free Time - Afternoon Break</div>
+                            <div class="event-details">After teamLab, options:<br>
+                            • Return to hotel to rest and freshen up<br>
+                            • LaLaport Toyosu shopping mall - adjacent<br>
+                            • Odaiba area exploration (15 min by Yurikamome Line)<br>
+                            • Prepare for dinner in Ginza</div>
+                            <span class="free-time-available">~3 hours available</span>
+                        </div>
+                        <div class="event meeting">
+                            <div class="event-icon">🦎</div>
+                            <div class="event-time">7:30 PM - 9:00 PM</div>
+                            <div class="event-title">Dinner: TAKAHASHIYA Ginza Ten (RESERVATION CONFIRMED)</div>
+                            <div class="event-details"><strong>Reservation:</strong> Tuesday, December 2, 2025 at 7:30 PM (19:30)<br>
+                            <strong>Party Size:</strong> 2 people<br>
+                            <strong>Location:</strong> Ginza, Tokyo<br>
+                            <br>
+                            🦎 Specialty unagi (eel) restaurant<br>
+                            ⭐ Famous for authentic unagi preparation<br>
+                            <br>
+                            <strong>Your Order:</strong><br>
+                            🍱 <strong>Unagi Two-Tier Gozen</strong> (Kansai Grilled & Kanto Steamed)<br>
+                            • Experience BOTH regional styles in one meal!<br>
+                            • <strong>Kansai Style:</strong> Split open from belly, grilled without steaming<br>
+                            • <strong>Kanto Style:</strong> Split open from back, steamed then grilled<br>
+                            • Compare the different textures and flavors<br>
+                            • Served with rice, pickles, miso soup<br>
+                            <br>
+                            <strong>Transport from Toyosu:</strong><br>
+                            Yurakucho Line to Ginza Station (~15 min)<br>
+                            Or from hotel: Quick trip from Shinagawa to Ginza<br>
+                            <br>
+                            <strong>What to Expect:</strong><br>
+                            • Premium quality unagi<br>
+                            • Traditional preparation methods<br>
+                            • Perfect for trying mom's cooked fish preference!<br>
+                            • Elegant Ginza atmosphere</div>
+                            <div class="tip-box">💡 This is your confirmed dinner reservation! Unique opportunity to compare both regional unagi styles. Arrive 5 minutes early.</div>
+                            <span class="time-estimate">Dinner: 1.5 hours</span>
+                        </div>
+                    </div>
+
+                    <!-- Day 6: Dec 3 (Wed) - Tokyo to Osaka -->
+                    <div class="day-section">
+                        <div class="day-header">
+                            <div class="day-date">Day 6: Wednesday, Dec 3</div>
+                            <div class="day-location">Tokyo → Osaka 🚅</div>
+                        </div>
+                        <div class="event accommodation">
+                            <div class="event-icon">🏨</div>
+                            <div class="event-time">Morning</div>
+                            <div class="event-title">Check-out from Shinagawa Prince Hotel</div>
+                            <div class="event-details">Pack and prepare for departure</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚅</div>
+                            <div class="event-time">7:37 AM</div>
+                            <div class="event-title">Shinkansen to Osaka - Nozomi 11</div>
+                            <div class="event-details">Shinagawa Station → Shin-Osaka Station<br>
+                            Duration: ~2 hours 30 minutes<br>
+                            Arrival: 10:07 AM</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚇</div>
+                            <div class="event-time">10:30 AM - 11:00 AM</div>
+                            <div class="event-title">Travel to Hotel</div>
+                            <div class="event-details">Shin-Osaka → Shinsaibashi area<br>
+                            Via Midosuji Line (~20 minutes)</div>
+                        </div>
+                        <div class="event accommodation">
+                            <div class="event-icon">🏨</div>
+                            <div class="event-time">~11:30 AM</div>
+                            <div class="event-title">Check-in: Hotel The Flag Shinsaibashi</div>
+                            <div class="event-details">Stay: Dec 3 - Dec 5 (2 nights)<br>
+                            Located in central Osaka, near shopping and dining</div>
+                        </div>
+                        <div class="event meeting">
+                            <div class="event-icon">👥</div>
+                            <div class="event-time">2:00 PM</div>
+                            <div class="event-title">Meet Isaac</div>
+                            <div class="event-details">Meeting location: TBD in Osaka<br>
+                            Afternoon plans with friend</div>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🏮</div>
+                            <div class="event-time">6:00 PM - 10:00 PM</div>
+                            <div class="event-title">Dotonbori District</div>
+                            <div class="event-details"><strong>Distance:</strong> 5-10 minute walk from hotel<br>
+                            Famous entertainment district with neon lights<br>
+                            • See the iconic Glico Running Man sign<br>
+                            • Try street food: takoyaki, okonomiyaki, kushikatsu<br>
+                            • Shop at Don Quijote megastore</div>
+                            <div class="tip-box">💡 Best photo spot: Ebisubashi Bridge at sunset</div>
+                            <span class="time-estimate">Visit: 3-4 hours</span>
+                        </div>
+                    </div>
+
+                    <!-- Day 7: Dec 4 (Thu) - Osaka -->
+                    <div class="day-section">
+                        <div class="day-header">
+                            <div class="day-date">Day 7: Thursday, Dec 4</div>
+                            <div class="day-location">Osaka 🏯</div>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🏯</div>
+                            <div class="event-time">9:00 AM - 12:00 PM</div>
+                            <div class="event-title">Osaka Castle</div>
+                            <div class="event-details"><strong>Transport:</strong> 10 min subway from Shinsaibashi to Osaka Business Park Station<br>
+                            Then 15 minute walk to castle entrance<br>
+                            • Explore castle grounds and museum<br>
+                            • Panoramic city views from top floor<br>
+                            • Beautiful gardens, especially if autumn leaves remain</div>
+                            <div class="transport-info">🚇 Take Nagahori Tsurumiryokuchi Line (green line)</div>
+                            <span class="time-estimate">Visit: 2-3 hours</span>
+                        </div>
+                        <div class="event free-time">
+                            <div class="event-icon">🎢</div>
+                            <div class="event-time">12:30 PM - 6:30 PM</div>
+                            <div class="event-title">Free Time in Osaka</div>
+                            <div class="event-details">Options for afternoon before Kobe beef dinner:<br>
+                            • Universal Studios Japan (full day needed)<br>
+                            • Kuromon Market (30 min from hotel)<br>
+                            • Shinsekai district & Tsutenkaku Tower<br>
+                            • America-mura shopping district (10 min walk)<br>
+                            • Return to hotel to freshen up before dinner</div>
+                            <span class="free-time-available">~6 hours available</span>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🥩</div>
+                            <div class="event-time">7:00 PM - 9:00 PM</div>
+                            <div class="event-title">Kobe Beef Yakiniku Dinner - 7:00 PM (RESERVATION CONFIRMED)</div>
+                            <div class="event-details"><strong>Restaurant:</strong> Umeda Ohatsutenjin Otonano Kobe Beef Yakiniku<br>
+                            <strong>Location:</strong> Umeda area<br>
+                            <strong>Reservation Time:</strong> Thursday, December 4, 2025 at 7:00 PM<br>
+                            <br>
+                            🥩 Certified Kobe beef experience<br>
+                            🔥 Premium yakiniku (Japanese BBQ)<br>
+                            ⭐ Cook the beef yourself at your table<br>
+                            🍽️ Multi-course tasting menu<br>
+                            <br>
+                            <strong>Transport from Shinsaibashi Hotel:</strong><br>
+                            Take Midosuji Line from Shinsaibashi to Umeda (7 min)<br>
+                            Short walk to restaurant<br>
+                            <br>
+                            <strong>What to Expect:</strong><br>
+                            • Premium cuts of Kobe beef<br>
+                            • Grilled at your table on charcoal/gas grill<br>
+                            • Staff will guide you on cooking times<br>
+                            • Multiple courses: appetizers, various beef cuts, rice/soup<br>
+                            • Plan for 1.5-2 hours dining experience</div>
+                            <div class="tip-box">💡 This is your confirmed reservation! Arrive 5-10 min early. Dress smart casual. Amazing experience!</div>
+                            <span class="time-estimate">Dinner: 1.5-2 hours</span>
+                        </div>
+                    </div>
+
+                    <!-- Day 8: Dec 5 (Fri) - Osaka to Kyoto -->
+                    <div class="day-section">
+                        <div class="day-header">
+                            <div class="day-date">Day 8: Friday, Dec 5</div>
+                            <div class="day-location">Osaka → Kyoto ⛩️</div>
+                        </div>
+                        <div class="event accommodation">
+                            <div class="event-icon">🏨</div>
+                            <div class="event-time">Morning</div>
+                            <div class="event-title">Check-out from Hotel The Flag</div>
+                            <div class="event-details">Pack and prepare for departure</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚅</div>
+                            <div class="event-time">7:39 AM</div>
+                            <div class="event-title">Shinkansen to Kyoto - Nozomi 218</div>
+                            <div class="event-details">Shin-Osaka Station → Kyoto Station<br>
+                            Duration: ~13 minutes<br>
+                            Arrival: 7:52 AM</div>
+                        </div>
+                        <div class="event accommodation">
+                            <div class="event-icon">🏨</div>
+                            <div class="event-time">~9:00 AM</div>
+                            <div class="event-title">Check-in: Hotel Yadoya Kikokuso</div>
+                            <div class="event-details">Traditional Japanese ryokan accommodation<br>
+                            Location: Near Gojo Station (5-10 min walk)<br>
+                            Stay: Dec 5 - Dec 7 (2 nights)</div>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">⛩️</div>
+                            <div class="event-time">9:30 AM - 12:30 PM</div>
+                            <div class="event-title">Fushimi Inari Taisha Shrine</div>
+                            <div class="event-details"><strong>Transport:</strong> 4 min by Keihan train from Kiyomizu-Gojo to Fushimi Inari Station<br>
+                            Or 5 min from Kyoto Station by JR Nara Line<br>
+                            • Famous for thousands of red torii gates<br>
+                            • Hike to summit takes 2-3 hours (optional)<br>
+                            • Lower areas: 45-60 minutes</div>
+                            <div class="transport-info">🚂 Keihan Main Line or JR Nara Line (local trains only)</div>
+                            <span class="time-estimate">Visit: 2-3 hours</span>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🍵</div>
+                            <div class="event-time">1:00 PM - 3:00 PM</div>
+                            <div class="event-title">Kimono Tea Ceremony - Gion Kiyomizu</div>
+                            <div class="event-details"><strong>Location:</strong> Registered Cultural Property<br>
+                            Near Gion/Kiyomizu area<br>
+                            • Traditional tea ceremony experience<br>
+                            • Kimono wearing included<br>
+                            • Learn Japanese tea etiquette<br>
+                            • Beautiful historic setting<br>
+                            <strong>Pre-booked for 1:00 PM</strong></div>
+                            <div class="tip-box">💡 Perfect cultural break between temple visits!</div>
+                            <span class="time-estimate">Experience: 2 hours</span>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🌅</div>
+                            <div class="event-time">3:30 PM - 6:00 PM</div>
+                            <div class="event-title">Kiyomizu-dera Temple at Sunset</div>
+                            <div class="event-details"><strong>Location:</strong> 20-25 minute walk from tea ceremony venue<br>
+                            • Famous wooden stage with panoramic city views<br>
+                            • Best sunset views 4:30-5:00 PM (Dec sunset ~4:45 PM)<br>
+                            • Otowa Waterfall for good fortune<br>
+                            • Beautiful approach with traditional shops<br>
+                            Entry: ¥400</div>
+                            <div class="tip-box">💡 Keep kimono on for photos if rental allows!</div>
+                            <span class="time-estimate">Visit: 2-2.5 hours</span>
+                        </div>
+                        <div class="event free-time">
+                            <div class="event-icon">🏮</div>
+                            <div class="event-time">6:00 PM - 9:00 PM</div>
+                            <div class="event-title">Evening in Gion District</div>
+                            <div class="event-details">After sunset at Kiyomizu, explore nearby:<br>
+                            • Walk down through Sannenzaka & Ninenzaka streets<br>
+                            • Gion district for dinner and possible geisha sightings<br>
+                            • Return kimono if still wearing rental<br>
+                            • Evening illuminations (if available)</div>
+                            <span class="free-time-available">3 hours available</span>
+                        </div>
+                    </div>
+
+                    <!-- Day 9: Dec 6 (Sat) - Kyoto -->
+                    <div class="day-section">
+                        <div class="day-header">
+                            <div class="day-date">Day 9: Saturday, Dec 6</div>
+                            <div class="day-location">Kyoto 🐵</div>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🚂</div>
+                            <div class="event-time">9:00 AM - 10:00 AM</div>
+                            <div class="event-title">Travel to Arashiyama</div>
+                            <div class="event-details"><strong>Route:</strong> Walk to Gojo → Kyoto Station (subway)<br>
+                            Then JR Sagano Line to Saga-Arashiyama Station<br>
+                            Total journey: ~45-60 minutes</div>
+                            <div class="transport-info">🚃 JR Sagano Line runs every 10 minutes</div>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🐵</div>
+                            <div class="event-time">10:00 AM - 12:00 PM</div>
+                            <div class="event-title">Iwatayama Monkey Park</div>
+                            <div class="event-details"><strong>Location:</strong> 15 min walk from Saga-Arashiyama Station<br>
+                            Cross Togetsukyo Bridge, follow signs<br>
+                            • 20-30 minute uphill hike to summit<br>
+                            • 120+ wild Japanese macaques<br>
+                            • Feed monkeys from inside hut<br>
+                            • Panoramic views of Kyoto<br>
+                            Entry: ¥800 adults</div>
+                            <div class="tip-box">💡 Wear comfortable shoes for the hike!</div>
+                            <span class="time-estimate">Visit: 1.5-2 hours</span>
+                        </div>
+                        <div class="event attraction">
+                            <div class="event-icon">🎋</div>
+                            <div class="event-time">12:00 PM - 1:00 PM</div>
+                            <div class="event-title">Arashiyama Bamboo Grove</div>
+                            <div class="event-details"><strong>Distance:</strong> 10 minute walk from Monkey Park<br>
+                            • Iconic bamboo forest path<br>
+                            • Best photos in early morning (less crowded)<br>
+                            • Nearby: Tenryu-ji Temple with gardens</div>
+                            <span class="time-estimate">Visit: 30-45 minutes</span>
+                        </div>
+                        <div class="event free-time">
+                            <div class="event-icon">🌸</div>
+                            <div class="event-time">1:30 PM - 4:00 PM</div>
+                            <div class="event-title">Free Time - Kyoto Exploration</div>
+                            <div class="event-details">Return to central Kyoto or continue exploring:<br>
+                            • Golden Pavilion (Kinkaku-ji) - 30 min from Arashiyama<br>
+                            • Nijo Castle - Central Kyoto<br>
+                            • Traditional tea ceremony experience<br>
+                            • Evening illuminations at temples (seasonal)</div>
+                            <span class="free-time-available">~2.5 hours available</span>
+                        </div>
+                        <div class="event shopping">
+                            <div class="event-icon">🌶️</div>
+                            <div class="event-time">4:00 PM - 5:30 PM</div>
+                            <div class="event-title">Nishiki Market - Kyoto Shopping</div>
+                            <div class="event-details"><strong>Location:</strong> "Kyoto's Kitchen" - Downtown Kyoto<br>
+                            <strong>Transport:</strong> From Kyoto Station, take subway to Shijo Station (5 min)<br>
+                            Walk 5 min to market entrance<br>
+                            <br>
+                            <strong>🎯 MUST BUY: Kyoto La-yu Furikake (京らー油ふりかけ)</strong><br>
+                            🌶️ Kyoto-style chili oil rice seasoning<br>
+                            📦 Look for packages with red chili flakes and oil<br>
+                            💰 Much cheaper than overseas ($79 online vs ~¥500-800 in Japan!)<br>
+                            🏪 Available at food shops throughout Nishiki Market<br>
+                            <br>
+                            <strong>Other Kyoto Souvenirs to Look For:</strong><br>
+                            • Yatsuhashi (cinnamon rice crackers) - Kyoto specialty<br>
+                            • Kyoto pickles (tsukemono)<br>
+                            • Japanese knives<br>
+                            • Matcha snacks and sweets<br>
+                            • Dried foods and seasonings<br>
+                            <br>
+                            <strong>Market Details:</strong><br>
+                            • 400+ year old covered market<br>
+                            • 5 blocks long, 100+ shops<br>
+                            • Street food tasting available<br>
+                            • Most shops close 5-6 PM</div>
+                            <div class="tip-box">💡 This is the BEST place to find authentic Kyoto La-yu Furikake! Way cheaper than buying overseas. Stock up on Kyoto food souvenirs here!</div>
+                            <span class="time-estimate">1.5 hours</span>
+                        </div>
+                        <div class="event free-time">
+                            <div class="event-icon">🌃</div>
+                            <div class="event-time">5:30 PM - 9:00 PM</div>
+                            <div class="event-title">Evening in Kyoto</div>
+                            <div class="event-details">After Nishiki Market shopping:<br>
+                            • Dinner in Gion or near Nishiki<br>
+                            • Evening stroll through historic streets<br>
+                            • Return to ryokan</div>
+                            <span class="free-time-available">~3.5 hours available</span>
+                        </div>
+                    </div>
+
+                    <!-- Day 10: Dec 7 (Sun) - Kyoto to Tokyo -->
+                    <div class="day-section">
+                        <div class="day-header">
+                            <div class="day-date">Day 10: Sunday, Dec 7</div>
+                            <div class="day-location">Kyoto → Tokyo 🚅</div>
+                        </div>
+                        <div class="event accommodation">
+                            <div class="event-icon">🏨</div>
+                            <div class="event-time">Morning</div>
+                            <div class="event-title">Check-out from Hotel Yadoya Kikokuso</div>
+                            <div class="event-details">Pack and prepare for departure</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚅</div>
+                            <div class="event-time">10:45 AM</div>
+                            <div class="event-title">Shinkansen to Tokyo - Nozomi 10</div>
+                            <div class="event-details">Kyoto Station → Tokyo Station<br>
+                            Duration: ~2 hours 12 minutes<br>
+                            Arrival: 12:57 PM</div>
+                        </div>
+                        <div class="event shopping">
+                            <div class="event-icon">🍵</div>
+                            <div class="event-time">1:15 PM - 2:15 PM</div>
+                            <div class="event-title">Ippodo Tea Shin-Marunouchi</div>
+                            <div class="event-details"><strong>Location:</strong> Shin-Marunouchi Building 5F (DIRECTLY CONNECTED TO TOKYO STATION!)<br>
+                            Exit from Shinkansen, follow signs to Marunouchi side<br>
+                            <br>
+                            🍵 300-year heritage Kyoto tea company<br>
+                            ⭐ Top recommendation for ceremonial matcha<br>
+                            🎯 Tasting guidance from expert staff<br>
+                            💰 Ceremonial grade: ¥1,000-5,000 for 30g tins<br>
+                            📦 Beautiful gift packaging available<br>
+                            <br>
+                            ⚠️ <strong>2025 MATCHA SHORTAGE:</strong> Purchase limits 1-2 tins per person!<br>
+                            Prices up 116% YoY. Get here early for best selection.<br>
+                            <br>
+                            <strong>Payment:</strong> Credit Cards ✅, Cash<br>
+                            <strong>English:</strong> Yes - tourist-friendly<br>
+                            <strong>Tax-Free:</strong> Available with passport</div>
+                            <div class="tip-box">💡 Most convenient stop - right in Tokyo Station! Try their matcha latte to taste before buying. Ask about storage tips.</div>
+                            <span class="time-estimate">1 hour</span>
+                        </div>
+                        <div class="event shopping">
+                            <div class="event-icon">🍵</div>
+                            <div class="event-time">2:30 PM - 3:30 PM</div>
+                            <div class="event-title">Ippuku & Matcha Nihonbashi</div>
+                            <div class="event-details"><strong>Location:</strong> 2-2-8 Nihonbashi Muromachi, Chuo-ku<br>
+                            <strong>Transport:</strong> 10 min from Tokyo Station via Tozai Line to Mitsukoshimae Station<br>
+                            Or 15-minute walk from Tokyo Station<br>
+                            <br>
+                            🌟 World's first single-origin matcha specialty shop<br>
+                            🏆 Revolutionary approach - each farm's unique terroir<br>
+                            🍵 Private tea room experience available (¥3,500)<br>
+                            📚 Educational tasting to understand differences<br>
+                            💎 Premium selections from specific Uji farms<br>
+                            <br>
+                            ⚠️ <strong>Purchase limits apply here too - 1-2 tins maximum</strong><br>
+                            <br>
+                            <strong>Payment:</strong> Credit Cards ✅, Cash<br>
+                            <strong>English:</strong> Yes - very good<br>
+                            <strong>Tax-Free:</strong> Available</div>
+                            <div class="tip-box">💡 Unique approach - like wine tasting for matcha! Ask about farm-specific characteristics. Perfect for matcha enthusiasts.</div>
+                            <span class="time-estimate">1 hour</span>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚇</div>
+                            <div class="event-time">3:45 PM - 4:15 PM</div>
+                            <div class="event-title">Travel to Hotel</div>
+                            <div class="event-details">Nihonbashi → Akasaka area<br>
+                            Via metro (~15-20 minutes)</div>
+                        </div>
+                        <div class="event accommodation">
+                            <div class="event-icon">🏨</div>
+                            <div class="event-time">~4:30 PM</div>
+                            <div class="event-title">Check-in: 9H Nine Hours Pod Hotel Akasaka</div>
+                            <div class="event-details">Modern capsule hotel experience<br>
+                            Stay: Dec 7 - Dec 8 (1 night)</div>
+                        </div>
+                        <div class="event free-time">
+                            <div class="event-icon">🌆</div>
+                            <div class="event-time">5:00 PM - 6:00 PM</div>
+                            <div class="event-title">Rest & Prepare for Dinner</div>
+                            <div class="event-details">Freshen up at hotel after matcha shopping<br>
+                            Prepare for dinner with Crystal</div>
+                            <span class="free-time-available">1 hour</span>
+                        </div>
+                        <div class="event meeting">
+                            <div class="event-icon">👥</div>
+                            <div class="event-time">6:00 PM</div>
+                            <div class="event-title">Dinner with Crystal</div>
+                            <div class="event-details">Meeting location: TBD in Tokyo<br>
+                            Evening dinner plans</div>
+                        </div>
+                    </div>
+
+                    <!-- Day 11: Dec 8 (Mon) - Departure -->
+                    <div class="day-section">
+                        <div class="day-header">
+                            <div class="day-date">Day 11: Monday, Dec 8</div>
+                            <div class="day-location">Tokyo ✈️ Seattle</div>
+                        </div>
+                        <div class="event accommodation">
+                            <div class="event-icon">🏨</div>
+                            <div class="event-time">Morning</div>
+                            <div class="event-title">Check-out from 9H Nine Hours Pod Hotel</div>
+                            <div class="event-details">Pack and prepare for departure</div>
+                        </div>
+                        <div class="event free-time">
+                            <div class="event-icon">🛍️</div>
+                            <div class="event-time">9:00 AM - 1:00 PM</div>
+                            <div class="event-title">Last-minute Shopping/Activities</div>
+                            <div class="event-details">Final chance for souvenirs:<br>
+                            • Don Quijote for quirky gifts<br>
+                            • Convenience store snacks<br>
+                            • Tokyo Station Character Street</div>
+                            <span class="free-time-available">4 hours available</span>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🚂</div>
+                            <div class="event-time">~2:00 PM - 2:30 PM</div>
+                            <div class="event-title">Train to Haneda Airport</div>
+                            <div class="event-details">From Akasaka area<br>
+                            Duration: ~30-40 minutes<br>
+                            Arrive by 3:00 PM for international flight</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">✈️</div>
+                            <div class="event-time">4:50 PM JST</div>
+                            <div class="event-title">Flight Departure - Delta 0166</div>
+                            <div class="event-details">Tokyo Haneda (HND) → Seattle (SEA)<br>
+                            Duration: ~9 hours 55 minutes<br>
+                            Arrival: 8:45 AM PST (same day)</div>
+                        </div>
+                        <div class="event transport">
+                            <div class="event-icon">🏠</div>
+                            <div class="event-time">8:45 AM PST</div>
+                            <div class="event-title">Arrival in Seattle</div>
+                            <div class="event-details">Welcome back home!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="side-panel">
+                    <div id="map"></div>
+                    
+                    <div class="city-stats">
+                        <h3 style="margin-bottom: 15px; color: var(--text-main);">Attraction Schedule</h3>
+                        <div class="city-stat">
+                            <span class="city-name">🏮 Dotonbori</span>
+                            <span class="city-days">Dec 3 PM</span>
+                        </div>
+                        <div class="city-stat">
+                            <span class="city-name">🏯 Osaka Castle</span>
+                            <span class="city-days">Dec 4 AM</span>
+                        </div>
+                        <div class="city-stat">
+                            <span class="city-name">⛩️ Fushimi Inari</span>
+                            <span class="city-days">Dec 5 AM</span>
+                        </div>
+                        <div class="city-stat">
+                            <span class="city-name">🍵 Tea Ceremony</span>
+                            <span class="city-days">Dec 5 1PM</span>
+                        </div>
+                        <div class="city-stat">
+                            <span class="city-name">🌅 Kiyomizu-dera</span>
+                            <span class="city-days">Dec 5 Sunset</span>
+                        </div>
+                        <div class="city-stat">
+                            <span class="city-name">🐵 Monkey Park</span>
+                            <span class="city-days">Dec 6 AM</span>
+                        </div>
+                        <div class="city-stat">
+                            <span class="city-name">🎋 Bamboo Grove</span>
+                            <span class="city-days">Dec 6 PM</span>
+                        </div>
+                    </div>
+
+                    <div class="legend">
+                        <h3>Transport Times</h3>
+                        <div style="font-size: 0.9em; color: var(--text-muted); line-height: 1.8;">
+                            <div>✈️ <strong>Haneda ↔ Hotels:</strong> ~30 min</div>
+                            <div>🚅 <strong>Tokyo → Osaka:</strong> 2.5 hrs</div>
+                            <div>🚅 <strong>Osaka → Kyoto:</strong> 13 min</div>
+                            <div>🚅 <strong>Kyoto → Tokyo:</strong> 2.2 hrs</div>
+                            <div>🚇 <strong>To Fushimi Inari:</strong> 4 min</div>
+                            <div>🚇 <strong>To Osaka Castle:</strong> 25 min</div>
+                            <div>🚂 <strong>To Arashiyama:</strong> 1 hr</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Food Guide Tab -->
+        <div id="food" class="tab-content">
+            <div style="padding: 30px;">
+                <div class="food-guide">
+                    <h3>🍜 Complete Japan Food Guide</h3>
+                    <p >Click city names to explore food categories. Click categories to see restaurant recommendations with locations, specialties, and prices.</p>
+
+                    <!-- TOKYO SECTION -->
+                    <div class="city-section">
+                        <div class="city-title" onclick="toggleSection('tokyo')">
+                            <span>🗼 TOKYO</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div id="tokyo" class="food-categories show">
+                            
+                            <!-- Ramen -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('tokyo-ramen')">
+                                    <span class="emoji">🍜</span>
+                                    <span>Ramen</span>
+                                </div>
+                                <div id="tokyo-ramen" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Hototogisu (Michelin ⭐)</div>
+                                        <div class="restaurant-location">Mejiro - 11:20 AM opening</div>
+                                        <div class="restaurant-specialty">Shoyu ramen with clam, chicken & fish broth. Arrive 10 mins before opening to avoid long waits. <span class="price-tag">¥1,000-1,500</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Craft Ramen BiT (New 2024)</div>
+                                        <div class="restaurant-location">Iriya, Taito - Near Minowa Station</div>
+                                        <div class="restaurant-specialty">Shio Consomme Ramen with venison & chicken stock, shiitake mushrooms. Hand-massaged curly noodles. <span class="price-tag">¥1,000-1,500</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Japanese Ramen Gokan (Michelin Bib Gourmand)</div>
+                                        <div class="restaurant-location">Ikebukuro - 11 AM opening</div>
+                                        <div class="restaurant-specialty">Tokujō Shio Ramen with natural Japanese ingredients, rich chicken & shellfish stock. <span class="price-tag">¥1,000-1,500</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Iruca Tokyo (Michelin Bib Gourmand)</div>
+                                        <div class="restaurant-location">Roppongi - Behind Tokyo Midtown</div>
+                                        <div class="restaurant-specialty">Refined modern ramen with 4-broth blend (chicken, pork, lobster, clams). Elegant atmosphere with Arita porcelain bowls. <span class="price-tag">¥2,000</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Sansanto</div>
+                                        <div class="restaurant-location">Opens 6-8:30 PM only</div>
+                                        <div class="restaurant-specialty">Gyokai tonkotsu double soup. Everything made from scratch daily. Limited hours due to intensive prep. <span class="price-tag">¥1,200-1,500</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Omakase -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('tokyo-omakase')">
+                                    <span class="emoji">🍣</span>
+                                    <span>Omakase Sushi (High-End)</span>
+                                </div>
+                                <div id="tokyo-omakase" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Sushi Tokyo Ten Shibuya</div>
+                                        <div class="restaurant-location">Shibuya - Near station</div>
+                                        <div class="restaurant-specialty">¥9,900 reservation course (amazing value). Weekday lunch ¥4,400 walk-in (difficult to get). 18-course omakase with chutoro & ikura-don. <span class="price-tag">¥4,400-9,900</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Kyubey</div>
+                                        <div class="restaurant-location">Ginza</div>
+                                        <div class="restaurant-specialty">Famous established restaurant. Oribe set (10 pieces) is best value. Service is exceptional. Reservations difficult. <span class="price-tag">¥7,500+</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Issekisancho</div>
+                                        <div class="restaurant-location">Central Tokyo</div>
+                                        <div class="restaurant-specialty">¥8,800 for 8 nigiri + 8 dishes. Classic Edo-mae style. Two rice varieties with sake lees vinegar. Seasonal premium tuna. <span class="price-tag">¥8,800-13,000</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Sushi Hajime</div>
+                                        <div class="restaurant-location">Shibuya</div>
+                                        <div class="restaurant-specialty">Fresh neta from Toyosu Market. Aizu Koshihikari rice with red vinegar. Famous abalone in liver sauce. <span class="price-tag">¥15,000+</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Ginza Saisho</div>
+                                        <div class="restaurant-location">Ginza - Hidden gem</div>
+                                        <div class="restaurant-specialty">Intimate 7-seat counter. Chef with 20+ years experience. Edomae tradition. <span class="price-tag">¥20,000+</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Monjayaki -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('tokyo-monjayaki')">
+                                    <span class="emoji">🥞</span>
+                                    <span>Monjayaki (Tokyo-style Pancake)</span>
+                                </div>
+                                <div id="tokyo-monjayaki" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Moheji (Multiple locations)</div>
+                                        <div class="restaurant-location">Tsukishima Monja Street + Shin Maru Building (Tokyo Station)</div>
+                                        <div class="restaurant-specialty">Staff cooks for you. Fresh ingredients from Tsukiji. Mentaiko mochi monja specialty. Dashi-based batter. <span class="price-tag">¥800-1,500</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Monja Daruma</div>
+                                        <div class="restaurant-location">Tsukishima Monja Street</div>
+                                        <div class="restaurant-specialty">Traditional monjayaki. Famous on Monja Street. Two dashi types available. <span class="price-tag">¥800-1,200</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Tsukishima Monja Tamatoya</div>
+                                        <div class="restaurant-location">Tsukishima - 5 min from station</div>
+                                        <div class="restaurant-specialty">Original "Tsukishima monja". Squid ink monjayaki popular. Mochi cheese mentaiko options. <span class="price-tag">¥900-1,400</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Monja Kura</div>
+                                        <div class="restaurant-location">Tsukishima (2 locations)</div>
+                                        <div class="restaurant-specialty">Unique Gunma-style. Ebi Doria Monjayaki with rice. Creative combinations. Check which location! <span class="price-tag">¥1,000-1,500</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Okoge</div>
+                                        <div class="restaurant-location">Tsukishima</div>
+                                        <div class="restaurant-specialty">Specializes in crispy monjayaki. Charred layer adds texture. Mentaiko and mixed seafood popular. <span class="price-tag">¥900-1,300</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Souffle Pancakes -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('tokyo-pancakes')">
+                                    <span class="emoji">🥞</span>
+                                    <span>Souffle Pancakes (Fluffy!)</span>
+                                </div>
+                                <div id="tokyo-pancakes" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Gram (Cafe & Pancake)</div>
+                                        <div class="restaurant-location">Harajuku / Kichijoji / Kudanshita</div>
+                                        <div class="restaurant-specialty">Premium pancakes served 3x daily (11 AM, 3 PM, 6 PM). Only 20 servings each time. Three-tiered stack. Arrive early! <span class="price-tag">¥1,100</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Flipper's</div>
+                                        <div class="restaurant-location">Multiple: Jiyugaoka, Harajuku, Shimokitazawa, Shinjuku</div>
+                                        <div class="restaurant-specialty">Baked without molds for soft edges. "Miracle pancake" plain version. Expect lines but worth it. Takeout available. <span class="price-tag">¥1,400-1,800</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">A Happy Pancake (Shiawase no Pancake)</div>
+                                        <div class="restaurant-location">Ginza / Shibuya / Ikebukuro</div>
+                                        <div class="restaurant-specialty">No baking powder. Fresh Hokkaido milk. Manuka honey syrup. Arrive before opening or wait 2 hours. <span class="price-tag">¥1,500-2,000</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Micasadeco & Cafe</div>
+                                        <div class="restaurant-location">Harajuku - 27 seats only</div>
+                                        <div class="restaurant-specialty">Ricotta souffle pancakes. 30-minute prep time. Stylish Japanese-inspired interior. Arrive 30+ min before opening for less wait. <span class="price-tag">¥1,800-2,200</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">bills</div>
+                                        <div class="restaurant-location">Ginza / Omotesando</div>
+                                        <div class="restaurant-specialty">Famous ricotta hotcakes with banana & honeycomb butter. Australian chain. Reserve ahead to avoid queues. <span class="price-tag">¥2,000</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Jiggly Cheesecake -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('tokyo-cheesecake')">
+                                    <span class="emoji">🰀</span>
+                                    <span>Jiggly Cheesecake (Japanese Souffle)</span>
+                                </div>
+                                <div id="tokyo-cheesecake" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Mr. Cheesecake</div>
+                                        <div class="restaurant-location">Tokyo Station (opened Sept 2024)</div>
+                                        <div class="restaurant-specialty">Chef trained in France. Classic + rotating flavors (cookies & cream, maple pumpkin, raspberry lime). Rare texture bottom, baked top. <span class="price-tag">¥3,000-4,000</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Cheese Garden</div>
+                                        <div class="restaurant-location">Sumida / Ikebukuro</div>
+                                        <div class="restaurant-specialty">Authentic Japanese cheesecake. Less sugar, fluffier texture than Western cheesecake. <span class="price-tag">¥2,500-3,500</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Morozoff</div>
+                                        <div class="restaurant-location">Multiple locations (Kobe-based)</div>
+                                        <div class="restaurant-specialty">Denmark Cream Cheese Cake since 1969. Classic New York-style adapted for Japanese taste. Pioneer of cheesecake in Japan. <span class="price-tag">¥2,000-3,000</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Unagi -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('tokyo-unagi')">
+                                    <span class="emoji">🦎</span>
+                                    <span>Unagi (Grilled Eel)</span>
+                                </div>
+                                <div id="tokyo-unagi" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Unagi Tokito</div>
+                                        <div class="restaurant-location">Central Tokyo</div>
+                                        <div class="restaurant-specialty">Chef trained 15 years at famous Azabu Nodaiwa. European influences. Creative courses. Easy reservations! <span class="price-tag">¥4,000-8,000</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Uomasa</div>
+                                        <div class="restaurant-location">Yotsugi, Katsushika</div>
+                                        <div class="restaurant-specialty">Top Tokyo unagi. Hand-selected seasonal eels. Alkaline water cooking. Both wild & farmed available. Advance reservations needed. Michelin Bib Gourmand. <span class="price-tag">¥5,000-10,000</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Ishibashi (Michelin ⭐)</div>
+                                        <div class="restaurant-location">Near Kanda River</div>
+                                        <div class="restaurant-specialty">Custom-farmed unagi from Shizuoka/Kyushu. Order when booking. Wajima lacquerware from 1910. Reservations required. <span class="price-tag">¥8,000-12,000</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Unagi Kaneichi Higashi Ueno</div>
+                                        <div class="restaurant-location">Ueno - Near station</div>
+                                        <div class="restaurant-specialty">Since 1965. Fluffy steamed eel. English menu available! Affordable. Perfect texture with adjusted steaming time. <span class="price-tag">¥3,500-5,000</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Mejiro Zorome (Michelin Bib Gourmand)</div>
+                                        <div class="restaurant-location">Mejiro Station</div>
+                                        <div class="restaurant-specialty">Watch unagi prep from counter. Kyosui eel (high-quality, only 30 restaurants in Japan). Constantly spun over charcoal for perfect crisp. <span class="price-tag">¥5,000-8,000</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tonkatsu -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('tokyo-tonkatsu')">
+                                    <span class="emoji">🖠</span>
+                                    <span>Tonkatsu (Pork Cutlet)</span>
+                                </div>
+                                <div id="tokyo-tonkatsu" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Narikura (Top Rated!)</div>
+                                        <div class="restaurant-location">Takadanobaba - 1-32-11</div>
+                                        <div class="restaurant-specialty">Often cited as Tokyo's best. Tokyo-X & Iwachu-buta pork. Low-temp frying for pale, feather-light panko. Medium-rare pork. Multiple cuts to choose. RESERVATIONS MANDATORY via TableCheck. <span class="price-tag">¥6,000-8,000</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Maisen (Famous Chain)</div>
+                                        <div class="restaurant-location">Aoyama (main) + multiple locations</div>
+                                        <div class="restaurant-specialty">Original in former bathhouse. Kurobuta tonkatsu (Berkshire pork). "So tender you can cut with chopsticks." Convenient & consistent. <span class="price-tag">¥2,000-3,000</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Tonkatsu Iwai</div>
+                                        <div class="restaurant-location">Shibakoen 3-7</div>
+                                        <div class="restaurant-specialty">Limited 8 Thick-Cut Loin Katsu Set. Kagoshima Rokuhikurobuta pork. Perfect faint pink center. Instructions on eating with wasabi & soy. Top-class rice. <span class="price-tag">¥2,500-3,500</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Tonkatsu Enraku</div>
+                                        <div class="restaurant-location">Family-owned since 1950</div>
+                                        <div class="restaurant-specialty">Rosu katsu teishoku with cabbage, potato salad, miso soup. Sangenton pork from Yamagata - lean but fatty. Living history! <span class="price-tag">¥1,800-2,500</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Tonkatsu Hasegawa (Michelin Bib Gourmand)</div>
+                                        <div class="restaurant-location">Ryogoku</div>
+                                        <div class="restaurant-specialty">Premium Hiraboku Sangenton pork. House-made panko. Golden crispy never oily. Lunch cheaper than dinner. <span class="price-tag">¥1,450-1,800</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Cold Soba -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('tokyo-soba')">
+                                    <span class="emoji">🍝</span>
+                                    <span>Cold Soba (Zaru Soba)</span>
+                                </div>
+                                <div id="tokyo-soba" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">(Research available - check local soba-ya)</div>
+                                        <div class="restaurant-location">Recommendations for specific restaurants available</div>
+                                        <div class="restaurant-specialty">Look for fresh hand-made buckwheat noodles served cold with dipping sauce. Traditional Tokyo specialty.</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Izakaya -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('tokyo-izakaya')">
+                                    <span class="emoji">🍻</span>
+                                    <span>Izakaya (Japanese Pub)</span>
+                                </div>
+                                <div id="tokyo-izakaya" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">(Research available - multiple options)</div>
+                                        <div class="restaurant-location">Throughout Tokyo - Shibuya, Shinjuku, Ebisu</div>
+                                        <div class="restaurant-specialty">Casual dining with drinks. Yakitori, edamame, fried chicken, sashimi. Great for evening socializing. <span class="price-tag">¥3,000-5,000/person</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Sukiyaki/Shabu Shabu -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('tokyo-hotpot')">
+                                    <span class="emoji">🍲</span>
+                                    <span>Sukiyaki / Shabu Shabu</span>
+                                </div>
+                                <div id="tokyo-hotpot" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">(Premium wagyu hotpot restaurants available)</div>
+                                        <div class="restaurant-location">Ginza, Roppongi areas</div>
+                                        <div class="restaurant-specialty">Cook premium beef at your table. Sukiyaki (sweet soy) or Shabu Shabu (light broth). <span class="price-tag">¥5,000-15,000</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- OSAKA SECTION -->
+                    <div class="city-section">
+                        <div class="city-title" onclick="toggleSection('osaka')">
+                            <span>🏯 OSAKA</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div id="osaka" class="food-categories show">
+                            
+                            <!-- Ramen -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('osaka-ramen')">
+                                    <span class="emoji">🍜</span>
+                                    <span>Ramen</span>
+                                </div>
+                                <div id="osaka-ramen" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Mitsukabozu Kamoshi</div>
+                                        <div class="restaurant-location">Umeda - Near Sky Building</div>
+                                        <div class="restaurant-specialty">Best miso in Osaka. White & red miso options. Traditional seafood bowl. All-vegetable option available. <span class="price-tag">¥1,000-1,500</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Roran</div>
+                                        <div class="restaurant-location">Umeda</div>
+                                        <div class="restaurant-specialty">Straight shoyu. Delicate balance - smooth and salty. Perfect dipping sauce consistency. <span class="price-tag">¥900-1,300</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Sekaiichi Himana Ramen-ya</div>
+                                        <div class="restaurant-location">Fukushima</div>
+                                        <div class="restaurant-specialty">"Most deserted ramen-bar in the world" (ironic name - very busy!). Six types of shoyu ramen. Try WITCHI'S RED. Strong seafood flavor. <span class="price-tag">¥1,000-1,400</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Kamitora Osaka Ekimae</div>
+                                        <div class="restaurant-location">Osaka Station area</div>
+                                        <div class="restaurant-specialty">Pork bone & dried sardine/bonito broth. Add spicy pickled mustard greens midway. Firmer noodles recommended. Abura Niboshi Soba (from May 2024). <span class="price-tag">¥900-1,300</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Shinchi Ramen Chikamatsu Umeda</div>
+                                        <div class="restaurant-location">Opened March 2023</div>
+                                        <div class="restaurant-specialty">Four types: shio, shoyu, miso, miso paitan. Rich taste despite little oil. Gentle on stomach. <span class="price-tag">¥900-1,200</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Okonomiyaki -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('osaka-okonomiyaki')">
+                                    <span class="emoji">🥘</span>
+                                    <span>Okonomiyaki (Savory Pancake)</span>
+                                </div>
+                                <div id="osaka-okonomiyaki" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Omoni</div>
+                                        <div class="restaurant-location">Ikuno/Tsuruhashi - Near Koreatown</div>
+                                        <div class="restaurant-specialty">25+ okonomiyaki variations. Maximum ingredients! Popular with locals. Pork, kimchi, konnyaku, beef intestine, green onions, udon, egg combo. Reservations for 3-4 people. <span class="price-tag">¥1,200-1,800</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Okonomiyaki Chitose</div>
+                                        <div class="restaurant-location">Central Osaka</div>
+                                        <div class="restaurant-specialty">English-speaking staff. Retro atmosphere. Traditional + innovative (pineapple option!). Plant-based meat for vegetarians. <span class="price-tag">¥900-1,500</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Green Onion Okonomiyaki (New on social media)</div>
+                                        <div class="restaurant-location">Near Tennoji/Abeno Stations</div>
+                                        <div class="restaurant-specialty">Bursting with green onions. Half mayo, half katsuobushi & sauce. Beef tendon (suji) inside. Instagram-worthy! <span class="price-tag">¥1,000-1,400</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Jibundoki (Michelin Guide)</div>
+                                        <div class="restaurant-location">Osaka</div>
+                                        <div class="restaurant-specialty">Japan's most difficult teppanyaki reservation. High-end experience. Modern approach to okonomiyaki. <span class="price-tag">¥5,000+</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Takoyaki -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('osaka-takoyaki')">
+                                    <span class="emoji">🐙</span>
+                                    <span>Takoyaki (Octopus Balls)</span>
+                                </div>
+                                <div id="osaka-takoyaki" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Takohachi (Dotonbori Main Store)</div>
+                                        <div class="restaurant-location">Dotonbori 1-5-10 - Very accessible!</div>
+                                        <div class="restaurant-specialty">Carefully selected flour, dashi, octopus. Try without toppings first for pure flavor. Also serves yakisoba, okonomiyaki, kushikatsu. <span class="price-tag">¥500-800</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Takoya Dotonbori Kukuru</div>
+                                        <div class="restaurant-location">Dotonbori - Iconic sign!</div>
+                                        <div class="restaurant-specialty">Large octopus pieces. Melty texture. White wine added during grilling. Also in Tokyo & Fukuoka. <span class="price-tag">¥600-900</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">TAKOPA Takoyaki Park</div>
+                                        <div class="restaurant-location">Universal CityWalk - 4th floor</div>
+                                        <div class="restaurant-specialty">6 famous takoyaki shops under one roof! Perfect for comparison. Near Universal Studios Japan. <span class="price-tag">¥500-800 per shop</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Hanadako</div>
+                                        <div class="restaurant-location">Tennoji/Abeno area</div>
+                                        <div class="restaurant-specialty">Large high-quality octopus. Crispy outside, fluffy inside. Various creative flavors. <span class="price-tag">¥550-850</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Kobe Beef (Already booked!) -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('osaka-kobe')">
+                                    <span class="emoji">🥩</span>
+                                    <span>Kobe Beef Yakiniku (Dec 4 - BOOKED!)</span>
+                                </div>
+                                <div id="osaka-kobe" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">⭐ Umeda Ohatsutenjin Otonano Kobe Beef Yakiniku</div>
+                                        <div class="restaurant-location">Umeda area - RESERVATION CONFIRMED</div>
+                                        <div class="restaurant-specialty">YOUR BOOKED RESTAURANT for December 4th dinner! Certified Kobe beef. Premium yakiniku experience. Get excited! <span class="price-tag">Premium pricing</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Kushikatsu -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('osaka-kushikatsu')">
+                                    <span class="emoji">🍢</span>
+                                    <span>Kushikatsu (Fried Skewers)</span>
+                                </div>
+                                <div id="osaka-kushikatsu" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Kushikatsu Daruma Shinsekai Main Store</div>
+                                        <div class="restaurant-location">Shinsekai - The originator!</div>
+                                        <div class="restaurant-specialty">90 years of history. Crispy then chewy texture. Not too heavy. Signature sauce. Meat, fish, vegetables. NO DOUBLE-DIPPING rule! <span class="price-tag">¥150-300 per skewer</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- KYOTO SECTION -->
+                    <div class="city-section">
+                        <div class="city-title" onclick="toggleSection('kyoto')">
+                            <span>⛩️ KYOTO (Lunch Focus)</span>
+                            <span class="toggle-icon">▼</span>
+                        </div>
+                        <div id="kyoto" class="food-categories show">
+                            
+                            <!-- Ramen -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('kyoto-ramen')">
+                                    <span class="emoji">🍜</span>
+                                    <span>Ramen</span>
+                                </div>
+                                <div id="kyoto-ramen" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Menya Rennnosuke (Michelin Bib Gourmand)</div>
+                                        <div class="restaurant-location">Kyoto</div>
+                                        <div class="restaurant-specialty">Chef trained at Michelin-starred restaurant. Kombu & dried sardine broth. Refined dashi taste. Also: tomato ramen with whole tomato, Kyoto duck breast ramen. <span class="price-tag">¥1,200-1,800</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Menya Inoichi (Michelin Bib Gourmand 8 consecutive years!)</div>
+                                        <div class="restaurant-location">3-min walk from Kyoto-Kawaramachi Station</div>
+                                        <div class="restaurant-specialty">NO animal ingredients! Abundant katsuobushi from Kagoshima. White or black dashi. Seared wagyu beef topping option. Surprisingly light. <span class="price-tag">¥1,000-1,500</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Kobushi Ramen (Michelin Bib Gourmand)</div>
+                                        <div class="restaurant-location">Near Kyoto Station - Umekoji area</div>
+                                        <div class="restaurant-specialty">Unique! Uses Kyoto duck & nodoguro (blackthroat seaperch). Unparalleled in Japan. High-grade ingredients. Quick meal option. <span class="price-tag">¥1,500-2,000</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Mugi no Yoake</div>
+                                        <div class="restaurant-location">Kyoto - 16 min walk from Nishi-Kyogoku Station</div>
+                                        <div class="restaurant-specialty">"Wheat's dawn." Scallop and Sansho Chinese Noodles. Unique flavor balance. Owner is ramen enthusiast & former flour company worker. Michelin Bib Gourmand 2024. <span class="price-tag">¥1,200-1,600</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Monsen</div>
+                                        <div class="restaurant-location">Near Kawaramachi (10 min walk to Gion)</div>
+                                        <div class="restaurant-specialty">Chicken ramen (tori paitan style). Creamy collagen-based broth. Built for customization. Light aftertaste. <span class="price-tag">¥1,000-1,400</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Traditional Kyoto Lunch Options -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('kyoto-traditional')">
+                                    <span class="emoji">🍱</span>
+                                    <span>Traditional Kyoto Lunch (Bento/Obanzai)</span>
+                                </div>
+                                <div id="kyoto-traditional" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">(Kyoto Specialty - Research available)</div>
+                                        <div class="restaurant-location">Gion, Higashiyama areas</div>
+                                        <div class="restaurant-specialty">Obanzai (Kyoto home cooking), beautiful bento boxes, tofu cuisine. Perfect for lunch between temples. <span class="price-tag">¥1,500-3,000</span></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Quick Lunch Near Attractions -->
+                            <div class="food-category">
+                                <div class="category-title" onclick="toggleCategory('kyoto-quick')">
+                                    <span class="emoji">🍙</span>
+                                    <span>Quick Lunch (Near Attractions)</span>
+                                </div>
+                                <div id="kyoto-quick" class="restaurant-list">
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Kyoto Station Building</div>
+                                        <div class="restaurant-location">Multiple floors of restaurants</div>
+                                        <div class="restaurant-specialty">Ramen Street (10th floor), Isetan Dept Store food floor (B1-B2). Quick options before/after trains. <span class="price-tag">¥800-2,000</span></div>
+                                    </div>
+                                    <div class="restaurant-item">
+                                        <div class="restaurant-name">Nishiki Market</div>
+                                        <div class="restaurant-location">Downtown Kyoto - "Kyoto's Kitchen"</div>
+                                        <div class="restaurant-specialty">Street food stalls, quick lunches, local specialties. Walk and eat. Fresh seafood, pickles, sweets. <span class="price-tag">¥500-1,500</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="highlight-box" style="border-left: 4px solid var(--warning);">
+                    <h4>💡 Pro Tips:</h4>
+                    <ul class="schedule-list">
+                        <li><strong>Reservations:</strong> Michelin-starred & Bib Gourmand places need advance booking (TableCheck or hotel concierge)</li>
+                        <li><strong>Peak Times:</strong> Arrive before opening (11 AM) or after lunch rush (2-3 PM) to avoid lines</li>
+                        <li><strong>Cash:</strong> Many small restaurants are cash-only, especially ramen shops</li>
+                        <li><strong>Ticket Machines:</strong> Buy meal tickets from vending machine at entrance (common in ramen shops)</li>
+                        <li><strong>Tsukishima Monja Street:</strong> 75+ restaurants! Check tourist info center first for recommendations</li>
+                        <li><strong>Budget:</strong> Ramen ¥800-1,500 | Casual ¥1,500-3,000 | Premium ¥5,000-15,000</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div id="map-tab" class="tab-content">
+            <div id="fullMap"></div>
+        </div>
+
+        <div class="footer">
+            <p>🌸 Have an amazing trip to Japan! 🗾</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Total free time: ~35 hours | 14 food categories researched | 50+ restaurant recommendations</p>
+            <p style="margin-top: 5px; font-size: 0.9em;">Consider JR Pass for additional train travel</p>
+        </div>
+    </div>
+
+    <script>
+        let miniMap, fullMapObj;
+
+        function initMaps() {
+            // Initialize mini map
+            if (document.getElementById('map')) {
+                // Check if map is already initialized
+                if (miniMap) {
+                    miniMap.invalidateSize();
+                    return;
+                }
+                
+                miniMap = L.map('map', {
+                    center: [35.5, 137],
+                    zoom: 6,
+                    minZoom: 3,
+                    maxZoom: 10,
+                    zoomControl: false
+                });
+                
+                L.control.zoom({ position: 'bottomright' }).addTo(miniMap);
+                
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                    attribution: '© OpenStreetMap contributors, © CARTO'
+                }).addTo(miniMap);
+
+                addMarkersAndRoutes(miniMap);
+            }
+
+            // Initialize full map
+            if (document.getElementById('fullMap')) {
+                if (fullMapObj) {
+                    fullMapObj.invalidateSize();
+                    return;
+                }
+
+                fullMapObj = L.map('fullMap', {
+                    center: [38, 138],
+                    zoom: 5,
+                    minZoom: 3,
+                    maxZoom: 10
+                });
+                
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+                    attribution: '© OpenStreetMap contributors, © CARTO'
+                }).addTo(fullMapObj);
+
+                addMarkersAndRoutes(fullMapObj);
+            }
+        }
+
+        function addMarkersAndRoutes(map) {
+            // City coordinates
+            const cities = [
+                { lat: 47.6062, lng: -122.3321, name: "Seattle", type: "start" },
+                { lat: 35.6762, lng: 139.6503, name: "Tokyo" },
+                { lat: 34.6937, lng: 135.5023, name: "Osaka" },
+                { lat: 35.0116, lng: 135.7681, name: "Kyoto" }
+            ];
+
+            // Attraction coordinates
+            const attractions = [
+                { lat: 34.6871, lng: 135.5260, name: "Dotonbori", city: "Osaka" },
+                { lat: 34.6873, lng: 135.5262, name: "Osaka Castle", city: "Osaka" },
+                { lat: 34.9671, lng: 135.7727, name: "Fushimi Inari", city: "Kyoto" },
+                { lat: 35.0094, lng: 135.6667, name: "Arashiyama", city: "Kyoto" }
+            ];
+
+            // Add city markers
+            cities.forEach((city, index) => {
+                let icon = L.divIcon({
+                    html: `<div class="custom-div-icon">${city.type === 'start' ? '✈️' : index}</div>`,
+                    className: 'custom-marker',
+                    iconSize: [40, 40],
+                    iconAnchor: [20, 20]
+                });
+                
+                L.marker([city.lat, city.lng], { icon: icon })
+                    .addTo(map)
+                    .bindPopup(`<strong style="color:black">${city.name}</strong>`);
+            });
+
+            // Add attraction markers
+            attractions.forEach(attr => {
+                L.circleMarker([attr.lat, attr.lng], {
+                    radius: 6,
+                    fillColor: "#f472b6",
+                    color: "#fff",
+                    weight: 2,
+                    opacity: 1,
+                    fillOpacity: 0.8
+                }).addTo(map)
+                  .bindPopup(`<strong style="color:black">${attr.name}</strong><br><span style="color:black">${attr.city}</span>`);
+            });
+
+            // Draw routes
+            const routes = [
+                { points: [[35.6762, 139.6503], [34.6937, 135.5023]], color: '#38bdf8' },
+                { points: [[34.6937, 135.5023], [35.0116, 135.7681]], color: '#34d399' },
+                { points: [[35.0116, 135.7681], [35.6762, 139.6503]], color: '#fbbf24' }
+            ];
+
+            routes.forEach(route => {
+                L.polyline(route.points, {
+                    color: route.color,
+                    weight: 3,
+                    opacity: 0.6,
+                    dashArray: '10, 10'
+                }).addTo(map);
+            });
+
+            // Fit bounds
+            if (map === fullMapObj) {
+                const bounds = L.latLngBounds([[47.6062, -122.3321], ...cities.map(c => [c.lat, c.lng])]);
+                map.fitBounds(bounds, { padding: [50, 50] });
+            }
+        }
+
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all nav tabs
+            document.querySelectorAll('.nav-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab
+            if (tabName === 'map') {
+                document.getElementById('map-tab').classList.add('active');
+                setTimeout(() => {
+                    initMaps();
+                    if(fullMapObj) fullMapObj.invalidateSize();
+                }, 100);
+            } else {
+                document.getElementById(tabName).classList.add('active');
+                if (tabName === 'itinerary' && miniMap) {
+                    setTimeout(() => {
+                        miniMap.invalidateSize();
+                    }, 100);
+                }
+            }
+            
+            // Add active class to clicked nav tab
+            // Find the button that triggered this
+            const buttons = document.querySelectorAll('.nav-tab');
+            buttons.forEach(btn => {
+                if(btn.getAttribute('onclick').includes(tabName)) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            // Find the city title element
+            const cityTitle = event.currentTarget;
+            
+            section.classList.toggle('show');
+            cityTitle.classList.toggle('collapsed');
+        }
+
+        function toggleCategory(categoryId) {
+            const category = document.getElementById(categoryId);
+            category.classList.toggle('show');
+        }
+
+        // Initialize maps when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initMaps();
+            
+            // Add scroll animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.event, .summary-card, .city-section').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease-out';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
