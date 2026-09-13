@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Taipei, 5-12 November 2026. Three travellers, two flight paths, six nights at the Shangri-La Far Eastern.">
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Three to Taipei</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#f5f3ec; --surface:#fffefa; --surface-2:#ecebe1;
+  --line:#d8d6c8; --line-soft:#e6e4d8;
+  --ink:#1b2422; --ink-2:#4a5551; --ink-3:#79837e;
+  --jade:#0f7f68; --jade-ink:#0b5e4d; --jade-soft:#dcefe8;
+  --lantern:#b8651a; --lantern-soft:#f7e8d3;
+  --coral:#b23b30; --coral-soft:#f8e2de;
+  --shadow:0 1px 2px rgba(27,36,34,.05), 0 10px 28px -16px rgba(27,36,34,.28);
+  --mrt-red:#d90023; --mrt-blue:#0a59ae; --mrt-green:#00865c;
+  --mrt-orange:#e0a013; --mrt-brown:#a97b24; --mrt-purple:#8b208b;
+  --f-display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-body:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#0b1615; --surface:#111f1d; --surface-2:#182927;
+    --line:#263a36; --line-soft:#1d2f2c;
+    --ink:#e9efec; --ink-2:#a2b2ad; --ink-3:#74847f;
+    --jade:#45d0ab; --jade-ink:#7fe0c4; --jade-soft:rgba(69,208,171,.13);
+    --lantern:#f0aa55; --lantern-soft:rgba(240,170,85,.13);
+    --coral:#ee7a67; --coral-soft:rgba(238,122,103,.13);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 30px -18px rgba(0,0,0,.8);
+    --mrt-red:#f2455f; --mrt-blue:#4d93e0; --mrt-green:#2fb583;
+    --mrt-orange:#f0b93f; --mrt-brown:#c79a4a; --mrt-purple:#c05ac0;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#0b1615; --surface:#111f1d; --surface-2:#182927;
+  --line:#263a36; --line-soft:#1d2f2c;
+  --ink:#e9efec; --ink-2:#a2b2ad; --ink-3:#74847f;
+  --jade:#45d0ab; --jade-ink:#7fe0c4; --jade-soft:rgba(69,208,171,.13);
+  --lantern:#f0aa55; --lantern-soft:rgba(240,170,85,.13);
+  --coral:#ee7a67; --coral-soft:rgba(238,122,103,.13);
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 30px -18px rgba(0,0,0,.8);
+  --mrt-red:#f2455f; --mrt-blue:#4d93e0; --mrt-green:#2fb583;
+  --mrt-orange:#f0b93f; --mrt-brown:#c79a4a; --mrt-purple:#c05ac0;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--f-body); font-size:16.5px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px; margin:0 auto; padding-inline:20px; padding-block:0 72px}
+h1,h2,h3,h4{font-family:var(--f-display); text-wrap:balance; margin:0; letter-spacing:-.02em}
+p{margin:0}
+a{color:var(--jade-ink); text-decoration-thickness:1px; text-underline-offset:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--jade); outline-offset:3px; border-radius:3px}
+.mono{font-family:var(--f-mono); font-variant-numeric:tabular-nums}
+
+/* ---- eyebrow labels ---- */
+.eyebrow{
+  font-family:var(--f-display); font-size:11px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+}
+
+/* ---- masthead ---- */
+.masthead{padding-block:52px 30px; border-bottom:1px solid var(--line)}
+.masthead h1{
+  font-size:clamp(2.5rem,9vw,4.1rem); font-weight:800; line-height:.95;
+  letter-spacing:-.045em; margin-block:14px 0;
+}
+.masthead h1 em{font-style:normal; color:var(--jade)}
+.masthead .sub{
+  font-size:1.05rem; color:var(--ink-2); margin-top:16px; max-width:60ch;
+}
+.route-line{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  font-family:var(--f-mono); font-size:13px; color:var(--ink-2);
+  margin-top:22px;
+}
+@media (max-width:430px){.route-line{font-size:12px; gap:8px}}
+.route-line .seg{display:flex; align-items:center; gap:8px}
+.route-line .arrow{color:var(--ink-3)}
+
+/* ---- vitals strip ---- */
+.vitals{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--line); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin-top:30px;
+}
+.vital{background:var(--surface); padding:16px 18px}
+.vital .k{
+  font-family:var(--f-display); font-size:10.5px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3);
+}
+.vital .v{
+  font-family:var(--f-display); font-size:1.5rem; font-weight:700;
+  letter-spacing:-.02em; margin-top:4px; font-variant-numeric:tabular-nums;
+}
+.vital .n{font-size:.82rem; color:var(--ink-3); line-height:1.4; margin-top:2px}
+@media (max-width:640px){
+  .vitals{grid-template-columns:repeat(2,1fr)}
+  .vital .v{font-size:1.3rem}
+}
+
+/* ---- sections ---- */
+section{padding-block:46px 0}
+.sec-head{
+  display:flex; align-items:baseline; gap:14px;
+  border-bottom:2px solid var(--ink); padding-bottom:10px; margin-bottom:26px;
+}
+.sec-head h2{font-size:1.45rem; font-weight:700; flex:1}
+.sec-head .count{font-family:var(--f-mono); font-size:12px; color:var(--ink-3); flex:none}
+@media (max-width:600px){
+  .sec-head{flex-wrap:wrap; gap:3px 14px; align-items:flex-start}
+  .sec-head h2{flex:1 0 100%; font-size:1.3rem}
+}
+.lede{color:var(--ink-2); max-width:64ch; margin-bottom:24px}
+
+/* ---- flight tracks ---- */
+.tracks{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+@media (max-width:720px){.tracks{grid-template-columns:1fr}}
+.track{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; padding:20px; box-shadow:var(--shadow);
+  border-top:3px solid var(--carrier);
+}
+.track--eva{--carrier:var(--jade)}
+.track--dl{--carrier:var(--coral)}
+.track .who{
+  font-family:var(--f-display); font-weight:700; font-size:1.15rem;
+  letter-spacing:-.02em; display:flex; align-items:center; gap:9px;
+}
+.track .who::before{
+  content:''; width:9px; height:9px; border-radius:50%;
+  background:var(--carrier); flex:none;
+}
+.track .carrier{
+  font-family:var(--f-mono); font-size:12px; color:var(--carrier);
+  font-weight:500; margin-top:3px; letter-spacing:.02em;
+}
+.leg{
+  display:grid; grid-template-columns:auto 1fr; gap:12px;
+  padding-block:13px; border-top:1px solid var(--line-soft);
+  margin-top:14px; align-items:start;
+}
+.leg:first-of-type{margin-top:16px}
+.leg .apt{
+  font-family:var(--f-mono); font-weight:600; font-size:14px;
+  background:var(--surface-2); border-radius:6px; padding:3px 7px;
+  color:var(--ink); letter-spacing:.04em;
+}
+.leg .det{font-size:.92rem; line-height:1.5}
+.leg .det b{font-family:var(--f-display); font-weight:600}
+.leg .det > span{display:block; color:var(--ink-3); font-size:.85rem}
+.leg .det .fillin{display:inline}
+
+.fillin{
+  font-family:var(--f-mono); font-size:.78rem; color:var(--lantern);
+  background:var(--lantern-soft); border-radius:5px; padding:1px 6px;
+  white-space:nowrap;
+}
+
+/* ---- generic note/callout ---- */
+.note{
+  border-left:3px solid var(--accent,var(--lantern));
+  background:var(--accent-soft,var(--lantern-soft));
+  padding:14px 16px; border-radius:0 10px 10px 0; margin-top:20px;
+  font-size:.93rem; line-height:1.55;
+}
+.note b{font-family:var(--f-display); font-weight:700}
+.note--jade{--accent:var(--jade); --accent-soft:var(--jade-soft)}
+.note--coral{--accent:var(--coral); --accent-soft:var(--coral-soft)}
+
+/* ---- hotel ---- */
+.hotel{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; overflow:hidden; box-shadow:var(--shadow);
+}
+.hotel__top{padding:22px 22px 18px; border-bottom:1px solid var(--line-soft)}
+.hotel__top h3{font-size:1.45rem; font-weight:700}
+.hotel__top .zh{
+  font-size:1.05rem; color:var(--ink-2); margin-top:2px;
+  font-family:var(--f-display); font-weight:500;
+}
+.addr{
+  display:grid; gap:10px; padding:18px 22px;
+  background:var(--surface-2); border-bottom:1px solid var(--line-soft);
+}
+.addr .row{display:grid; grid-template-columns:96px 1fr; gap:12px; align-items:baseline}
+.addr .row .lbl{
+  font-family:var(--f-display); font-size:10.5px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3);
+}
+.addr .row .val{font-size:.95rem}
+.addr .zh-addr{font-size:1.08rem; font-weight:600; letter-spacing:.02em}
+@media (max-width:520px){
+  .addr .row{grid-template-columns:1fr; gap:2px}
+}
+.hotel__grid{display:grid; grid-template-columns:1fr 1fr; gap:0}
+@media (max-width:640px){.hotel__grid{grid-template-columns:1fr}}
+.hotel__cell{padding:18px 22px; border-top:1px solid var(--line-soft)}
+.hotel__cell:nth-child(even){border-left:1px solid var(--line-soft)}
+@media (max-width:640px){.hotel__cell:nth-child(even){border-left:0}}
+.hotel__cell h4{
+  font-size:11px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-3); margin-bottom:8px;
+}
+.hotel__cell ul{margin:0; padding-left:18px; font-size:.93rem; line-height:1.6}
+.hotel__cell li{margin-bottom:4px}
+
+/* ---- MRT chips ---- */
+.mrt{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--f-display); font-size:.82rem; font-weight:600;
+  white-space:nowrap;
+}
+.mrt::before{
+  content:''; width:8px; height:8px; border-radius:50%;
+  background:var(--ln); flex:none;
+}
+.ln-red{--ln:var(--mrt-red)} .ln-blue{--ln:var(--mrt-blue)}
+.ln-green{--ln:var(--mrt-green)} .ln-orange{--ln:var(--mrt-orange)}
+.ln-brown{--ln:var(--mrt-brown)} .ln-purple{--ln:var(--mrt-purple)}
+
+/* ---- the week: MRT-style rail ---- */
+.week{margin-top:6px}
+.day{display:grid; grid-template-columns:62px 1fr; gap:0}
+@media (max-width:560px){.day{grid-template-columns:40px 1fr}}
+.day__rail{position:relative}
+.day__rail::before{
+  content:''; position:absolute; left:50%; top:0; bottom:0;
+  width:4px; transform:translateX(-50%); background:var(--line);
+}
+.day:first-child .day__rail::before{top:22px}
+.day:last-child .day__rail::before{bottom:calc(100% - 22px)}
+.day__dot{
+  position:absolute; left:50%; top:14px; transform:translateX(-50%);
+  width:16px; height:16px; border-radius:50%;
+  background:var(--ground); border:4px solid var(--tone,var(--jade));
+  z-index:1;
+}
+.day--transit .day__dot{border-color:var(--coral)}
+.day--open .day__dot{border-color:var(--line); background:var(--ground)}
+.day__body{padding-block:10px 26px; padding-left:6px; min-width:0}
+.day__head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+.day__num{
+  font-family:var(--f-mono); font-size:12px; font-weight:600;
+  color:var(--ink-3); letter-spacing:.04em;
+}
+.day__date{
+  font-family:var(--f-display); font-size:1.2rem; font-weight:700;
+  letter-spacing:-.02em;
+}
+.day__tag{
+  font-family:var(--f-display); font-size:10.5px; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase;
+  padding:3px 9px; border-radius:20px; white-space:nowrap;
+  background:var(--jade-soft); color:var(--jade-ink);
+}
+.day--transit .day__tag{background:var(--coral-soft); color:var(--coral)}
+.day--open .day__tag{background:var(--surface-2); color:var(--ink-3)}
+.day__theme{
+  font-family:var(--f-display); font-size:1.02rem; font-weight:600;
+  color:var(--ink-2); margin-top:5px;
+}
+.slots{
+  margin-top:13px; display:grid; gap:1px;
+  background:var(--line); border:1px solid var(--line);
+  border-radius:11px; overflow:hidden;
+}
+.slot{
+  background:var(--surface); padding:12px 15px;
+  display:grid; grid-template-columns:74px 1fr; gap:13px; align-items:start;
+}
+@media (max-width:560px){
+  .slot{grid-template-columns:1fr; gap:3px}
+}
+.slot__when{
+  font-family:var(--f-mono); font-size:12px; font-weight:500;
+  color:var(--ink-3); padding-top:3px; letter-spacing:.02em;
+}
+.slot__what b{
+  font-family:var(--f-display); font-weight:600; font-size:.98rem;
+  display:block; margin-bottom:2px;
+}
+.slot__what{font-size:.9rem; line-height:1.55; color:var(--ink-2); min-width:0}
+.slot__what .mrt{margin-top:5px}
+.slot--fixed{background:var(--jade-soft)}
+.slot--fixed .slot__what b{color:var(--jade-ink)}
+.slot--idea{background:var(--surface)}
+.slot--idea .slot__what b::after{
+  content:'proposed'; font-family:var(--f-mono); font-size:9.5px;
+  font-weight:400; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-3); margin-left:8px; vertical-align:1px;
+}
+
+/* ---- shortlist ---- */
+.shelf{display:grid; grid-template-columns:repeat(auto-fill,minmax(232px,1fr)); gap:14px}
+.pick{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; padding:15px 16px;
+}
+.pick h4{font-size:1rem; font-weight:700; letter-spacing:-.01em}
+.pick .zh{font-size:.88rem; color:var(--ink-3); font-family:var(--f-display); font-weight:500}
+.pick p{font-size:.88rem; color:var(--ink-2); line-height:1.5; margin-top:7px}
+.pick .foot{
+  margin-top:10px; padding-top:9px; border-top:1px solid var(--line-soft);
+  display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+  font-family:var(--f-mono); font-size:11px; color:var(--ink-3);
+}
+
+/* ---- basics table ---- */
+.basics{
+  border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface);
+}
+.basic{
+  display:grid; grid-template-columns:150px 1fr; gap:16px;
+  padding:14px 18px; border-top:1px solid var(--line-soft); align-items:start;
+}
+.basic:first-child{border-top:0}
+@media (max-width:560px){.basic{grid-template-columns:1fr; gap:3px}}
+.basic .lbl{
+  font-family:var(--f-display); font-size:11px; font-weight:700;
+  letter-spacing:.11em; text-transform:uppercase; color:var(--ink-3);
+  padding-top:3px;
+}
+.basic .txt{font-size:.93rem; line-height:1.6}
+.basic .txt b{font-family:var(--f-display); font-weight:600}
+
+/* ---- open questions ---- */
+.todo{list-style:none; margin:0; padding:0; counter-reset:q}
+.todo li{
+  counter-increment:q; position:relative; padding:13px 0 13px 42px;
+  border-top:1px solid var(--line-soft); font-size:.95rem; line-height:1.55;
+}
+.todo li:first-child{border-top:0}
+.todo li::before{
+  content:counter(q,decimal-leading-zero); position:absolute; left:0; top:13px;
+  font-family:var(--f-mono); font-size:12px; font-weight:600; color:var(--lantern);
+}
+.todo li b{font-family:var(--f-display); font-weight:700}
+
+footer{
+  margin-top:56px; padding-top:22px; border-top:1px solid var(--line);
+  font-size:.86rem; color:var(--ink-3); line-height:1.6;
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Taipei &middot; Thu 5 &ndash; Thu 12 November 2026</div>
+    <h1>Three to <em>Taipei</em></h1>
+    <p class="sub">Mom and Sis fly EVA nonstop out of LAX. I come in on Delta from Seattle. We all sleep at the Shangri&#8209;La Far Eastern for six nights and figure out the rest together.</p>
+    <div class="route-line">
+      <span class="seg"><span class="mono">LAX</span><span class="arrow">&rarr;</span><span class="mono">TPE</span></span>
+      <span class="arrow">&middot;</span>
+      <span class="seg"><span class="mono">SEA</span><span class="arrow">&rarr;</span><span class="mono">TPE</span></span>
+      <span class="arrow">&middot;</span>
+      <span class="seg"><span class="mono">6 nights, one hotel</span></span>
+    </div>
+
+    <div class="vitals">
+      <div class="vital">
+        <div class="k">Countdown</div>
+        <div class="v mono" id="countdown">&mdash;</div>
+        <div class="n">until wheels up</div>
+      </div>
+      <div class="vital">
+        <div class="k">On the ground</div>
+        <div class="v mono">6 days</div>
+        <div class="n">Fri 6 &rarr; Thu 12 Nov</div>
+      </div>
+      <div class="vital">
+        <div class="k">Weather then</div>
+        <div class="v mono">26&deg;/21&deg;C</div>
+        <div class="n">79&ndash;70&deg;F, humid, some rain</div>
+      </div>
+      <div class="vital">
+        <div class="k">Time zone</div>
+        <div class="v mono">UTC+8</div>
+        <div class="n">no daylight saving</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ GETTING THERE ============ -->
+  <section id="flights">
+    <div class="sec-head">
+      <h2>Getting there</h2>
+      <span class="count">two tracks, one arrivals hall</span>
+    </div>
+    <p class="lede">Leaving on Thursday the 5th means landing Friday the 6th &mdash; the date line eats a day going out and gives it back on the way home. Everything below in amber still needs the real numbers off your confirmations.</p>
+
+    <div class="tracks">
+      <div class="track track--eva">
+        <div class="who">Mom &amp; Sis</div>
+        <div class="carrier">EVA AIR &middot; NONSTOP</div>
+        <div class="leg">
+          <span class="apt">LAX</span>
+          <span class="det">
+            <b>Thu 5 Nov &mdash; depart Los Angeles</b>
+            <span>Flight <span class="fillin">BR ___</span> &middot; dep <span class="fillin">__:__</span> &middot; Tom Bradley International</span>
+          </span>
+        </div>
+        <div class="leg">
+          <span class="apt">TPE</span>
+          <span class="det">
+            <b>Fri 6 Nov &mdash; arrive Taoyuan</b>
+            <span>arr <span class="fillin">__:__</span> &middot; roughly 14h in the air &middot; Terminal 2</span>
+          </span>
+        </div>
+        <div class="note note--jade">
+          <b>Why this is the easy one.</b> EVA runs several LAX&ndash;Taipei nonstops a day and lands at Terminal&nbsp;2, which is where the Airport MRT and the taxi ranks are. No connection, no second security line, no bag re&#8209;check.
+        </div>
+      </div>
+
+      <div class="track track--dl">
+        <div class="who">Me</div>
+        <div class="carrier">DELTA &middot; ROUTING TBC</div>
+        <div class="leg">
+          <span class="apt">SEA</span>
+          <span class="det">
+            <b>Thu 5 Nov &mdash; depart Seattle</b>
+            <span>Flight <span class="fillin">DL ___</span> &middot; dep <span class="fillin">__:__</span></span>
+          </span>
+        </div>
+        <div class="leg">
+          <span class="apt">TPE</span>
+          <span class="det">
+            <b>Fri 6 Nov &mdash; arrive Taoyuan</b>
+            <span>arr <span class="fillin">__:__</span> &middot; nonstop or via <span class="fillin">ICN / HND</span></span>
+          </span>
+        </div>
+        <div class="note note--coral">
+          <b>Check this one properly.</b> Delta has run Seattle&ndash;Taipei both as a nonstop and as a SkyTeam connection through Seoul or Tokyo, and the two land hours apart. Send me the flight numbers off your confirmation and I&rsquo;ll build the arrival timing around them.
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>Meeting up at Taoyuan.</b> Until we know both arrival times, assume we get to the hotel separately rather than waiting airside &mdash; whoever lands first checks in and drops bags. Taoyuan is about 40&nbsp;km out of town: the <span class="mrt ln-purple">Airport MRT</span> Express runs to Taipei Main in ~38&nbsp;min for NT$150, but with three people and luggage a taxi straight to the door is ~NT$1,200 and no transfers. Worth pre&#8209;booking the hotel car for whoever arrives at an awkward hour.
+    </div>
+
+    <div class="note">
+      <b>Coming home &mdash; Thu 12 Nov.</b> Flights back across the Pacific leave Taipei in the morning or early afternoon and land in the US on <em>the same calendar day</em>. So the 12th is a travel day on both ends, and the last real evening in Taipei is Wednesday the 11th. Plan the farewell dinner for then, not the last night.
+    </div>
+  </section>
+
+  <!-- ============ BASE ============ -->
+  <section id="hotel">
+    <div class="sec-head">
+      <h2>Base camp</h2>
+      <span class="count">6 nights &middot; Fri 6 &rarr; Thu 12 Nov</span>
+    </div>
+    <p class="lede">One hotel the whole time, which is the right call for Taipei &mdash; the city is small enough that nothing worth doing is more than about 40 minutes from the front door.</p>
+
+    <div class="hotel">
+      <div class="hotel__top">
+        <h3>Shangri&#8209;La Far Eastern, Taipei</h3>
+        <div class="zh">&#21488;&#21271;&#36960;&#26481;&#39321;&#26684;&#37324;&#25289;&#22823;&#39151;&#24215;</div>
+      </div>
+      <div class="addr">
+        <div class="row">
+          <span class="lbl">Show a driver</span>
+          <span class="val zh-addr">&#21488;&#21271;&#24066;&#22823;&#23433;&#21312;&#25958;&#21270;&#21335;&#36335;&#20108;&#27573;201&#34399;</span>
+        </div>
+        <div class="row">
+          <span class="lbl">In English</span>
+          <span class="val">No.&nbsp;201, Section&nbsp;2, Dunhua South Road, Da&rsquo;an District, Taipei</span>
+        </div>
+        <div class="row">
+          <span class="lbl">Nearest MRT</span>
+          <span class="val"><span class="mrt ln-brown">Technology Building</span> &middot; ~7 min walk. <span class="mrt ln-red">Da&rsquo;an</span> is ~15 min and puts you on the Red line.</span>
+        </div>
+      </div>
+      <div class="hotel__grid">
+        <div class="hotel__cell">
+          <h4>What&rsquo;s in the building</h4>
+          <ul>
+            <li>Shang Palace &mdash; Cantonese, dim sum at lunch</li>
+            <li>Ibuki &mdash; Japanese teppanyaki</li>
+            <li>Marco Polo Lounge up on 38 &mdash; the skyline view without paying for an observatory ticket</li>
+            <li>Outdoor rooftop pool and the spa</li>
+            <li>Far Eastern Sogo department store attached at the base, with a basement food hall</li>
+          </ul>
+        </div>
+        <div class="hotel__cell">
+          <h4>Why the location works</h4>
+          <ul>
+            <li>Da&rsquo;an is the leafy, residential middle of the city &mdash; quiet at night, walkable</li>
+            <li>Tonghua (Linjiang St) night market is a 15&nbsp;min walk &mdash; the local one, not the tourist one</li>
+            <li>Taipei 101 and Xinyi are ~10 min by cab</li>
+            <li>Yongkang Street food strip is one short ride west</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>Three of us, one room?</b> Worth confirming the bedding now rather than at check&#8209;in &mdash; most rooms here are a king or twins, and a third person usually means a rollaway or connecting rooms. Also flag arrival times to the hotel so the room is ready; standard check&#8209;in is 3&nbsp;PM and we may all land in the morning.
+    </div>
+  </section>
+
+  <!-- ============ THE WEEK ============ -->
+  <section id="week">
+    <div class="sec-head">
+      <h2>The week</h2>
+      <span class="count">2 fixed &middot; 6 to fill</span>
+    </div>
+    <p class="lede">A first pass, built around three real constraints: the weekend crowds, the northeast coast&rsquo;s habit of raining when the rest of Taipei is dry, and Monday closures at the museums. Green dots are locked. Everything marked <em>proposed</em> is mine to argue for and yours to overrule.</p>
+
+    <div class="week">
+
+      <div class="day day--transit">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">THU</span>
+            <span class="day__date">5 November</span>
+            <span class="day__tag">Travel</span>
+          </div>
+          <div class="day__theme">Two airports, one ocean</div>
+          <div class="slots">
+            <div class="slot slot--fixed">
+              <div class="slot__when">LAX</div>
+              <div class="slot__what"><b>Mom &amp; Sis depart</b>EVA nonstop. Get to Tom Bradley three hours out &mdash; the EVA check&#8209;in queue at LAX is genuinely long.</div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">SEA</div>
+              <div class="slot__what"><b>I depart</b>Delta. Routing to be confirmed.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">FRI</span>
+            <span class="day__date">6 November</span>
+            <span class="day__tag">Arrive</span>
+          </div>
+          <div class="day__theme">Land, drop bags, stay awake until dark</div>
+          <div class="slots">
+            <div class="slot slot--fixed">
+              <div class="slot__when">Daytime</div>
+              <div class="slot__what"><b>Arrive Taoyuan, transfer to Da&rsquo;an</b>Grab EasyCards at the airport MRT counter on the way through &mdash; one each, NT$100 plus whatever you load.</div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">15:00</div>
+              <div class="slot__what"><b>Check in &mdash; Shangri&#8209;La Far Eastern</b>Six nights.</div>
+            </div>
+            <div class="slot slot--idea">
+              <div class="slot__when">Evening</div>
+              <div class="slot__what"><b>Tonghua night market</b>Deliberately unambitious for night one. It&rsquo;s the neighbourhood market, 15 minutes on foot, and if jet lag wins we&rsquo;re home in ten.<span class="mrt ln-red">Xinyi Anhe</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">SAT</span>
+            <span class="day__date">7 November</span>
+            <span class="day__tag">Old Taipei</span>
+          </div>
+          <div class="day__theme">The civic and the sacred, west side</div>
+          <div class="slots">
+            <div class="slot slot--idea">
+              <div class="slot__when">Morning</div>
+              <div class="slot__what"><b>Chiang Kai&#8209;shek Memorial Hall</b>Liberty Square. The honour guard changes on the hour &mdash; it&rsquo;s a proper ceremony and the main reason to time this one.<span class="mrt ln-green">CKS Memorial Hall</span></div>
+            </div>
+            <div class="slot slot--idea">
+              <div class="slot__when">Afternoon</div>
+              <div class="slot__what"><b>Longshan Temple &amp; Wanhua</b>Taipei&rsquo;s oldest temple, 1738, and still a working one &mdash; incense, chanting, people actually praying rather than photographing. The surrounding streets are the old city.<span class="mrt ln-blue">Longshan Temple</span></div>
+            </div>
+            <div class="slot slot--idea">
+              <div class="slot__when">Evening</div>
+              <div class="slot__what"><b>Raohe Street night market</b>Of the big ones this is the most walkable &mdash; one straight street, temple at the end. Queue for the black pepper buns at the entrance before anything else.<span class="mrt ln-green">Songshan</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">SUN</span>
+            <span class="day__date">8 November</span>
+            <span class="day__tag">Day trip</span>
+          </div>
+          <div class="day__theme">Out of the city &mdash; one of two directions</div>
+          <div class="slots">
+            <div class="slot slot--idea">
+              <div class="slot__when">Option A</div>
+              <div class="slot__what"><b>Jiufen &amp; Shifen</b>The hillside tea&#8209;house town and the railway village where you write a wish on a paper lantern and let it go. About 1&ndash;1.5&nbsp;h each way. <em>Caveat:</em> Sunday is its busiest day and the northeast coast catches the monsoon drizzle long before Taipei does &mdash; check the forecast the night before and bring rain jackets regardless.</div>
+            </div>
+            <div class="slot slot--idea">
+              <div class="slot__when">Option B</div>
+              <div class="slot__what"><b>Beitou hot springs</b>The gentler swap if the coast looks wet or anyone is still jet&#8209;lagged. Sulphur valley, a beautiful old wooden library, and public or private baths &mdash; and it&rsquo;s inside the city, 30 minutes on the Red line.<span class="mrt ln-red">Xinbeitou</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">MON</span>
+            <span class="day__date">9 November</span>
+            <span class="day__tag">Museums</span>
+          </div>
+          <div class="day__theme">Imperial collection, then the old merchant street</div>
+          <div class="slots">
+            <div class="slot slot--idea">
+              <div class="slot__when">Morning</div>
+              <div class="slot__what"><b>National Palace Museum</b>The collection the Nationalists carried off the mainland &mdash; bronzes, jade, calligraphy, and the famous jadeite cabbage. Go early; the tour buses land mid&#8209;morning. <em>Confirm Monday opening hours before committing the day.</em></div>
+            </div>
+            <div class="slot slot--idea">
+              <div class="slot__when">Afternoon</div>
+              <div class="slot__what"><b>Dihua Street &amp; Dadaocheng</b>The nineteenth&#8209;century trading street &mdash; dried seafood, medicinal herbs, tea merchants, and a row of restored shophouses now full of small design shops.<span class="mrt ln-orange">Daqiaotou</span></div>
+            </div>
+            <div class="slot slot--idea">
+              <div class="slot__when">Evening</div>
+              <div class="slot__what"><b>Ningxia night market</b>Ten minutes from Dihua and the most food&#8209;focused of the markets &mdash; compact, no clothes stalls, mostly people eating.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">TUE</span>
+            <span class="day__date">10 November</span>
+            <span class="day__tag">Xinyi</span>
+          </div>
+          <div class="day__theme">The tower, and the hill you photograph it from</div>
+          <div class="slots">
+            <div class="slot slot--idea">
+              <div class="slot__when">Daytime</div>
+              <div class="slot__what"><b>Taipei 101 &amp; Xinyi</b>Observatory on 89 and 91, the wind damper, and the food hall in the basement. Xinyi around it is the shopping district if anyone wants a mall afternoon.<span class="mrt ln-red">Taipei 101 / World Trade Center</span></div>
+            </div>
+            <div class="slot slot--idea">
+              <div class="slot__when">~1h before sunset</div>
+              <div class="slot__what"><b>Elephant Mountain</b>Twenty minutes of steep stairs for the postcard shot of 101 against the city. Go up in daylight, come down after the lights turn on. Skip it if anyone&rsquo;s knees vote no &mdash; the Marco Polo Lounge at the hotel is the no&#8209;stairs alternative.<span class="mrt ln-red">Xiangshan</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day day--open">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">WED</span>
+            <span class="day__date">11 November</span>
+            <span class="day__tag">Open</span>
+          </div>
+          <div class="day__theme">Last full day &mdash; deliberately unplanned</div>
+          <div class="slots">
+            <div class="slot slot--idea">
+              <div class="slot__when">Candidates</div>
+              <div class="slot__what"><b>Maokong gondola &amp; tea houses</b>Cable car up into the tea hills from the zoo, a pot of oolong looking back over the city. Half a day.<span class="mrt ln-brown">Taipei Zoo</span></div>
+            </div>
+            <div class="slot slot--idea">
+              <div class="slot__when">or</div>
+              <div class="slot__what"><b>Yangmingshan, or a spa afternoon at the hotel</b>Volcanic park and grassland north of the city &mdash; or nothing at all, which after six days is a legitimate plan.</div>
+            </div>
+            <div class="slot slot--idea">
+              <div class="slot__when">Evening</div>
+              <div class="slot__what"><b>The farewell dinner goes here</b>Not the 12th &mdash; we&rsquo;re on planes. This is the night to book something good, and to book it well before we fly.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day day--transit">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">THU</span>
+            <span class="day__date">12 November</span>
+            <span class="day__tag">Fly home</span>
+          </div>
+          <div class="day__theme">Out and back across the date line, same day</div>
+          <div class="slots">
+            <div class="slot slot--fixed">
+              <div class="slot__when">Morning</div>
+              <div class="slot__what"><b>Check out, transfer to Taoyuan</b>Allow 90 minutes door to gate&#8209;side, more at rush hour. Spend the last of the EasyCard balance at a 7&#8209;Eleven rather than queuing for a refund.</div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">TPE</div>
+              <div class="slot__what"><b>Both flights out</b>Landing back in the US on the 12th as well.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ EATING ============ -->
+  <section id="eat">
+    <div class="sec-head">
+      <h2>The eating list</h2>
+      <span class="count">starter set &mdash; to be expanded</span>
+    </div>
+    <p class="lede">Taipei&rsquo;s reputation is built on cheap food rather than expensive food, so most of this costs a few dollars. The one thing worth acting on now is the reservations note below it.</p>
+
+    <div class="shelf">
+      <div class="pick">
+        <h4>Beef noodle soup</h4>
+        <div class="zh">&#29275;&#32905;&#40629;</div>
+        <p>The city&rsquo;s signature dish and the one to eat more than once &mdash; braised or clear broth, shin meat, pickled mustard greens. Lin Dong Fang and the Yongkang Street shops are the usual arguments.</p>
+        <div class="foot"><span>NT$150&ndash;300</span></div>
+      </div>
+      <div class="pick">
+        <h4>Xiao long bao</h4>
+        <div class="zh">&#23567;&#31840;&#21253;</div>
+        <p>Din Tai Fung started here and the original Xinyi Road branch still runs the queue&#8209;and&#8209;buzzer system. Worth doing once even though it&rsquo;s a chain now.</p>
+        <div class="foot"><span>NT$250&ndash;450</span></div>
+      </div>
+      <div class="pick">
+        <h4>Taiwanese breakfast</h4>
+        <div class="zh">&#35910;&#28479;&#12289;&#34507;&#39173;</div>
+        <p>Hot or cold soy milk, fried dough sticks, egg crepes, turnip cakes. Fuhang Dou Jiang is the famous one with the famous line &mdash; there are a hundred unfamous ones that are nearly as good.</p>
+        <div class="foot"><span>NT$50&ndash;120</span></div>
+      </div>
+      <div class="pick">
+        <h4>Night market rounds</h4>
+        <div class="zh">&#22812;&#24066;</div>
+        <p>Pepper buns, gua bao, oyster omelette, scallion pancake, stinky tofu if anyone&rsquo;s brave. Eat one thing per stall and keep moving &mdash; that&rsquo;s the whole technique.</p>
+        <div class="foot"><span>NT$40&ndash;100 a go</span></div>
+      </div>
+      <div class="pick">
+        <h4>Mango shaved ice</h4>
+        <div class="zh">&#33426;&#26524;&#20912;</div>
+        <p>Yongkang Street is the epicentre. Early November is past peak mango, so ask what fruit is actually good that week rather than ordering off the photo.</p>
+        <div class="foot"><span>NT$180&ndash;280</span></div>
+      </div>
+      <div class="pick">
+        <h4>Tea, properly</h4>
+        <div class="zh">&#32769;&#20154;&#33590;</div>
+        <p>Either up at Maokong with the city below, or in one of the Dadaocheng tea houses. Bubble tea was invented in Taiwan and is everywhere &mdash; this is the other, slower version.</p>
+        <div class="foot"><span>NT$300&ndash;800</span></div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>Book these now, not in November.</b> Taipei&rsquo;s tasting&#8209;menu restaurants &mdash; RAW and Mume are the two names that come up &mdash; release tables well in advance and sell out within minutes of opening the window. If a special dinner on Wednesday the 11th is wanted, that decision has to happen in the next week or two. The hotel concierge can also hold a table at Shang Palace, which needs far less notice.
+    </div>
+  </section>
+
+  <!-- ============ BASICS ============ -->
+  <section id="basics">
+    <div class="sec-head">
+      <h2>Ground rules</h2>
+      <span class="count">the boring, useful part</span>
+    </div>
+
+    <div class="basics">
+      <div class="basic">
+        <span class="lbl">Money</span>
+        <span class="txt">New Taiwan dollar (NT$). Roughly <b>NT$32 to US$1</b> &mdash; so NT$100 is about three dollars. Cards work in hotels, department stores and chains; night markets, temples and small noodle shops are <b>cash only</b>. Airport ATMs give the best rate.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">EasyCard</span>
+        <span class="txt">The tap card that runs everything &mdash; MRT, buses, YouBike, and paying at 7&#8209;Eleven and FamilyMart. Buy one each at any MRT station or convenience store and load NT$500 to start. MRT fares run <b>NT$20&ndash;65</b> a ride.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Getting around</span>
+        <span class="txt">The MRT is clean, signed in English, and covers almost everything on this list. Taxis are plentiful and cheap by US standards &mdash; a cross&#8209;town ride is usually under NT$250 &mdash; but many drivers don&rsquo;t read English, which is why the Chinese hotel address is printed above. Uber works too.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Phones</span>
+        <span class="txt">Pick up prepaid tourist SIMs or eSIMs in the arrivals hall at Taoyuan &mdash; unlimited data for the week runs about NT$500&ndash;1,000 and takes ten minutes. Cheaper and simpler than US roaming plans.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Weather &amp; packing</span>
+        <span class="txt">Early November is the good season: highs around <b>26&deg;C / 79&deg;F</b>, lows about <b>21&deg;C / 70&deg;F</b>, typhoon season over. Still humid, and the northeast monsoon is starting, which means sudden drizzle. Light layers, comfortable shoes, a compact umbrella each. Indoor air conditioning is aggressive &mdash; bring one warm layer.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Entry</span>
+        <span class="txt">US passports get <b>visa&#8209;free entry</b> to Taiwan for short stays; passports should have comfortable validity beyond the trip. Taiwan uses an online arrival card &mdash; worth filling in before flying instead of at the airport.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Plugs</span>
+        <span class="txt">Same as the US &mdash; <b>110V, type A/B</b>. No adapters needed, which is a rare gift.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Etiquette</span>
+        <span class="txt">No tipping, anywhere. No eating or drinking on the MRT, including water &mdash; it&rsquo;s enforced. Queue properly; everyone else does.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEXT ============ -->
+  <section id="next">
+    <div class="sec-head">
+      <h2>What I need from you</h2>
+      <span class="count">before the next pass</span>
+    </div>
+    <p class="lede">This is the skeleton. Answer these and the next version gets a lot more specific.</p>
+    <ol class="todo">
+      <li><b>Both sets of flight numbers and times.</b> Especially the Delta routing &mdash; nonstop versus a Seoul or Tokyo connection changes the whole first day.</li>
+      <li><b>Room setup at the Shangri&#8209;La.</b> One room for three, or two rooms? It affects nothing on this page but everything at check&#8209;in.</li>
+      <li><b>Pace.</b> Is this a three&#8209;things&#8209;a&#8209;day trip or a one&#8209;thing&#8209;a&#8209;day trip? I&rsquo;ve drafted it somewhere in between, which may suit nobody.</li>
+      <li><b>Anyone&rsquo;s limits.</b> Stairs, heat, long days, early mornings &mdash; say so now and I&rsquo;ll route around them rather than proposing Elephant Mountain at sunset.</li>
+      <li><b>Jiufen or Beitou</b> on the Sunday &mdash; or something else entirely.</li>
+      <li><b>The big dinner.</b> Whether we&rsquo;re booking one, and roughly what for. The good tables go early.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <p><b>Status.</b> Confirmed: the dates, the two carriers, and six nights at the Shangri&#8209;La Far Eastern. Everything marked <em>proposed</em> is a first draft, and every amber field is waiting on a confirmation number. Prices and opening hours are indicative &mdash; verify anything time&#8209;critical before building a day around it.</p>
+    <p style="margin-top:10px">Last updated 13 September 2026.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var el = document.getElementById('countdown');
+  if(!el) return;
+  var dep = new Date(2026, 10, 5);           // 5 Nov 2026, local
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var days = Math.round((dep - today) / 86400000);
+  el.textContent = days > 1 ? days + ' days'
+                 : days === 1 ? 'tomorrow'
+                 : days === 0 ? 'today'
+                 : 'in Taipei';
+})();
+</script>
+</body>
+</html>
