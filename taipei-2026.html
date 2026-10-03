@@ -16,7 +16,7 @@
   --line:#d8d6c8; --line-soft:#e6e4d8;
   --ink:#1b2422; --ink-2:#4a5551; --ink-3:#79837e;
   --jade:#0f7f68; --jade-ink:#0b5e4d; --jade-soft:#dcefe8;
-  --lantern:#b8651a; --lantern-soft:#f7e8d3;
+  --lantern:#b8651a; --lantern-soft:#f7e8d3; --lantern-ink:#8a4a10;
   --coral:#b23b30; --coral-soft:#f8e2de;
   --shadow:0 1px 2px rgba(27,36,34,.05), 0 10px 28px -16px rgba(27,36,34,.28);
   --mrt-red:#d90023; --mrt-blue:#0a59ae; --mrt-green:#00865c;
@@ -32,7 +32,7 @@
     --line:#263a36; --line-soft:#1d2f2c;
     --ink:#e9efec; --ink-2:#a2b2ad; --ink-3:#74847f;
     --jade:#45d0ab; --jade-ink:#7fe0c4; --jade-soft:rgba(69,208,171,.13);
-    --lantern:#f0aa55; --lantern-soft:rgba(240,170,85,.13);
+    --lantern:#f0aa55; --lantern-soft:rgba(240,170,85,.13); --lantern-ink:#f6c27e;
     --coral:#ee7a67; --coral-soft:rgba(238,122,103,.13);
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 30px -18px rgba(0,0,0,.8);
     --mrt-red:#f2455f; --mrt-blue:#4d93e0; --mrt-green:#2fb583;
@@ -45,7 +45,7 @@
   --line:#263a36; --line-soft:#1d2f2c;
   --ink:#e9efec; --ink-2:#a2b2ad; --ink-3:#74847f;
   --jade:#45d0ab; --jade-ink:#7fe0c4; --jade-soft:rgba(69,208,171,.13);
-  --lantern:#f0aa55; --lantern-soft:rgba(240,170,85,.13);
+  --lantern:#f0aa55; --lantern-soft:rgba(240,170,85,.13); --lantern-ink:#f6c27e;
   --coral:#ee7a67; --coral-soft:rgba(238,122,103,.13);
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 30px -18px rgba(0,0,0,.8);
   --mrt-red:#f2455f; --mrt-blue:#4d93e0; --mrt-green:#2fb583;
@@ -164,7 +164,7 @@ section{padding-block:46px 0}
 .leg .det .fillin{display:inline}
 
 .fillin{
-  font-family:var(--f-mono); font-size:.78rem; color:var(--lantern);
+  font-family:var(--f-mono); font-size:.78rem; color:var(--lantern-ink);
   background:var(--lantern-soft); border-radius:5px; padding:1px 6px;
   white-space:nowrap;
 }
@@ -388,7 +388,7 @@ footer{
 .subhead--first{margin-top:0}
 .pick .tier{
   font-family:var(--f-mono); font-size:10.5px; font-weight:600;
-  letter-spacing:.06em; text-transform:uppercase; color:var(--lantern); margin-top:6px;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--lantern-ink); margin-top:6px;
 }
 .pick--top{grid-column:1/-1; border-color:var(--jade); box-shadow:var(--shadow); padding:20px 22px}
 .pick--top h4{font-size:1.3rem}
@@ -411,6 +411,16 @@ footer{
 .order > div{background:var(--surface); padding:11px 14px; min-width:0}
 .order .z{font-family:var(--f-display); font-weight:700; font-size:1.12rem; letter-spacing:.04em; color:var(--ink)}
 .order .e{font-size:.84rem; color:var(--ink-2); line-height:1.4; margin-top:2px}
+/* ---- booked ---- */
+.slot--booked{background:var(--lantern-soft)}
+.slot--booked .slot__what b{color:var(--ink)}
+.slot--booked .slot__what b::after{
+  content:'booked'; font-family:var(--f-mono); font-size:9.5px;
+  font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--lantern-ink); margin-left:8px; vertical-align:1px;
+}
+.pick--booked{border-color:var(--lantern)}
+.call--booked{background:var(--lantern-soft); color:var(--lantern-ink)}
 @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
 </style>
 </head>
@@ -585,6 +595,7 @@ footer{
         <li>The Maokong gondola shuts every Monday for maintenance, so Maokong is Wednesday.</li>
         <li>Jiufen is packed at weekends, so the day trip is Monday, with Tuesday as the rain swap.</li>
         <li>Both soy milk shops close on Mondays, so the traditional breakfasts are Sunday and Wednesday.</li>
+        <li>Le Palais is Tuesday at 6, so the all-you-can-eat hot pot moved to Sunday lunch, next to Taipei 101.</li>
       </ul>
     </div>
 
@@ -648,7 +659,7 @@ footer{
             <span class="day__date">7 November</span>
             <span class="day__tag">Easy start</span>
           </div>
-          <div class="day__theme">Beef noodles, pineapple cake, the big dinner</div>
+          <div class="day__theme">Beef noodles, pineapple cake, an easy night</div>
           <div class="slots">
             <div class="slot slot--yours">
               <div class="slot__when">Morning</div>
@@ -675,11 +686,13 @@ footer{
             </div>
             <div class="slot slot--idea">
               <div class="slot__when">15:00</div>
-              <div class="slot__what"><b>Back to the hotel</b>A couple of hours off before dinner. If dinner ends up at Fujin Tree, skip this; it’s in the same neighbourhood as SunnyHills.</div>
+              <div class="slot__what"><b>Back to the hotel</b>A couple of hours off; jet lag catches up mid-afternoon. If you book Fujin Tree for dinner, skip this, since it’s in the same neighbourhood as SunnyHills.</div>
             </div>
-            <div class="slot slot--yours">
+            <div class="slot slot--idea">
               <div class="slot__when">Evening</div>
-              <div class="slot__what"><b>The big dinner, still to book</b>Michelin-starred Taiwanese. The shortlist is in <a href="#eat">the eating list</a>, and Mountain &amp; Sea House is the first call.</div>
+              <div class="slot__what"><b>Tonghua night market, or a Taiwanese dinner</b>An easy first night: graze the Tonghua (Linjiang St) night market, 15 minutes’ walk from the hotel. If you want a starred Taiwanese dinner as well as Le Palais, this is the night; the shortlist is in <a href="#eat">the eating list</a>.
+                <div class="slot__foot"><span class="mrt ln-red">Xinyi Anhe</span></div>
+              </div>
             </div>
           </div>
         </div>
@@ -691,9 +704,9 @@ footer{
           <div class="day__head">
             <span class="day__num">SUN</span>
             <span class="day__date">8 November</span>
-            <span class="day__tag">Slow day</span>
+            <span class="day__tag">Xinyi</span>
           </div>
-          <div class="day__theme">Soy milk at dawn, then not much</div>
+          <div class="day__theme">Soy milk at dawn, the tower, hot pot</div>
           <div class="slots">
             <div class="slot slot--yours">
               <div class="slot__when">05:45</div>
@@ -706,20 +719,34 @@ footer{
               </div>
             </div>
             <div class="slot slot--idea">
-              <div class="slot__when">Morning</div>
-              <div class="slot__what"><b>Back to bed, or CKS Memorial Hall</b>Breakfast at 6 leaves a long morning. The memorial hall is about 20 minutes’ walk south of Fu Hang, and the honour guard changes on the hour from 9.
-                <div class="slot__foot"><span class="mrt ln-green">CKS Memorial Hall</span></div>
+              <div class="slot__when">07:00</div>
+              <div class="slot__what"><b>Back to bed</b>A couple of hours of sleep before the tower opens at 10.</div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">10:00</div>
+              <div class="slot__what"><b>Taipei 101 Observatory <span class="zhn">台北101觀景台</span></b>Book the 10:00 slot online; the QR code gets you into a faster line, and Sundays get busier as the day goes on. The 89th floor is NT$600 for visitors, and the walk round passes the giant gold wind damper.
+                <div class="slot__foot">
+                  <span class="mrt ln-red">Taipei 101 / World Trade Center</span>
+                  <span class="hrs">10:00–21:00, last entry 20:15</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">11:30</div>
+              <div class="slot__what"><b>Mala Hot Pot, Xinyi <span class="zhn">馬辣頂級麻辣鴛鴦火鍋 信義店</span></b>All you can eat with two-hour seating, on the 3rd floor of NEO19, about five minutes’ walk from 101. The split pot has a numbing-spicy side and a mild side, so the table can divide by tolerance. Lunch runs 11:30–16:00. Book ahead on <span class="nw">02-2720-5726</span>.
+                <div class="slot__foot">
+                  <span class="drv">台北市信義區松壽路22號3樓</span>
+                  <span class="hrs">11:30–02:00 daily</span>
+                </div>
               </div>
             </div>
             <div class="slot slot--idea">
               <div class="slot__when">Afternoon</div>
-              <div class="slot__what"><b>Nap, pool, or Yongkang Street</b>Day two of jet lag. Yongkang Street is the strip for snacks and shaved ice if anyone has the energy.</div>
+              <div class="slot__what"><b>Nap or pool</b>Day two of jet lag, after a big lunch. The malls around 101 are joined by covered skybridges if anyone would rather shop.</div>
             </div>
             <div class="slot slot--idea">
               <div class="slot__when">Evening</div>
-              <div class="slot__what"><b>Tonghua (Linjiang St) night market</b>The neighbourhood market, 15 minutes from the hotel on foot, so it’s easy to leave when you’re done.
-                <div class="slot__foot"><span class="mrt ln-red">Xinyi Anhe</span></div>
-              </div>
+              <div class="slot__what"><b>A drink on 38, or nothing</b>Nobody will want dinner after hot pot at lunch. The Marco Polo Lounge at the hotel has the skyline with 101 lit up.</div>
             </div>
           </div>
         </div>
@@ -767,35 +794,29 @@ footer{
           <div class="day__head">
             <span class="day__num">TUE</span>
             <span class="day__date">10 November</span>
-            <span class="day__tag">Xinyi</span>
+            <span class="day__tag">Le Palais</span>
           </div>
-          <div class="day__theme">Up the tower, then hot pot</div>
+          <div class="day__theme">A slow day, then the duck</div>
           <div class="slots">
-            <div class="slot slot--yours">
-              <div class="slot__when">10:00</div>
-              <div class="slot__what"><b>Taipei 101 Observatory <span class="zhn">台北101觀景台</span></b>Book timed tickets online; the QR code gets you into a faster line. The 89th floor is NT$600 for visitors, and the walk round passes the giant gold wind damper.
-                <div class="slot__foot">
-                  <span class="mrt ln-red">Taipei 101 / World Trade Center</span>
-                  <span class="hrs">10:00–21:00, last entry 20:15</span>
-                </div>
-              </div>
-            </div>
-            <div class="slot slot--yours">
-              <div class="slot__when">11:30</div>
-              <div class="slot__what"><b>Mala Hot Pot, Xinyi <span class="zhn">馬辣頂級麻辣鴛鴦火鍋 信義店</span></b>All you can eat with two-hour seating, on the 3rd floor of NEO19, about five minutes’ walk from 101. The split pot has a numbing-spicy side and a mild side, so the table can divide by tolerance. Weekday lunch (11:30–16:00) is the cheapest session. Book ahead on <span class="nw">02-2720-5726</span>.
-                <div class="slot__foot">
-                  <span class="drv">台北市信義區松壽路22號3樓</span>
-                  <span class="hrs">11:30–02:00 daily</span>
-                </div>
-              </div>
+            <div class="slot slot--idea">
+              <div class="slot__when">Morning</div>
+              <div class="slot__what"><b>Hotel breakfast, slow morning</b>Keep the day light. Dinner is the event.</div>
             </div>
             <div class="slot slot--idea">
-              <div class="slot__when">Afternoon</div>
-              <div class="slot__what"><b>Xinyi on foot, or a nap</b>The department stores around 101 are joined by covered skybridges, which helps if it rains.</div>
+              <div class="slot__when">14:00</div>
+              <div class="slot__what"><b>Dihua Street and Dadaocheng <span class="zhn">迪化街</span></b>Taipei’s old merchant street, about 10 minutes by taxi from Le Palais: dried goods, tea shops, herbal medicine and restored shophouses. Dadaocheng Wharf, a few minutes’ walk west, is good at sunset, just after 5. Or rest at the hotel and go straight to dinner.
+                <div class="slot__foot"><span class="mrt ln-orange">Daqiaotou</span></div>
+              </div>
             </div>
-            <div class="slot slot--idea">
-              <div class="slot__when">Evening</div>
-              <div class="slot__what"><b>A drink on 38, or nothing</b>Nobody will want dinner after hot pot at lunch. The Marco Polo Lounge at the hotel has the skyline with 101 lit up.</div>
+            <div class="slot slot--booked">
+              <div class="slot__when">18:00</div>
+              <div class="slot__what"><b>Le Palais <span class="zhn">頤宮</span></b>Three Michelin stars nine years running, and the duck is the reason to go: the flaming sliced duck served four ways (火焰片皮鴨四吃). It has to be pre-ordered, so call and add it to the booking; recent reviews put it at about NT$5,880 a duck. It’s on the 17th floor of the Palais de Chine Hotel, by Taipei Main Station. From the hotel, allow 25–30 minutes by taxi at rush hour, or take the MRT to Taipei Main.
+                <div class="slot__foot">
+                  <span class="drv">台北市大同區承德路一段3號17樓</span>
+                  <span class="mrt ln-blue">Taipei Main Station</span>
+                  <span class="hrs"><span class="nw">02-2181-9985</span> · no-show or late cancellation up to NT$1,500</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -888,7 +909,7 @@ footer{
       <b>Monday by train instead.</b> MRT to Taipei Main, a TRA train to Ruifang (45–60 minutes), then the Pingxi line to Shifen (about 30 minutes, trains roughly hourly). Afterwards ride back to Ruifang and take a taxi up to Jiufen (NT$205 flat from the station rank), then bus 1062 home. The Pingxi line reopened on 31 January 2026 after storm repairs and still pauses in heavy rain, so check the TRA site the night before.
     </div>
     <div class="note">
-      <b>If Monday is a washout, swap it with Tuesday.</b> Taipei 101 and the hot pot lunch are indoors and open every day. The coast trip is miserable in a downpour.
+      <b>If Monday is a washout, swap it with Sunday.</b> Check the forecast on Saturday night. Fu Hang still works at dawn, the day trip runs on Sunday (busier, but dry), and Taipei 101 and the hot pot move to Monday; both are indoors and open every day.
     </div>
   </section>
 
@@ -899,17 +920,29 @@ footer{
       <span class="count">big dinner · breakfast · extras</span>
     </div>
 
-    <h3 class="subhead subhead--first">Saturday’s big dinner</h3>
-    <p class="lede">Michelin-starred Taiwanese from the 2026 guide, in the order I’d call them. Saturday is five weeks out, so call this week. If the Cantonese duck place that was full is Le Palais (three stars, booked out months ahead), Shang Palace in your own hotel is the duck fallback. It’s the last card.</p>
+    <h3 class="subhead subhead--first">Booked</h3>
+    <div class="shelf">
+      <div class="pick pick--top pick--booked">
+        <span class="call call--booked">Tue 10 Nov · 18:00 · for three</span>
+        <h4>Le Palais</h4>
+        <div class="zh">頤宮 · Palais de Chine Hotel, 17F</div>
+        <div class="tier">3 Michelin stars · Cantonese</div>
+        <p>Three stars nine years running. The reason to go is the flaming sliced duck served four ways (火焰片皮鴨四吃), and it has to be pre-ordered: call and add it to the booking. Recent reviews put it at about NT$5,880 for the duck. The card hold on the booking means a no-show or late cancellation costs up to NT$1,500.</p>
+        <div class="foot"><span class="nw">02-2181-9985</span><span>by Taipei Main Station</span><span>~25–30 min by taxi at rush hour</span><span>台北市大同區承德路一段3號17樓</span></div>
+      </div>
+    </div>
+
+    <h3 class="subhead">A Taiwanese night too?</h3>
+    <p class="lede">Le Palais covers the big Cantonese dinner. If you also want a Michelin-starred Taiwanese dinner, Saturday is the night. These are from the 2026 guide, in the order I’d call them.</p>
 
     <div class="shelf">
-      <div class="pick pick--top">
+      <div class="pick">
         <span class="call">First call</span>
         <h4>Mountain &amp; Sea House</h4>
         <div class="zh">山海樓</div>
         <div class="tier">1 Michelin star · Taiwanese banquet</div>
-        <p>Classic Taiwanese banquet cooking, the hand-made dishes once served at big family occasions, in a restored old house. It feels the most like an occasion of anything here, and it’s the easiest with Mom: per-person set menus run about NT$1,580–3,680 plus 10%, so there’s no shared order to negotiate.</p>
-        <div class="foot"><span>Dinner 18:00–21:30</span><span class="nw">02-2351-3345</span><span>~15 min by taxi</span><span>台北市中正區仁愛路二段94號</span></div>
+        <p>Classic Taiwanese banquet cooking, the hand-made dishes once served at big family occasions, in a restored old house. Per-person set menus run about NT$1,580–3,680 plus 10%, so there’s no shared order to negotiate.</p>
+        <div class="foot"><span>Dinner 18:00–21:30</span><span class="nw">02-2351-3345</span><span>~15 min by taxi</span></div>
       </div>
       <div class="pick">
         <h4>Shin Yeh Taiwanese Signature</h4>
@@ -946,13 +979,6 @@ footer{
         <p>A tiny, famous room for Taiwanese seafood and the hardest of these to get into. Treat it as a bonus if it happens.</p>
         <div class="foot"><span>Zhongshan · ~20 min</span></div>
       </div>
-      <div class="pick">
-        <h4>Shang Palace</h4>
-        <div class="zh">香宮 · in your hotel, 6F</div>
-        <div class="tier">Cantonese · roast duck</div>
-        <p>The duck fallback, one lift ride away. Fruitwood-roasted duck carved at the table and served two or three ways. Order the duck when you book; they prepare it ahead.</p>
-        <div class="foot"><span class="nw">02-7711-2080</span><span>No taxi needed</span></div>
-      </div>
     </div>
 
     <h3 class="subhead">Breakfast, the traditional way</h3>
@@ -987,7 +1013,7 @@ footer{
       <div class="pick">
         <h4>Xiao long bao</h4>
         <div class="zh">小籠包 · Din Tai Fung</div>
-        <p>It started in Taipei. There’s a branch in the basement of Taipei 101, if anyone has room after Tuesday’s hot pot.</p>
+        <p>It started in Taipei. There’s a branch in the basement of Taipei 101, if anyone has room after Sunday’s hot pot.</p>
         <div class="foot"><span>NT$250–450</span></div>
       </div>
       <div class="pick">
@@ -1014,11 +1040,15 @@ footer{
     <div class="basics">
       <div class="basic">
         <span class="lbl">This week</span>
-        <span class="txt"><b>Saturday dinner, 7 Nov, for three.</b> Call down the shortlist in order; the numbers are on the cards. If it ends up being Shang Palace, pre-order the duck.</span>
+        <span class="txt"><b>Pre-order the duck at Le Palais.</b> Call <span class="nw">02-2181-9985</span> and add the flaming sliced duck (火焰片皮鴨) to Tuesday’s 18:00 booking for three. The table itself is booked.</span>
       </div>
       <div class="basic">
         <span class="lbl">This week</span>
-        <span class="txt"><b>Mala Hot Pot, Tue 10 Nov, 11:30, for three.</b> <span class="nw">02-2720-5726</span>, or through Klook.</span>
+        <span class="txt"><b>Mala Hot Pot, Sun 8 Nov, 11:30, for three.</b> <span class="nw">02-2720-5726</span>, or through Klook.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">If wanted</span>
+        <span class="txt"><b>A Taiwanese dinner for Sat 7 Nov.</b> Call down the shortlist in order; the numbers are on the cards.</span>
       </div>
       <div class="basic">
         <span class="lbl">By late Oct</span>
@@ -1026,7 +1056,7 @@ footer{
       </div>
       <div class="basic">
         <span class="lbl">A few days out</span>
-        <span class="txt"><b>Taipei 101 tickets for Tue 10 Nov, 10:00.</b> Online, for the QR fast lane.</span>
+        <span class="txt"><b>Taipei 101 tickets for Sun 8 Nov, 10:00.</b> Online, for the QR fast lane.</span>
       </div>
       <div class="basic">
         <span class="lbl">Before you fly</span>
@@ -1085,7 +1115,7 @@ footer{
       <span class="count">for the next pass</span>
     </div>
     <ol class="todo">
-      <li><b>Which dinner you get for Saturday.</b> I’ll put it in the plan with directions.</li>
+      <li><b>Saturday night: easy, or a Taiwanese dinner?</b> If you book one, tell me which and I’ll add it.</li>
       <li><b>Return flight times on the 12th.</b> They decide whether there’s one more breakfast.</li>
       <li><b>Car or train for Monday.</b> I’d book the car.</li>
       <li><b>Flight numbers, whenever.</b> The arrival time is what matters, and I have that.</li>
@@ -1093,8 +1123,8 @@ footer{
   </section>
 
   <footer>
-    <p><b>Status.</b> Locked: the dates, the two carriers, six nights at the Shangri&#8209;La, the 8 pm Friday landing, and every row marked as your pick. Proposed: which day each pick falls on, Sunday, the dinner shortlist and the day-trip car. Hours, prices and closures were checked in early October 2026; reconfirm anything time-critical the week before.</p>
-    <p style="margin-top:10px">Last updated 2 October 2026.</p>
+    <p><b>Status.</b> Booked: Le Palais, Tuesday 10 November at 18:00. Locked: the dates, the two carriers, six nights at the Shangri&#8209;La, the 8 pm Friday landing, and every row marked as your pick. Proposed: which day each pick falls on, the Saturday and Tuesday fill-ins, and the day-trip car. Hours, prices and closures were checked in early October 2026; reconfirm anything time-critical the week before.</p>
+    <p style="margin-top:10px">Last updated 3 October 2026.</p>
   </footer>
 
 </div>
