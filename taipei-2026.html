@@ -1,0 +1,1603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Taipei, 5–12 November 2026. Three travellers, two flights, six nights at the Shangri-La Far Eastern, and a week of temples, museums and night markets by train and MRT.">
+<style>img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Three to Taipei</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#f5f3ec; --surface:#fffefa; --surface-2:#ecebe1;
+  --line:#d8d6c8; --line-soft:#e6e4d8;
+  --ink:#1b2422; --ink-2:#4a5551; --ink-3:#79837e;
+  --jade:#0f7f68; --jade-ink:#0b5e4d; --jade-soft:#dcefe8;
+  --lantern:#b8651a; --lantern-soft:#f7e8d3; --lantern-ink:#8a4a10;
+  --coral:#b23b30; --coral-soft:#f8e2de;
+  --shadow:0 1px 2px rgba(27,36,34,.05), 0 10px 28px -16px rgba(27,36,34,.28);
+  --mrt-red:#d90023; --mrt-blue:#0a59ae; --mrt-green:#00865c;
+  --mrt-orange:#e0a013; --mrt-brown:#a97b24; --mrt-purple:#8b208b;
+  --f-display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-body:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#0b1615; --surface:#111f1d; --surface-2:#182927;
+    --line:#263a36; --line-soft:#1d2f2c;
+    --ink:#e9efec; --ink-2:#a2b2ad; --ink-3:#74847f;
+    --jade:#45d0ab; --jade-ink:#7fe0c4; --jade-soft:rgba(69,208,171,.13);
+    --lantern:#f0aa55; --lantern-soft:rgba(240,170,85,.13); --lantern-ink:#f6c27e;
+    --coral:#ee7a67; --coral-soft:rgba(238,122,103,.13);
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 30px -18px rgba(0,0,0,.8);
+    --mrt-red:#f2455f; --mrt-blue:#4d93e0; --mrt-green:#2fb583;
+    --mrt-orange:#f0b93f; --mrt-brown:#c79a4a; --mrt-purple:#c05ac0;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#0b1615; --surface:#111f1d; --surface-2:#182927;
+  --line:#263a36; --line-soft:#1d2f2c;
+  --ink:#e9efec; --ink-2:#a2b2ad; --ink-3:#74847f;
+  --jade:#45d0ab; --jade-ink:#7fe0c4; --jade-soft:rgba(69,208,171,.13);
+  --lantern:#f0aa55; --lantern-soft:rgba(240,170,85,.13); --lantern-ink:#f6c27e;
+  --coral:#ee7a67; --coral-soft:rgba(238,122,103,.13);
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 30px -18px rgba(0,0,0,.8);
+  --mrt-red:#f2455f; --mrt-blue:#4d93e0; --mrt-green:#2fb583;
+  --mrt-orange:#f0b93f; --mrt-brown:#c79a4a; --mrt-purple:#c05ac0;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--f-body); font-size:16.5px; line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px; margin:0 auto; padding-inline:20px; padding-block:0 72px}
+h1,h2,h3,h4{font-family:var(--f-display); text-wrap:balance; margin:0; letter-spacing:-.02em}
+p{margin:0}
+a{color:var(--jade-ink); text-decoration-thickness:1px; text-underline-offset:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--jade); outline-offset:3px; border-radius:3px}
+.mono{font-family:var(--f-mono); font-variant-numeric:tabular-nums}
+
+/* ---- eyebrow labels ---- */
+.eyebrow{
+  font-family:var(--f-display); font-size:11px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+}
+
+/* ---- masthead ---- */
+.masthead{padding-block:52px 30px; border-bottom:1px solid var(--line)}
+.masthead h1{
+  font-size:clamp(2.5rem,9vw,4.1rem); font-weight:800; line-height:.95;
+  letter-spacing:-.045em; margin-block:14px 0;
+}
+.masthead h1 em{font-style:normal; color:var(--jade)}
+.masthead .sub{
+  font-size:1.05rem; color:var(--ink-2); margin-top:16px; max-width:60ch;
+}
+.route-line{
+  display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+  font-family:var(--f-mono); font-size:13px; color:var(--ink-2);
+  margin-top:22px;
+}
+@media (max-width:430px){.route-line{font-size:12px; gap:8px}}
+.route-line .seg{display:flex; align-items:center; gap:8px}
+.route-line .arrow{color:var(--ink-3)}
+
+/* ---- vitals strip ---- */
+.vitals{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--line); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden; margin-top:30px;
+}
+.vital{background:var(--surface); padding:16px 18px}
+.vital .k{
+  font-family:var(--f-display); font-size:10.5px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3);
+}
+.vital .v{
+  font-family:var(--f-display); font-size:1.5rem; font-weight:700;
+  letter-spacing:-.02em; margin-top:4px; font-variant-numeric:tabular-nums;
+}
+.vital .n{font-size:.82rem; color:var(--ink-3); line-height:1.4; margin-top:2px}
+@media (max-width:640px){
+  .vitals{grid-template-columns:repeat(2,1fr)}
+  .vital .v{font-size:1.3rem}
+}
+
+/* ---- sections ---- */
+section{padding-block:46px 0}
+.sec-head{
+  display:flex; align-items:baseline; gap:14px;
+  border-bottom:2px solid var(--ink); padding-bottom:10px; margin-bottom:26px;
+}
+.sec-head h2{font-size:1.45rem; font-weight:700; flex:1}
+.sec-head .count{font-family:var(--f-mono); font-size:12px; color:var(--ink-3); flex:none}
+@media (max-width:600px){
+  .sec-head{flex-wrap:wrap; gap:3px 14px; align-items:flex-start}
+  .sec-head h2{flex:1 0 100%; font-size:1.3rem}
+}
+.lede{color:var(--ink-2); max-width:64ch; margin-bottom:24px}
+
+/* ---- flight tracks ---- */
+.tracks{display:grid; grid-template-columns:1fr 1fr; gap:18px}
+@media (max-width:720px){.tracks{grid-template-columns:1fr}}
+.track{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; padding:20px; box-shadow:var(--shadow);
+  border-top:3px solid var(--carrier);
+}
+.track--eva{--carrier:var(--jade)}
+.track--dl{--carrier:var(--coral)}
+.track .who{
+  font-family:var(--f-display); font-weight:700; font-size:1.15rem;
+  letter-spacing:-.02em; display:flex; align-items:center; gap:9px;
+}
+.track .who::before{
+  content:''; width:9px; height:9px; border-radius:50%;
+  background:var(--carrier); flex:none;
+}
+.track .carrier{
+  font-family:var(--f-mono); font-size:12px; color:var(--carrier);
+  font-weight:500; margin-top:3px; letter-spacing:.02em;
+}
+.leg{
+  display:grid; grid-template-columns:auto 1fr; gap:12px;
+  padding-block:13px; border-top:1px solid var(--line-soft);
+  margin-top:14px; align-items:start;
+}
+.leg:first-of-type{margin-top:16px}
+.leg .apt{
+  font-family:var(--f-mono); font-weight:600; font-size:14px;
+  background:var(--surface-2); border-radius:6px; padding:3px 7px;
+  color:var(--ink); letter-spacing:.04em;
+}
+.leg .det{font-size:.92rem; line-height:1.5}
+.leg .det b{font-family:var(--f-display); font-weight:600}
+.leg .det > span{display:block; color:var(--ink-3); font-size:.85rem}
+.leg .det .fillin{display:inline}
+
+.fillin{
+  font-family:var(--f-mono); font-size:.78rem; color:var(--lantern-ink);
+  background:var(--lantern-soft); border-radius:5px; padding:1px 6px;
+  white-space:nowrap;
+}
+
+/* ---- generic note/callout ---- */
+.note{
+  border-left:3px solid var(--accent,var(--lantern));
+  background:var(--accent-soft,var(--lantern-soft));
+  padding:14px 16px; border-radius:0 10px 10px 0; margin-top:20px;
+  font-size:.93rem; line-height:1.55;
+}
+.note b{font-family:var(--f-display); font-weight:700}
+.note--jade{--accent:var(--jade); --accent-soft:var(--jade-soft)}
+.note--coral{--accent:var(--coral); --accent-soft:var(--coral-soft)}
+
+/* ---- hotel ---- */
+.hotel{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:14px; overflow:hidden; box-shadow:var(--shadow);
+}
+.hotel__top{padding:22px 22px 18px; border-bottom:1px solid var(--line-soft)}
+.hotel__top h3{font-size:1.45rem; font-weight:700}
+.hotel__top .zh{
+  font-size:1.05rem; color:var(--ink-2); margin-top:2px;
+  font-family:var(--f-display); font-weight:500;
+}
+.addr{
+  display:grid; gap:10px; padding:18px 22px;
+  background:var(--surface-2); border-bottom:1px solid var(--line-soft);
+}
+.addr .row{display:grid; grid-template-columns:96px 1fr; gap:12px; align-items:baseline}
+.addr .row .lbl{
+  font-family:var(--f-display); font-size:10.5px; font-weight:700;
+  letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3);
+}
+.addr .row .val{font-size:.95rem}
+.addr .zh-addr{font-size:1.08rem; font-weight:600; letter-spacing:.02em}
+@media (max-width:520px){
+  .addr .row{grid-template-columns:1fr; gap:2px}
+}
+.hotel__grid{display:grid; grid-template-columns:1fr 1fr; gap:0}
+@media (max-width:640px){.hotel__grid{grid-template-columns:1fr}}
+.hotel__cell{padding:18px 22px; border-top:1px solid var(--line-soft)}
+.hotel__cell:nth-child(even){border-left:1px solid var(--line-soft)}
+@media (max-width:640px){.hotel__cell:nth-child(even){border-left:0}}
+.hotel__cell h4{
+  font-size:11px; font-weight:700; letter-spacing:.12em;
+  text-transform:uppercase; color:var(--ink-3); margin-bottom:8px;
+}
+.hotel__cell ul{margin:0; padding-left:18px; font-size:.93rem; line-height:1.6}
+.hotel__cell li{margin-bottom:4px}
+
+/* ---- MRT chips ---- */
+.mrt{
+  display:inline-flex; align-items:center; gap:6px;
+  font-family:var(--f-display); font-size:.82rem; font-weight:600;
+  white-space:nowrap;
+}
+.mrt::before{
+  content:''; width:8px; height:8px; border-radius:50%;
+  background:var(--ln); flex:none;
+}
+.ln-red{--ln:var(--mrt-red)} .ln-blue{--ln:var(--mrt-blue)}
+.ln-green{--ln:var(--mrt-green)} .ln-orange{--ln:var(--mrt-orange)}
+.ln-brown{--ln:var(--mrt-brown)} .ln-purple{--ln:var(--mrt-purple)}
+
+/* ---- the week: MRT-style rail ---- */
+.week{margin-top:6px}
+.day{display:grid; grid-template-columns:62px 1fr; gap:0}
+@media (max-width:560px){.day{grid-template-columns:40px 1fr}}
+.day__rail{position:relative}
+.day__rail::before{
+  content:''; position:absolute; left:50%; top:0; bottom:0;
+  width:4px; transform:translateX(-50%); background:var(--line);
+}
+.day:first-child .day__rail::before{top:22px}
+.day:last-child .day__rail::before{bottom:calc(100% - 22px)}
+.day__dot{
+  position:absolute; left:50%; top:14px; transform:translateX(-50%);
+  width:16px; height:16px; border-radius:50%;
+  background:var(--ground); border:4px solid var(--tone,var(--jade));
+  z-index:1;
+}
+.day--transit .day__dot{border-color:var(--coral)}
+.day--open .day__dot{border-color:var(--line); background:var(--ground)}
+.day__body{padding-block:10px 26px; padding-left:6px; min-width:0}
+.day__head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap}
+.day__num{
+  font-family:var(--f-mono); font-size:12px; font-weight:600;
+  color:var(--ink-3); letter-spacing:.04em;
+}
+.day__date{
+  font-family:var(--f-display); font-size:1.2rem; font-weight:700;
+  letter-spacing:-.02em;
+}
+.day__tag{
+  font-family:var(--f-display); font-size:10.5px; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase;
+  padding:3px 9px; border-radius:20px; white-space:nowrap;
+  background:var(--jade-soft); color:var(--jade-ink);
+}
+.day--transit .day__tag{background:var(--coral-soft); color:var(--coral)}
+.day--open .day__tag{background:var(--surface-2); color:var(--ink-3)}
+.day__theme{
+  font-family:var(--f-display); font-size:1.02rem; font-weight:600;
+  color:var(--ink-2); margin-top:5px;
+}
+.slots{
+  margin-top:13px; display:grid; gap:1px;
+  background:var(--line); border:1px solid var(--line);
+  border-radius:11px; overflow:hidden;
+}
+.slot{
+  background:var(--surface); padding:12px 15px;
+  display:grid; grid-template-columns:74px 1fr; gap:13px; align-items:start;
+}
+@media (max-width:560px){
+  .slot{grid-template-columns:1fr; gap:3px}
+}
+.slot__when{
+  font-family:var(--f-mono); font-size:12px; font-weight:500;
+  color:var(--ink-3); padding-top:3px; letter-spacing:.02em;
+}
+.slot__what b{
+  font-family:var(--f-display); font-weight:600; font-size:.98rem;
+  display:block; margin-bottom:2px;
+}
+.slot__what{font-size:.9rem; line-height:1.55; color:var(--ink-2); min-width:0}
+.slot__what .mrt{margin-top:5px}
+.slot--fixed{background:var(--jade-soft)}
+.slot--fixed .slot__what b{color:var(--jade-ink)}
+.slot--idea{background:var(--surface)}
+.slot--idea .slot__what b::after{
+  content:'proposed'; font-family:var(--f-mono); font-size:9.5px;
+  font-weight:400; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--ink-3); margin-left:8px; vertical-align:1px;
+}
+
+/* ---- shortlist ---- */
+.shelf{display:grid; grid-template-columns:repeat(auto-fill,minmax(232px,1fr)); gap:14px}
+.pick{
+  background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; padding:15px 16px;
+}
+.pick h4{font-size:1rem; font-weight:700; letter-spacing:-.01em}
+.pick .zh{font-size:.88rem; color:var(--ink-3); font-family:var(--f-display); font-weight:500}
+.pick p{font-size:.88rem; color:var(--ink-2); line-height:1.5; margin-top:7px}
+.pick .foot{
+  margin-top:10px; padding-top:9px; border-top:1px solid var(--line-soft);
+  display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+  font-family:var(--f-mono); font-size:11px; color:var(--ink-3);
+}
+
+/* ---- basics table ---- */
+.basics{
+  border:1px solid var(--line); border-radius:12px; overflow:hidden;
+  background:var(--surface);
+}
+.basic{
+  display:grid; grid-template-columns:150px 1fr; gap:16px;
+  padding:14px 18px; border-top:1px solid var(--line-soft); align-items:start;
+}
+.basic:first-child{border-top:0}
+@media (max-width:560px){.basic{grid-template-columns:1fr; gap:3px}}
+.basic .lbl{
+  font-family:var(--f-display); font-size:11px; font-weight:700;
+  letter-spacing:.11em; text-transform:uppercase; color:var(--ink-3);
+  padding-top:3px;
+}
+.basic .txt{font-size:.93rem; line-height:1.6}
+.basic .txt b{font-family:var(--f-display); font-weight:600}
+
+/* ---- open questions ---- */
+.todo{list-style:none; margin:0; padding:0; counter-reset:q}
+.todo li{
+  counter-increment:q; position:relative; padding:13px 0 13px 42px;
+  border-top:1px solid var(--line-soft); font-size:.95rem; line-height:1.55;
+}
+.todo li:first-child{border-top:0}
+.todo li::before{
+  content:counter(q,decimal-leading-zero); position:absolute; left:0; top:13px;
+  font-family:var(--f-mono); font-size:12px; font-weight:600; color:var(--lantern);
+}
+.todo li b{font-family:var(--f-display); font-weight:700}
+
+footer{
+  margin-top:56px; padding-top:22px; border-top:1px solid var(--line);
+  font-size:.86rem; color:var(--ink-3); line-height:1.6;
+}
+/* ---- your picks, hours, addresses ---- */
+.slot--yours{background:var(--jade-soft)}
+.slot--yours .slot__what b{color:var(--jade-ink)}
+.slot--yours .slot__what b::after{
+  content:'your pick'; font-family:var(--f-mono); font-size:9.5px;
+  font-weight:400; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--jade); margin-left:8px; vertical-align:1px;
+}
+.slot__what .zhn{font-weight:500; color:var(--ink-3); letter-spacing:.02em}
+.slot__foot{display:flex; flex-wrap:wrap; align-items:center; gap:6px 12px; margin-top:9px}
+.slot__foot .mrt{margin-top:0}
+.hrs{font-family:var(--f-mono); font-size:11.5px; color:var(--ink-3)}
+.nw{white-space:nowrap}
+.drv{
+  display:inline-flex; align-items:baseline; gap:7px; max-width:100%;
+  padding:2px 9px; border-radius:6px; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink);
+  font-family:var(--f-display); font-weight:600; font-size:.9rem;
+  letter-spacing:.03em; overflow-wrap:anywhere;
+}
+.drv::before{
+  flex:none; content:'address'; font-family:var(--f-mono); font-weight:500; font-size:9.5px;
+  letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3);
+}
+.note ul{margin:6px 0 0; padding-left:18px}
+.note li{margin-top:3px}
+.note + .week{margin-top:30px}
+.week + .note{margin-top:8px}
+
+/* ---- eating list ---- */
+.subhead{font-size:1.1rem; font-weight:700; letter-spacing:-.01em; margin-top:40px; margin-bottom:8px}
+.subhead--first{margin-top:0}
+.pick .tier{
+  font-family:var(--f-mono); font-size:10.5px; font-weight:600;
+  letter-spacing:.06em; text-transform:uppercase; color:var(--lantern-ink); margin-top:6px;
+}
+.pick--top{grid-column:1/-1; border-color:var(--jade); box-shadow:var(--shadow); padding:20px 22px}
+.pick--top h4{font-size:1.3rem}
+.pick--top p{font-size:.95rem; max-width:66ch}
+.call{
+  display:inline-block; margin-bottom:10px; padding:3px 9px; border-radius:20px;
+  font-family:var(--f-display); font-size:10.5px; font-weight:700;
+  letter-spacing:.1em; text-transform:uppercase;
+  background:var(--jade-soft); color:var(--jade-ink);
+}
+.pair{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.trio{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+@media (max-width:720px){.trio{grid-template-columns:1fr}}
+@media (max-width:640px){.pair{grid-template-columns:1fr}}
+.order{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin-top:14px;
+  background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden;
+}
+@media (max-width:720px){.order{grid-template-columns:repeat(2,1fr)}}
+.order > div{background:var(--surface); padding:11px 14px; min-width:0}
+.order .z{font-family:var(--f-display); font-weight:700; font-size:1.12rem; letter-spacing:.04em; color:var(--ink)}
+.order .e{font-size:.84rem; color:var(--ink-2); line-height:1.4; margin-top:2px}
+/* ---- booked ---- */
+.slot--booked{background:var(--lantern-soft)}
+.slot--booked .slot__what b{color:var(--ink)}
+.slot--booked .slot__what b::after{
+  content:'booked'; font-family:var(--f-mono); font-size:9.5px;
+  font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--lantern-ink); margin-left:8px; vertical-align:1px;
+}
+.pick--booked{border-color:var(--lantern)}
+.call--booked{background:var(--lantern-soft); color:var(--lantern-ink)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+/* ---- red alert: things to reserve ---- */
+:root{--alert:#c42b1c; --alert-soft:#fde8e5; --alert-ink:#9a1d10; --alert-on:#ffffff; --alert-line:#f3c4bd}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--alert:#ff7564; --alert-soft:rgba(255,117,100,.13); --alert-ink:#ffb4a9; --alert-on:#2a0904; --alert-line:rgba(255,117,100,.32)}
+}
+:root[data-theme="dark"]{--alert:#ff7564; --alert-soft:rgba(255,117,100,.13); --alert-ink:#ffb4a9; --alert-on:#2a0904; --alert-line:rgba(255,117,100,.32)}
+
+.jump{display:flex; flex-wrap:wrap; gap:8px; margin-top:24px}
+.jump a{
+  font-family:var(--f-display); font-size:12.5px; font-weight:600; letter-spacing:.01em;
+  padding:6px 12px; border-radius:20px; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink); text-decoration:none; white-space:nowrap;
+}
+.jump a:hover{border-color:var(--ink-3)}
+.jump a.is-alert{border-color:var(--alert); background:var(--alert-soft); color:var(--alert-ink)}
+
+.alert{
+  border:2px solid var(--alert); background:var(--alert-soft);
+  border-radius:14px; padding:18px 18px 6px;
+}
+.alert__head{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+.alert__badge{
+  font-family:var(--f-mono); font-size:10.5px; font-weight:600; letter-spacing:.12em;
+  text-transform:uppercase; background:var(--alert); color:var(--alert-on);
+  padding:3px 8px; border-radius:5px; flex:none;
+}
+.alert__head h3{font-size:1.15rem; font-weight:700; color:var(--alert-ink)}
+.alert__sub{font-size:.9rem; color:var(--ink-2); margin-top:6px}
+.rlist{list-style:none; margin:10px 0 0; padding:0}
+.rlist li{
+  display:grid; grid-template-columns:26px 1fr; gap:10px; align-items:start;
+  padding:13px 0; border-top:1px solid var(--alert-line);
+}
+.rlist input{
+  width:20px; height:20px; margin:2px 0 0; accent-color:var(--alert); cursor:pointer;
+}
+.rlist label{cursor:pointer; font-size:.93rem; line-height:1.55; min-width:0}
+.rlist label b{font-family:var(--f-display); font-weight:700; display:block}
+.rlist .when{
+  font-family:var(--f-mono); font-size:11px; font-weight:600; color:var(--alert-ink);
+  letter-spacing:.06em; text-transform:uppercase; display:block; margin-bottom:2px;
+}
+.rlist input:checked + label{opacity:.55}
+.rlist input:checked + label b{text-decoration:line-through}
+.alert__opt{
+  font-size:.88rem; color:var(--ink-2); padding:12px 0 12px;
+  border-top:1px solid var(--alert-line);
+}
+.alert__opt b{font-family:var(--f-display)}
+
+.slot--alert{box-shadow:inset 4px 0 0 var(--alert)}
+.rsv{
+  display:inline-flex; align-items:baseline; gap:7px; max-width:100%;
+  padding:2px 9px; border-radius:6px; background:var(--alert); color:var(--alert-on);
+  font-family:var(--f-display); font-weight:600; font-size:.84rem; line-height:1.5;
+}
+.rsv::before{
+  content:'reserve'; flex:none; font-family:var(--f-mono); font-size:9.5px; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase; opacity:.85;
+}
+.cash{
+  display:inline-block; font-family:var(--f-mono); font-size:10px; font-weight:600;
+  letter-spacing:.09em; text-transform:uppercase; white-space:nowrap;
+  padding:1px 7px; border-radius:5px; border:1px solid var(--lantern);
+  background:var(--lantern-soft); color:var(--lantern-ink);
+}
+.slot--market{box-shadow:inset 4px 0 0 var(--lantern)}
+.slot--market .slot__what b::after{
+  content:'night market'; font-family:var(--f-mono); font-size:9.5px;
+  font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--lantern-ink); margin-left:8px; vertical-align:1px;
+}
+.ln-airport{--ln:var(--mrt-purple)}
+.ln-tra{--ln:var(--ink-2)}
+.ln-bus{--ln:var(--ink-3)}
+.ln-bus::before{border-radius:2px}
+
+/* ---- cash / card table ---- */
+.money{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+@media (max-width:760px){.money{grid-template-columns:1fr}}
+.money .pick ul{margin:8px 0 0; padding-left:18px; font-size:.9rem; line-height:1.55; color:var(--ink-2)}
+.money .pick li{margin-bottom:3px}
+.money .pick li b{color:var(--ink); font-family:var(--f-display); font-weight:600}
+.pick--cash{border-top:3px solid var(--lantern)}
+.pick--card{border-top:3px solid var(--jade)}
+.pick--tap{border-top:3px solid var(--mrt-purple)}
+
+/* ---- phrases teaser ---- */
+.say{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden}
+@media (max-width:720px){.say{grid-template-columns:repeat(2,1fr)}}
+.say > div{background:var(--surface); padding:12px 14px; min-width:0}
+.say .z{font-family:var(--f-display); font-weight:700; font-size:1.2rem; letter-spacing:.04em}
+.say .p{font-family:var(--f-mono); font-size:12px; color:var(--jade-ink); margin-top:1px}
+.say .e{font-size:.84rem; color:var(--ink-2); line-height:1.4; margin-top:3px}
+.cta{
+  display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  margin-top:14px; padding:14px 16px; border-radius:12px;
+  background:var(--jade-soft); border:1px solid var(--jade);
+}
+.cta p{font-size:.92rem; color:var(--ink-2); flex:1 1 240px}
+.cta a{
+  font-family:var(--f-display); font-weight:700; font-size:.95rem; text-decoration:none;
+  background:var(--jade); color:var(--surface); padding:8px 14px; border-radius:8px; white-space:nowrap;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Taipei · Thu 5 – Thu 12 November 2026</div>
+    <h1>Three to <em>Taipei</em></h1>
+    <p class="sub">Mom and Sis fly EVA nonstop out of LAX. I come in on Delta from Seattle. We all land at Terminal 2 around 8 pm on Friday the 6th and sleep at the Shangri&#8209;La Far Eastern for six nights. No taxis: trains, the MRT and our feet.</p>
+    <div class="route-line">
+      <span class="seg"><span class="mono">LAX</span><span class="arrow">→</span><span class="mono">TPE</span></span>
+      <span class="arrow">·</span>
+      <span class="seg"><span class="mono">SEA</span><span class="arrow">→</span><span class="mono">TPE</span></span>
+      <span class="arrow">·</span>
+      <span class="seg"><span class="mono">6 nights, one hotel</span></span>
+    </div>
+
+    <div class="vitals">
+      <div class="vital">
+        <div class="k">Countdown</div>
+        <div class="v mono" id="countdown">—</div>
+        <div class="n">until wheels up</div>
+      </div>
+      <div class="vital">
+        <div class="k">Full days</div>
+        <div class="v mono">5</div>
+        <div class="n">Sat 7 → Wed 11 Nov</div>
+      </div>
+      <div class="vital">
+        <div class="k">Weather then</div>
+        <div class="v mono">26°/21°C</div>
+        <div class="n">79–70°F, humid, some rain</div>
+      </div>
+      <div class="vital">
+        <div class="k">Sunset</div>
+        <div class="v mono">17:08</div>
+        <div class="n">dark by six · UTC+8</div>
+      </div>
+    </div>
+
+    <nav class="jump" aria-label="Jump to">
+      <a class="is-alert" href="#book">Reserve now</a>
+      <a href="#week">The week</a>
+      <a href="#eat">Eating</a>
+      <a href="#cash">Cash or card</a>
+      <a href="#buy">Souvenirs</a>
+      <a href="taipei-phrases.html">Phrasebook</a>
+      <a href="#basics">Ground rules</a>
+    </nav>
+  </header>
+
+  <!-- ============ RESERVE ============ -->
+  <section id="book">
+    <div class="alert">
+      <div class="alert__head">
+        <span class="alert__badge">Reserve</span>
+        <h3>Four things only you can do</h3>
+      </div>
+      <p class="alert__sub">Everything else on this page is walk-up. Tick them off as you go; the ticks stay on this phone.</p>
+      <ul class="rlist">
+        <li>
+          <input type="checkbox" id="r1" data-key="duck">
+          <label for="r1"><span class="when">Now · by phone</span><b>Pre-order the duck at Le Palais</b>Call <span class="nw">02-2181-9985</span> and add the flaming sliced duck four ways (火焰片皮鴨四吃) to Tuesday 10 Nov, 18:00, for three. The table is booked; the duck isn’t.</label>
+        </li>
+        <li>
+          <input type="checkbox" id="r2" data-key="mala">
+          <label for="r2"><span class="when">Now · phone or Klook</span><b>Mala Hot Pot, Xinyi: Sun 8 Nov, 11:30, three people</b><span class="nw">02-2720-5726</span>. Two-hour all-you-can-eat seating, and Sunday lunch fills up.</label>
+        </li>
+        <li>
+          <input type="checkbox" id="r3" data-key="101">
+          <label for="r3"><span class="when">A week out · online</span><b>Taipei 101 Observatory: Sun 8 Nov, 10:00, three tickets</b>On the official site or Klook. The QR code gets you into the faster line.</label>
+        </li>
+        <li>
+          <input type="checkbox" id="r4" data-key="hotel">
+          <label for="r4"><span class="when">Before you fly · email</span><b>Tell the Shangri&#8209;La two things</b>Check-in will be about 22:45 on Fri 6 Nov, after the train in. And you need bedding for three: a king or twins plus a rollaway, or connecting rooms.</label>
+        </li>
+      </ul>
+      <p class="alert__opt"><b>Only if you want one:</b> a sit-down Taiwanese dinner. Every evening now ends at a night market, so a dinner booking would replace one. The best fit is Fujin Tree on Saturday at 17:00, a walk from SunnyHills, then Raohe for dessert. Details in <a href="#eat">the eating list</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============ GETTING THERE ============ -->
+  <section id="flights">
+    <div class="sec-head">
+      <h2>Getting there</h2>
+      <span class="count">two flights, one terminal, one train</span>
+    </div>
+    <p class="lede">Leaving on Thursday the 5th means landing on Friday the 6th, around 8 pm for all of us. The date line takes a day on the way out and gives it back on the way home. Amber fields are still waiting on flight numbers.</p>
+
+    <div class="tracks">
+      <div class="track track--eva">
+        <div class="who">Mom &amp; Sis</div>
+        <div class="carrier">EVA AIR · NONSTOP</div>
+        <div class="leg">
+          <span class="apt">LAX</span>
+          <span class="det">
+            <b>Thu 5 Nov · depart Los Angeles</b>
+            <span>Flight <span class="fillin">BR ___</span> · dep <span class="fillin">__:__</span> · Tom Bradley International</span>
+          </span>
+        </div>
+        <div class="leg">
+          <span class="apt">TPE</span>
+          <span class="det">
+            <b>Fri 6 Nov · arrive Taoyuan, about 20:00</b>
+            <span>roughly 14 h in the air · Terminal 2</span>
+          </span>
+        </div>
+        <div class="note note--jade">
+          <b>The easy one.</b> No connection and no bag re-check. EVA uses Terminal 2, and the Airport MRT station (A13) is in the same building.
+        </div>
+      </div>
+
+      <div class="track track--dl">
+        <div class="who">Me</div>
+        <div class="carrier">DELTA · FROM SEATTLE</div>
+        <div class="leg">
+          <span class="apt">SEA</span>
+          <span class="det">
+            <b>Thu 5 Nov · depart Seattle</b>
+            <span>Flight <span class="fillin">DL ___</span> · dep <span class="fillin">__:__</span></span>
+          </span>
+        </div>
+        <div class="leg">
+          <span class="apt">TPE</span>
+          <span class="det">
+            <b>Fri 6 Nov · arrive Taoyuan, about 20:00</b>
+            <span>Terminal 2 · Delta’s Seattle nonstop (DL69) uses T2, same as EVA</span>
+          </span>
+        </div>
+        <div class="note note--coral">
+          <b>If the two landings drift apart.</b> Whoever is out first waits landside in T2 arrivals by the convenience store. If the gap is more than an hour, go ahead on the Airport MRT; Friday’s route is in the week below.
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>Friday night, airport to hotel, by train.</b> Airport MRT express from A13 (Terminal 2) to A1 Taipei Main: 38–40 minutes, NT$160 each, every 15 minutes or so, last express about 22:55. Then a 10–15 minute underground walk to the Taipei Metro and the <span class="mrt ln-red">red line</span> straight to Xinyi Anhe, with no change. Door to door is about 1¾ hours, so check-in is around 22:45. Every station has lifts, so use them with the bags.
+    </div>
+
+    <div class="note">
+      <b>Coming home, Thu 12 Nov, by train.</b> Reverse the route: red line to Taipei Main, walk to A1, Airport MRT express to Terminal 2. EVA does <b>in-town check-in at A1</b> (B1 level, 06:00–21:30, same-day flights, done at least 3 hours before departure), so Mom and Sis can drop bags there and ride out light. Delta isn’t on the in-town list, so I take my bag to the airport. Return times are still <span class="fillin">__:__</span>; they decide whether there’s time for one more breakfast.
+    </div>
+  </section>
+
+  <!-- ============ BASE ============ -->
+  <section id="hotel">
+    <div class="sec-head">
+      <h2>Base camp</h2>
+      <span class="count">6 nights · Fri 6 → Thu 12 Nov</span>
+    </div>
+    <p class="lede">One hotel the whole time, between two MRT lines. The red line runs from the nearer of them to Taipei 101, the Palace Museum, Shilin, Taipei Main and Le Palais without a change.</p>
+
+    <div class="hotel">
+      <div class="hotel__top">
+        <h3>Shangri&#8209;La Far Eastern, Taipei</h3>
+        <div class="zh">台北遠東香格里拉大飯店</div>
+      </div>
+      <div class="addr">
+        <div class="row">
+          <span class="lbl">In Chinese</span>
+          <span class="val zh-addr">台北市大安區敦化南路二段201號</span>
+        </div>
+        <div class="row">
+          <span class="lbl">In English</span>
+          <span class="val">No. 201, Section 2, Dunhua South Road, Da’an District, Taipei</span>
+        </div>
+        <div class="row">
+          <span class="lbl">Nearest MRT</span>
+          <span class="val"><span class="mrt ln-brown">Liuzhangli</span> · 6–8 min walk. <span class="mrt ln-red">Xinyi Anhe</span>, Exit 2 · 12–15 min walk, and the one to use for anything on the red line.</span>
+        </div>
+      </div>
+      <div class="hotel__grid">
+        <div class="hotel__cell">
+          <h4>What’s in the building</h4>
+          <ul>
+            <li>Shang Palace, 6F: Cantonese, known for fruitwood-roasted duck carved at the table</li>
+            <li>Ibuki: Japanese teppanyaki</li>
+            <li>Marco Polo Lounge on 38: the skyline without an observatory ticket</li>
+            <li>Rooftop pool and spa</li>
+          </ul>
+        </div>
+        <div class="hotel__cell">
+          <h4>What’s nearby</h4>
+          <ul>
+            <li>Anju Street, by Liuzhangli: your beef noodle shop and your skewer shop are both on it</li>
+            <li>Yonghe Soy Milk King on Fuxing S. Rd: Wednesday’s breakfast, about 15 min on foot</li>
+            <li>Linjiang Street (Tonghua) night market: 15 min on foot, by Xinyi Anhe</li>
+            <li>Taipei 101: one stop on the red line from Xinyi Anhe</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE WEEK ============ -->
+  <section id="week">
+    <div class="sec-head">
+      <h2>The week</h2>
+      <span class="count">your list, placed · trains, MRT, walking</span>
+    </div>
+    <p class="lede">Everything you asked for, placed around the closures and linked by train, MRT, the odd bus, and on foot. Green rows are your picks. Plain rows are the temples, museums and markets I’ve added to fill the gaps. A red stripe means there’s something to reserve, and <span class="cash">cash only</span> means bring notes.</p>
+
+    <div class="note note--jade">
+      <b>Why the days fall this way.</b>
+      <ul>
+        <li>The beef noodle shop is closed on Mondays, so it goes on Saturday.</li>
+        <li>The Maokong gondola shuts on Mondays for maintenance, so Maokong is Wednesday.</li>
+        <li>Jiufen is packed at weekends, so the day trip is Monday, with Sunday as the rain swap.</li>
+        <li>Both soy milk shops close on Mondays, so the traditional breakfasts are Sunday and Wednesday.</li>
+        <li>The Palace Museum and Confucius Temple close on Mondays, so they’re Tuesday morning, finishing in time to be back at the hotel by about 16:00 with an hour to change for Le Palais.</li>
+        <li>Every evening in town ends at a night market, best first: Raohe, then Shilin, Ningxia and the local Linjiang Street. Monday’s market is Jiufen’s lantern-lit old street.</li>
+      </ul>
+    </div>
+
+    <div class="week">
+
+      <div class="day day--transit">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">THU</span>
+            <span class="day__date">5 November</span>
+            <span class="day__tag">Travel</span>
+          </div>
+          <div class="day__theme">Two airports, one ocean</div>
+          <div class="slots">
+            <div class="slot slot--fixed">
+              <div class="slot__when">LAX</div>
+              <div class="slot__what"><b>Mom &amp; Sis depart</b>EVA nonstop. Get to Tom Bradley three hours out; the EVA check-in queue at LAX is long.</div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">SEA</div>
+              <div class="slot__what"><b>I depart</b>Delta, landing about the same time.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">FRI</span>
+            <span class="day__date">6 November</span>
+            <span class="day__tag">Arrive</span>
+          </div>
+          <div class="day__theme">Land at eight, a train, a 7-Eleven, bed</div>
+          <div class="slots">
+            <div class="slot slot--fixed">
+              <div class="slot__when">≈ 20:00</div>
+              <div class="slot__what"><b>Land at Taoyuan, Terminal 2</b>Immigration and bags. Use the arrivals-hall ATM for the week’s cash (see <a href="#cash">cash or card</a>) and pick up SIMs or eSIMs at the counters.</div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">≈ 21:00</div>
+              <div class="slot__what"><b>First 7-Eleven or FamilyMart <span class="zhn">便利商店</span></b>The arrivals-hall convenience store is where Taiwan starts. Buy an EasyCard each and load NT$1,000; it covers every train, bus and the gondola this week. Then water, and a first taste: tea eggs from the pot by the till (茶葉蛋), a rice triangle (飯糰), a bottle of milk tea. Taipei has one on nearly every block, so there’ll be another near the hotel for anything you forgot.</div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">≈ 21:15</div>
+              <div class="slot__what"><b>Airport MRT express to Taipei Main</b>Follow the purple signs down to A13. Take the express (purple-and-red train), not the commuter: 38–40 minutes to A1, NT$160, tap the EasyCard.
+                <div class="slot__foot">
+                  <span class="mrt ln-airport">A13 Airport T2 → A1 Taipei Main</span>
+                  <span class="hrs">last express ≈ 22:55</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">≈ 22:00</div>
+              <div class="slot__what"><b>Red line to the hotel</b>Walk 10–15 minutes underground from A1 to the Taipei Metro, then the red line toward Xiangshan, six stops to Xinyi Anhe. Exit 2, then 12–15 minutes on foot.
+                <div class="slot__foot">
+                  <span class="mrt ln-red">Taipei Main → Xinyi Anhe</span>
+                  <span class="drv">台北市大安區敦化南路二段201號</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">≈ 22:45</div>
+              <div class="slot__what"><b>Check in, sleep</b>Shangri&#8209;La Far Eastern, six nights. No night market tonight; the 7-Eleven was it.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">SAT</span>
+            <span class="day__date">7 November</span>
+            <span class="day__tag">Old Taipei</span>
+          </div>
+          <div class="day__theme">A temple at dawn, beef noodles, two pineapple cakes, Raohe</div>
+          <div class="slots">
+            <div class="slot slot--yours">
+              <div class="slot__when">07:00</div>
+              <div class="slot__what"><b>Hotel breakfast</b>Jet lag will have you up early. Use it.</div>
+            </div>
+            <div class="slot">
+              <div class="slot__when">08:15</div>
+              <div class="slot__what"><b>Longshan Temple <span class="zhn">艋舺龍山寺</span></b>Taipei’s oldest and busiest temple, from 1738, and the one to see if you see one. Saturday mornings are full of locals praying, and the 8:00 chanting may still be going. Walk round the front hall to the rear hall, where Mazu and the god of learning sit. Free. Brown line from Liuzhangli to Zhongxiao Fuxing, then blue straight to Longshan Temple, about 30 minutes.
+                <div class="slot__foot">
+                  <span class="mrt ln-blue">Longshan Temple</span>
+                  <span class="hrs">≈ 06:00–21:30 daily</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="slot__when">09:15</div>
+              <div class="slot__what"><b>Bopiliao Historic Block <span class="zhn">剝皮寮歷史街區</span></b>Five minutes’ walk away: a preserved street of Qing-era red-brick shophouses, quiet at this hour and free. Twenty minutes is enough.
+                <div class="slot__foot"><span class="hrs">from 09:00 · closed Mon</span></div>
+              </div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">10:50</div>
+              <div class="slot__what"><b>Lao Song Ji beef noodles <span class="zhn">老宋記真善美牛肉麵</span></b>Blue line back to Zhongxiao Fuxing, brown to Liuzhangli, and be in the queue before it opens. Get one braised (紅燒) and one clear-broth (清燉) bowl to compare, plus the platter of braised sides (滷味) that every table orders.
+                <div class="slot__foot">
+                  <span class="drv">台北市大安區安居街47號</span>
+                  <span class="mrt ln-brown">Liuzhangli</span>
+                  <span class="hrs">≈ 11:00–14:30 · 17:20–21:00 · closed Mon (some say Tue too)</span>
+                  <span class="cash">cash only</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">13:00</div>
+              <div class="slot__what"><b>SunnyHills, Minsheng Park <span class="zhn">微熱山丘</span></b>Brown line north to Nanjing Fuxing, green two stops to Nanjing Sanmin, then 15–20 minutes’ walk north through the leafy Minsheng Community. Sit down and they bring each of you a pineapple cake and a cup of tea, free. Buy boxes to take home here; they travel well.
+                <div class="slot__foot">
+                  <span class="drv">台北市松山區民生東路五段36巷4弄1號</span>
+                  <span class="mrt ln-green">Nanjing Sanmin</span>
+                  <span class="hrs">10:00–18:00 daily</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="slot__when">14:45</div>
+              <div class="slot__what"><b>Chia Te bakery <span class="zhn">佳德糕餅</span></b>On the walk back, by Nanjing Sanmin station: the other famous pineapple cake, the classic buttery kind, so you can settle which you prefer. Expect a queue. Skip it if the bags are already full.
+                <div class="slot__foot">
+                  <span class="drv">台北市松山區南京東路五段88號</span>
+                  <span class="mrt ln-green">Nanjing Sanmin</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="slot__when">15:45</div>
+              <div class="slot__what"><b>Songshan Ciyou Temple <span class="zhn">松山慈祐宮</span></b>One stop east to Songshan, Exit 5. This 1750s Mazu temple stands at the gate of Raohe, carved and gilded floor after floor. Climb to the upper levels for the roofline. Then the Rainbow Bridge over the river behind it for sunset, about 17:08.
+                <div class="slot__foot"><span class="mrt ln-green">Songshan</span><span class="hrs">free</span></div>
+              </div>
+            </div>
+            <div class="slot slot--market">
+              <div class="slot__when">17:15</div>
+              <div class="slot__what"><b>Raohe Street night market <span class="zhn">饒河街觀光夜市</span></b>The best first: one compact street, easy to walk with Mom. Queue at the temple end for the Michelin-listed Fuzhou pepper buns (福州世祖胡椒餅), baked on the wall of a clay oven, and try the herbal pork-rib soup at Chen Dong (陳董藥燉排骨). Home is green line to Nanjing Fuxing, brown to Liuzhangli, about 30 minutes.
+                <div class="slot__foot">
+                  <span class="mrt ln-green">Songshan, Exit 5</span>
+                  <span class="hrs">≈ 17:00–24:00</span>
+                  <span class="cash">cash only</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">SUN</span>
+            <span class="day__date">8 November</span>
+            <span class="day__tag">Xinyi · Shilin</span>
+          </div>
+          <div class="day__theme">Soy milk, the memorial hall, the tower, hot pot, Shilin</div>
+          <div class="slots">
+            <div class="slot slot--yours">
+              <div class="slot__when">06:00</div>
+              <div class="slot__what"><b>Fu Hang Soy Milk <span class="zhn">阜杭豆漿</span></b>The famous one, with a Michelin Bib Gourmand. Without a taxi, the first brown-line train (about 6:00) from Liuzhangli is as early as it gets: change at Zhongxiao Fuxing for two stops on the blue line, about 20 minutes. Expect a 30–45 minute Sunday queue up the stairs; it moves. Ordering guide in the eating list.
+                <div class="slot__foot">
+                  <span class="drv">台北市中正區忠孝東路一段108號2樓</span>
+                  <span class="mrt ln-blue">Shandao Temple, Exit 5</span>
+                  <span class="hrs">05:30–12:30 · closed Mon</span>
+                  <span class="cash">cash only</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="slot__when">08:00</div>
+              <div class="slot__what"><b>Chiang Kai-shek Memorial Hall <span class="zhn">中正紀念堂</span></b>Blue line one stop to Taipei Main, red two stops. Early on, the gardens are full of people doing tai chi, and the white hall, the gate and the two theatres face each other across the plaza. The hall opens at 9:00, and the honour guard changes outdoors on the hour from 9:00. Free.
+                <div class="slot__foot">
+                  <span class="mrt ln-red">Chiang Kai-shek Memorial Hall</span>
+                  <span class="hrs">hall 09:00–18:00 · guard on the hour, not in heavy rain</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--yours slot--alert">
+              <div class="slot__when">10:00</div>
+              <div class="slot__what"><b>Taipei 101 Observatory <span class="zhn">台北101觀景台</span></b>Red line direct from the memorial hall, about 10 minutes. The 89th floor is NT$600, and the walk round passes the giant gold wind damper.
+                <div class="slot__foot">
+                  <span class="rsv">10:00 tickets online</span>
+                  <span class="mrt ln-red">Taipei 101 / World Trade Center</span>
+                  <span class="hrs">10:00–21:00</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--yours slot--alert">
+              <div class="slot__when">11:30</div>
+              <div class="slot__what"><b>Mala Hot Pot, Xinyi <span class="zhn">馬辣頂級麻辣鴛鴦火鍋 信義店</span></b>All you can eat with two-hour seating, on the 3rd floor of NEO19, five minutes’ walk from 101. The split pot has a numbing-spicy side and a mild side, so the table can divide by tolerance.
+                <div class="slot__foot">
+                  <span class="rsv">call 02-2720-5726</span>
+                  <span class="drv">台北市信義區松壽路22號3樓</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="slot__when">13:45</div>
+              <div class="slot__what"><b>Four Four South Village <span class="zhn">四四南村</span></b>Ten minutes’ walk: the low brick houses of a 1948 military-families village, kept at the foot of 101. The contrast makes the classic photo of the tower. Free; the Good Cho’s café inside is a good sit-down.</div>
+            </div>
+            <div class="slot">
+              <div class="slot__when">15:00</div>
+              <div class="slot__what"><b>Shilin Official Residence gardens <span class="zhn">士林官邸</span></b>Red line direct from Taipei 101 to Shilin, about 30 minutes, then 10 minutes on foot. Chiang Kai-shek’s home for 25 years, with rose gardens, a European garden and a chapel. The gardens are free and flat: an easy afternoon walk before the market. Then one stop back down the red line to Jiantan.
+                <div class="slot__foot"><span class="mrt ln-red">Shilin, Exit 2</span></div>
+              </div>
+            </div>
+            <div class="slot slot--market">
+              <div class="slot__when">17:00</div>
+              <div class="slot__what"><b>Shilin night market <span class="zhn">士林夜市</span></b>The biggest and best known. After hot pot at lunch, treat it as a stroll: one shared fried chicken cutlet the size of a face, pepper squid, bubble tea, and the arcade games. The basement food court is under the old market building. Home is the red line straight from Jiantan to Xinyi Anhe.
+                <div class="slot__foot">
+                  <span class="mrt ln-red">Jiantan, Exit 1</span>
+                  <span class="hrs">≈ 16:00–24:00</span>
+                  <span class="cash">cash only</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">MON</span>
+            <span class="day__date">9 November</span>
+            <span class="day__tag">Day trip by train</span>
+          </div>
+          <div class="day__theme">Lanterns at Shifen, dusk in Jiufen</div>
+          <div class="slots">
+            <div class="slot slot--fixed">
+              <div class="slot__when">07:45</div>
+              <div class="slot__what"><b>Red line to Taipei Main, train to Ruifang</b>Early hotel breakfast, then walk to Xinyi Anhe, red line to Taipei Main, then follow the signs to the TRA (Taiwan Railway) platforms. Any eastbound local train (區間車) stops at Ruifang: 50–60 minutes, NT$73, tap the EasyCard. A Tze-Chiang express takes about 40 minutes for NT$114 if one is leaving sooner.
+                <div class="slot__foot">
+                  <span class="mrt ln-tra">TRA Taipei Main → Ruifang</span>
+                  <span class="hrs">check the 8–9 am trains on the TRA app the night before</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">≈ 09:30</div>
+              <div class="slot__what"><b>Pingxi line from Ruifang <span class="zhn">平溪線</span></b>At Ruifang, buy the Pingxi Line One-Day Pass (NT$120) at the window: unlimited hops on the little branch line all day. Trains run about hourly and take 25–30 minutes to Shifen, so time the change. The line still pauses in heavy rain; it reopened in January 2026 after storm repairs.
+                <div class="slot__foot"><span class="mrt ln-tra">Ruifang → Shifen</span><span class="hrs">≈ hourly</span></div>
+              </div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">10:30</div>
+              <div class="slot__what"><b>Shifen Old Street <span class="zhn">十分老街</span></b>The train runs straight down the middle of the street. Write your wishes on a sky lantern and let it go from the tracks between trains: about NT$200 for one colour, NT$250 for four, each colour a different wish. Lunch here.
+                <div class="slot__foot"><span class="cash">cash only</span></div>
+              </div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">12:30</div>
+              <div class="slot__what"><b>Shifen Waterfall <span class="zhn">十分瀑布</span></b>About 30 minutes each way on foot from the old street, along the river and over a suspension bridge. Free. Turn back if it’s a struggle; the lanterns were the point.
+                <div class="slot__foot"><span class="hrs">09:00–17:00, last entry 16:30</span></div>
+              </div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">≈ 14:30</div>
+              <div class="slot__what"><b>Train back to Ruifang, bus up to Jiufen</b>Pingxi line to Ruifang on the same pass. Leave the station, turn left and walk 200–300 m to the bus stop by the police station; don’t use the stop across the road, which is for Taipei. Buses 788, 827, 856, 825, 965 and 1062 all go up the hill: 15–20 minutes, tap the EasyCard. Get off at Jiufen Old Street (九份老街).
+                <div class="slot__foot"><span class="mrt ln-bus">bus Ruifang → Jiufen</span></div>
+              </div>
+            </div>
+            <div class="slot slot--yours slot--market">
+              <div class="slot__when">15:30</div>
+              <div class="slot__what"><b>Jiufen Old Street for dinner <span class="zhn">九份老街</span></b>Tonight’s night market. Get there before sunset at 17:08 and watch the red lanterns come on along the stairways of Shuqi Road. Eat your way along Jishan Street: taro balls, fish-ball soup, peanut ice-cream rolls. Then have tea with the view at Hai Yue Lou (海悅樓) or A-Mei Teahouse. Jiufen quiets down early on weekday evenings, so plan to have eaten by about 7.
+                <div class="slot__foot"><span class="cash">cash, mostly</span></div>
+              </div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">19:00</div>
+              <div class="slot__what"><b>Bus 1062 back to Taipei</b>From the Jiufen Old Street stop to MRT Zhongxiao Fuxing, Exit 1: 75–90 minutes, every 15–30 minutes, tap the EasyCard on and off. Then the brown line three stops to Liuzhangli. The last 1062 is around 20:40 by most accounts, so don’t leave it late. If the queue is long, take any bus down to Ruifang and a local train to Taipei Main instead.
+                <div class="slot__foot">
+                  <span class="mrt ln-bus">1062 → Zhongxiao Fuxing</span>
+                  <span class="mrt ln-brown">Liuzhangli</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">TUE</span>
+            <span class="day__date">10 November</span>
+            <span class="day__tag">Le Palais</span>
+          </div>
+          <div class="day__theme">The Palace Museum, two temples, an hour to change, the duck</div>
+          <div class="slots">
+            <div class="slot slot--yours">
+              <div class="slot__when">07:30</div>
+              <div class="slot__what"><b>Hotel breakfast</b>Not too much; the museum is a lot of standing.</div>
+            </div>
+            <div class="slot">
+              <div class="slot__when">09:15</div>
+              <div class="slot__what"><b>National Palace Museum <span class="zhn">國立故宮博物院</span></b>The emperors’ collection, brought from Beijing in 1949. The Jadeite Cabbage is back in Taipei until 8 December, so it should be on show in Gallery 302. Give it 2½ hours and pick a few rooms rather than all of them, and keep lunch light at the museum. Red line from Xinyi Anhe straight to Shilin, about 30 minutes, then from Exit 1 bus R30, 255, 304 or 815, or minibus 18 or 19, about 15 minutes. NT$350; cards accepted.
+                <div class="slot__foot">
+                  <span class="mrt ln-red">Shilin, Exit 1</span>
+                  <span class="mrt ln-bus">bus to 故宮博物院</span>
+                  <span class="hrs">09:00–17:00 · closed Mon</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="slot__when">13:15</div>
+              <div class="slot__what"><b>Bao’an Temple and the Confucius Temple <span class="zhn">大龍峒保安宮 · 孔廟</span></b>Bus back to Shilin, then two stops on the red line to Yuanshan and 10 minutes on foot. Bao’an is the most beautifully restored temple in the city, full of painted beams and carvings, with a UNESCO conservation award. The quiet Confucius Temple is next door. Both free.
+                <div class="slot__foot">
+                  <span class="mrt ln-red">Yuanshan, Exit 2</span>
+                  <span class="hrs">Confucius Temple 08:30–21:00 · closed Mon</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">15:00</div>
+              <div class="slot__what"><b>Back to the hotel to change</b>Red line from Yuanshan straight to Xinyi Anhe, about 25 minutes, then the walk. In the door by about 16:00, with an hour to rest and change before leaving at 17:15.
+                <div class="slot__foot"><span class="mrt ln-red">Yuanshan → Xinyi Anhe</span></div>
+              </div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">17:15</div>
+              <div class="slot__what"><b>Leave for Le Palais</b>Walk to Xinyi Anhe, red line six stops to Taipei Main. Underground, follow signs for Exit Y5 and turn right on Chengde Road: the Palais de Chine Hotel is a minute away, about 5–8 minutes from the ticket gates. You can also walk through the Q Square mall, which shares the building.
+                <div class="slot__foot"><span class="mrt ln-red">Taipei Main, Exit Y5</span></div>
+              </div>
+            </div>
+            <div class="slot slot--booked">
+              <div class="slot__when">18:00</div>
+              <div class="slot__what"><b>Le Palais <span class="zhn">頤宮</span></b>Three Michelin stars nine years running, and the duck is the reason to go: the flaming sliced duck served four ways (火焰片皮鴨四吃). Recent reviews put it at about NT$5,880 a duck. 17th floor of the Palais de Chine Hotel.
+                <div class="slot__foot">
+                  <span class="rsv">pre-order the duck</span>
+                  <span class="drv">台北市大同區承德路一段3號17樓</span>
+                  <span class="hrs"><span class="nw">02-2181-9985</span> · late cancellation or no-show up to NT$1,500</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--market">
+              <div class="slot__when">20:30</div>
+              <div class="slot__what"><b>Ningxia night market <span class="zhn">寧夏夜市</span></b>A 12–15 minute walk north from Le Palais, and the best food market in the city, so after the duck it’s a dessert lap: the fried taro balls with salted-egg-yolk filling at Liu Yu Zi (劉芋仔), and maybe one oyster omelette for the table. Home on the red line from Shuanglian straight to Xinyi Anhe.
+                <div class="slot__foot">
+                  <span class="mrt ln-red">Shuanglian</span>
+                  <span class="hrs">≈ 17:00–01:00</span>
+                  <span class="cash">cash only</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">WED</span>
+            <span class="day__date">11 November</span>
+            <span class="day__tag">Dihua · Maokong</span>
+          </div>
+          <div class="day__theme">Old merchant street, tea above the city, skewers, the local market</div>
+          <div class="slots">
+            <div class="slot slot--yours">
+              <div class="slot__when">08:00</div>
+              <div class="slot__what"><b>Yonghe Soy Milk King <span class="zhn">永和豆漿大王</span></b>Breakfast number two, about 15 minutes’ walk from the hotel, usually with a shorter line than Fu Hang. Same classics, and the xiaolongbao are a regular order here too. Listings disagree on hours, but early morning is safe.
+                <div class="slot__foot">
+                  <span class="drv">台北市大安區復興南路二段102號</span>
+                  <span class="mrt ln-red">Daan</span>
+                  <span class="cash">cash only</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="slot__when">09:30</div>
+              <div class="slot__what"><b>Dihua Street and the City God Temple <span class="zhn">迪化街 · 霞海城隍廟</span></b>Red line from Daan, green from Chiang Kai-shek Memorial Hall to Beimen, then 8 minutes on foot. Taipei’s 1850s merchant street: dried fruit, tea, herbs, fabric and restored shophouses. The small Xia-Hai City God Temple holds the Old Man under the Moon, the matchmaker god, and people come from all over to pray to him for love. This is the souvenir morning; see <a href="#buy">souvenirs</a>.
+                <div class="slot__foot">
+                  <span class="mrt ln-green">Beimen</span>
+                  <span class="hrs">temple 06:16–19:47</span>
+                  <span class="cash">cash, mostly</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot">
+              <div class="slot__when">12:00</div>
+              <div class="slot__what"><b>Lunch at the Cisheng Temple stalls <span class="zhn">慈聖宮廟口小吃</span></b>At the north end of Dihua, plastic tables under the banyans in front of a temple: pork congee, braised pork rice and four-herb soup from the stalls round the square. Lunch only, until about 2:00 or sold out.
+                <div class="slot__foot">
+                  <span class="mrt ln-orange">Daqiaotou</span>
+                  <span class="cash">cash only</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">13:30</div>
+              <div class="slot__what"><b>Bus up to Maokong</b>Orange line from Daqiaotou to Dongmen, red to Daan, brown south to Wanfang Community: about 45 minutes. Then bus S10 (小10) up the hill to 貓空站 (小天空步道); the teahouse is three minutes’ walk. The S10 runs only about every hour, so check the next one in the Bus+ app before leaving Dihua. If the wait is long, stay on the brown line to Taipei Zoo and ride the gondola up instead.
+                <div class="slot__foot">
+                  <span class="mrt ln-brown">Wanfang Community</span>
+                  <span class="mrt ln-bus">bus S10 小10</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">15:00</div>
+              <div class="slot__what"><b>Yaoyue Teahouse <span class="zhn">邀月茶坊</span></b>Open 24 hours, with tables out under the trees. Order a pot of the local Muzha Tieguanyin and stay through sunset at 17:08 until the city lights come on. Buy a bag of the tea to take home here.
+                <div class="slot__foot">
+                  <span class="drv">台北市文山區指南路三段40巷6號</span>
+                  <span class="hrs">open 24 h · <span class="nw">02-2939-2025</span></span>
+                  <span class="cash">bring cash</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">18:15</div>
+              <div class="slot__what"><b>Gondola down</b>Walk 15–20 minutes back to Maokong gondola station. The ride down to Taipei Zoo is NT$180 on the EasyCard. It runs until 21:00 on weekdays and is closed on Mondays.
+                <div class="slot__foot"><span class="mrt ln-brown">Taipei Zoo</span></div>
+              </div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">19:30</div>
+              <div class="slot__what"><b>Hong Huo skewers <span class="zhn">紅火食代 串燒專門店</span></b>Brown line from Taipei Zoo to Liuzhangli, then a few minutes on foot, on the same street as Saturday’s noodles. Cheap, well-seasoned skewers from what is mostly a takeaway counter; if the few seats are taken, carry the bag to the market.
+                <div class="slot__foot">
+                  <span class="drv">台北市大安區安居街30號</span>
+                  <span class="mrt ln-brown">Liuzhangli</span>
+                  <span class="hrs">17:00–24:00 weekdays</span>
+                  <span class="cash">cash only</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--market">
+              <div class="slot__when">20:30</div>
+              <div class="slot__what"><b>Linjiang Street night market <span class="zhn">臨江街觀光夜市</span></b>About 20 minutes’ walk north of Anju Street. The local one, saved for last: shorter and calmer, mostly neighbourhood people. Do a final round of whatever you liked best this week, then walk 15 minutes back to the hotel to pack.
+                <div class="slot__foot">
+                  <span class="mrt ln-red">Xinyi Anhe</span>
+                  <span class="hrs">≈ 18:00–24:00</span>
+                  <span class="cash">cash only</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="day day--transit">
+        <div class="day__rail"><span class="day__dot"></span></div>
+        <div class="day__body">
+          <div class="day__head">
+            <span class="day__num">THU</span>
+            <span class="day__date">12 November</span>
+            <span class="day__tag">Fly home</span>
+          </div>
+          <div class="day__theme">Check out, two trains, out across the date line</div>
+          <div class="slots">
+            <div class="slot slot--fixed">
+              <div class="slot__when">−4 h</div>
+              <div class="slot__what"><b>Check out, red line to Taipei Main</b>Leave the hotel about four hours before the earlier flight. Walk to Xinyi Anhe, then the red line to Taipei Main, about 15 minutes. Follow the purple Airport MRT signs to A1, 10–15 minutes underground.
+                <div class="slot__foot"><span class="mrt ln-red">Xinyi Anhe → Taipei Main</span></div>
+              </div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">A1</div>
+              <div class="slot__what"><b>EVA in-town check-in, then the express</b>Mom and Sis check bags and get boarding passes at the EVA counter on A1’s B1 level, at least three hours before departure. Delta doesn’t do in-town check-in, so my bag rides with me. Then the Airport MRT express to A13 Terminal 2, 38–40 minutes, NT$160. Spend what’s left on the EasyCard at a 7-Eleven rather than queuing for a refund.
+                <div class="slot__foot"><span class="mrt ln-airport">A1 Taipei Main → A13 Airport T2</span><span class="hrs">check-in 06:00–21:30</span></div>
+              </div>
+            </div>
+            <div class="slot slot--fixed">
+              <div class="slot__when">TPE</div>
+              <div class="slot__what"><b>Both flights out of Terminal 2</b>EVA dep <span class="fillin">__:__</span> · Delta dep <span class="fillin">__:__</span>. Landing back in the US on the 12th as well.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="note">
+      <b>Getting around with no taxis.</b> The red line is the spine of the week: from Xinyi Anhe it runs without a change to Taipei 101, the memorial hall, Taipei Main, Le Palais, Ningxia, Yuanshan, Shilin and the Palace Museum bus. The brown line from Liuzhangli covers Anju Street, Maokong and the Zoo. Every MRT station has lifts. Trains run from about 06:00 to midnight.
+    </div>
+    <div class="note">
+      <b>If Monday is a washout, swap it with Sunday.</b> Check the forecast on Saturday night. The day trip runs on Sunday (busier, but dry), and Taipei 101, the hot pot and Shilin move to Monday; call Mala to move the booking. Fu Hang is closed on Mondays, so do it on Tuesday at 6:00 before the museum instead.
+    </div>
+    <div class="note note--jade">
+      <b>Swap-ins if a day runs short or rains.</b> Xingtian Temple (行天宮), where locals come to have their fortunes read; Huashan 1914, the old winery arts park across the road from Fu Hang; Ximending for an evening of youth culture and neon; Elephant Mountain, a steep 20-minute climb for the classic view of 101; Songshan Cultural and Creative Park, an old tobacco factory with a design museum. Sun Yat-sen Memorial Hall is closed for renovation until 2027.
+    </div>
+  </section>
+
+  <!-- ============ EATING ============ -->
+  <section id="eat">
+    <div class="sec-head">
+      <h2>The eating list</h2>
+      <span class="count">big dinner · night markets · breakfast · extras</span>
+    </div>
+
+    <h3 class="subhead subhead--first">Booked</h3>
+    <div class="shelf">
+      <div class="pick pick--top pick--booked">
+        <span class="call call--booked">Tue 10 Nov · 18:00 · for three</span>
+        <h4>Le Palais</h4>
+        <div class="zh">頤宮 · Palais de Chine Hotel, 17F</div>
+        <div class="tier">3 Michelin stars · Cantonese</div>
+        <p>Three stars nine years running. The reason to go is the flaming sliced duck served four ways (火焰片皮鴨四吃), and it has to be pre-ordered: call and add it to the booking. Recent reviews put it at about NT$5,880 for the duck. The card hold on the booking means a no-show or late cancellation costs up to NT$1,500.</p>
+        <div class="foot"><span class="rsv">pre-order the duck</span><span class="nw">02-2181-9985</span><span>red line to Taipei Main, Exit Y5</span><span>台北市大同區承德路一段3號17樓</span></div>
+      </div>
+    </div>
+
+    <h3 class="subhead">Night markets, best first</h3>
+    <p class="lede">One a night, ordered best first. All cash, all open every day. One thing per stall, share it three ways, keep moving.</p>
+    <div class="pair">
+      <div class="pick">
+        <span class="call">Sat 7 · best first</span>
+        <h4>Raohe Street</h4>
+        <div class="zh">饒河街觀光夜市</div>
+        <p>One straight, compact street, starting at the gilded Ciyou Temple. The Michelin-listed Fuzhou pepper buns (福州世祖胡椒餅) are at the temple end, and the herbal pork-rib soup at Chen Dong (陳董藥燉排骨) is the other must.</p>
+        <div class="foot"><span>Songshan, Exit 5</span><span>≈ 17:00–24:00</span><span class="cash">cash</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">Sun 8</span>
+        <h4>Shilin</h4>
+        <div class="zh">士林夜市</div>
+        <p>The biggest and most famous, sprawling over several blocks with games, clothes and a basement food court. Get the giant fried chicken cutlet (大雞排) to share, and pepper squid.</p>
+        <div class="foot"><span>Jiantan, Exit 1</span><span>≈ 16:00–24:00</span><span class="cash">cash</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">Tue 10 · after Le Palais</span>
+        <h4>Ningxia</h4>
+        <div class="zh">寧夏夜市</div>
+        <p>The locals’ pick for food, short and dense. After the duck, a dessert lap: the fried taro balls with egg yolk at Liu Yu Zi (劉芋仔), and one oyster omelette (蚵仔煎) for the table.</p>
+        <div class="foot"><span>Shuanglian</span><span>≈ 17:00–01:00</span><span class="cash">cash</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">Wed 11 · last night</span>
+        <h4>Linjiang Street</h4>
+        <div class="zh">臨江街觀光夜市 · Tonghua</div>
+        <p>The neighbourhood one, 15 minutes’ walk from the hotel. Calmer and less touristy. Use it for a final round of your favourites and anything you didn’t get to.</p>
+        <div class="foot"><span>Xinyi Anhe</span><span>≈ 18:00–24:00</span><span class="cash">cash</span></div>
+      </div>
+    </div>
+    <div class="order">
+      <div><div class="z">胡椒餅</div><div class="e">Pepper bun, baked on the wall of a clay oven</div></div>
+      <div><div class="z">蚵仔煎</div><div class="e">Oyster omelette with a sweet-savoury sauce</div></div>
+      <div><div class="z">割包</div><div class="e">Gua bao, braised pork belly in a steamed bun</div></div>
+      <div><div class="z">大腸包小腸</div><div class="e">Taiwanese sausage in a sticky-rice “bun”</div></div>
+      <div><div class="z">蔥抓餅</div><div class="e">Flaky scallion pancake, ask for an egg (加蛋)</div></div>
+      <div><div class="z">珍珠奶茶</div><div class="e">Bubble tea; say 少糖 for less sugar</div></div>
+      <div><div class="z">臭豆腐</div><div class="e">Stinky tofu, for the brave</div></div>
+      <div><div class="z">芋圓</div><div class="e">Taro balls, chewy, in sweet soup</div></div>
+    </div>
+
+    <h3 class="subhead">Breakfast, the traditional way</h3>
+    <p class="lede">Two soy milk shops, both on the plan, both closed on Mondays, both cash only. Point at the characters below to order.</p>
+    <div class="pair">
+      <div class="pick">
+        <h4>Fu Hang Soy Milk</h4>
+        <div class="zh">阜杭豆漿 · Sunday</div>
+        <p>The famous one, with a Bib Gourmand and a queue to match. The thick baked flatbread with egg is the signature.</p>
+        <div class="foot"><span>05:30–12:30</span><span>closed Mon</span><span>Shandao Temple, Exit 5</span><span class="cash">cash</span></div>
+      </div>
+      <div class="pick">
+        <h4>Yonghe Soy Milk King</h4>
+        <div class="zh">永和豆漿大王 · Wednesday</div>
+        <p>A 40-year-old local favourite on Fuxing South Road, about 15 minutes’ walk from the hotel. The same classics with a usually shorter line, and good xiaolongbao.</p>
+        <div class="foot"><span>from early morning</span><span>near Daan station</span><span class="cash">cash</span></div>
+      </div>
+    </div>
+    <div class="order">
+      <div><div class="z">鹹豆漿</div><div class="e">Salty soy milk, curdled with vinegar, with chilli oil and scallion</div></div>
+      <div><div class="z">豆漿</div><div class="e">Soy milk, hot or iced, sweet (甜) or unsweetened (無糖)</div></div>
+      <div><div class="z">燒餅油條</div><div class="e">Flaky sesame flatbread wrapped round a fried dough stick</div></div>
+      <div><div class="z">厚餅夾蛋</div><div class="e">Thick baked flatbread with egg, Fu Hang’s signature</div></div>
+      <div><div class="z">蛋餅</div><div class="e">Egg crêpe, rolled and sliced</div></div>
+      <div><div class="z">飯糰</div><div class="e">Sticky-rice roll around fried dough, pork floss and pickles</div></div>
+      <div><div class="z">蘿蔔糕</div><div class="e">Pan-fried turnip cake</div></div>
+      <div><div class="z">小籠包</div><div class="e">Soup dumplings, where the shop steams them</div></div>
+    </div>
+
+    <h3 class="subhead">A sit-down Taiwanese dinner? Optional</h3>
+    <p class="lede">Every evening now ends at a night market, so a starred Taiwanese dinner would replace one. If you want one anyway, Saturday works best: Fujin Tree is a walk from SunnyHills, and Raohe is one MRT stop from Nanjing Sanmin for dessert. Book ahead; these are from the 2026 guide.</p>
+    <div class="shelf">
+      <div class="pick">
+        <span class="call">Best fit · Saturday</span>
+        <h4>Fujin Tree</h4>
+        <div class="zh">富錦樹台菜香檳</div>
+        <div class="tier">1 Michelin star · modern Taiwanese</div>
+        <p>Lighter, stylish Taiwanese with a champagne list, in the Minsheng neighbourhood near SunnyHills. Book a 17:00 table and walk on to Nanjing Sanmin for Raohe.</p>
+        <div class="foot"><span class="nw">02-8712-8770</span><span>Minsheng · walk from SunnyHills</span></div>
+      </div>
+      <div class="pick">
+        <h4>Mountain &amp; Sea House</h4>
+        <div class="zh">山海樓</div>
+        <div class="tier">1 Michelin star · Taiwanese banquet</div>
+        <p>Classic Taiwanese banquet cooking in a restored old house. Per-person set menus run about NT$1,580–3,680 plus 10%.</p>
+        <div class="foot"><span>Dinner 18:00–21:30</span><span class="nw">02-2351-3345</span><span>central Taipei</span></div>
+      </div>
+      <div class="pick">
+        <h4>Shin Yeh Taiwanese Signature</h4>
+        <div class="zh">欣葉・鐘菜</div>
+        <div class="tier">1 Michelin star · Taiwanese</div>
+        <p>The fine-dining room of Shin Yeh, the best-known name in Taiwanese restaurants, with more than a hundred classic and banquet dishes.</p>
+        <div class="foot"><span>17:00–21:00</span><span class="nw">02-2532-7373</span><span>Marriott, Dazhi · brown line</span></div>
+      </div>
+      <div class="pick">
+        <h4>Taïrroir</h4>
+        <div class="zh">態芮</div>
+        <div class="tier">3 Michelin stars · modern Taiwanese</div>
+        <p>The most ambitious Taiwanese cooking in the city, as a tasting menu. A long shot this close in, but it costs one call.</p>
+        <div class="foot"><span>Dazhi · brown line</span></div>
+      </div>
+    </div>
+
+    <h3 class="subhead">If there’s room</h3>
+    <div class="trio">
+      <div class="pick">
+        <h4>Xiao long bao</h4>
+        <div class="zh">小籠包 · Din Tai Fung</div>
+        <p>It started in Taipei. The original Xinyi Road shop is now takeaway only; sit down at the Xinsheng branch across the road (Dongmen station) or in the basement of Taipei 101. No bookings: take a number and wander.</p>
+        <div class="foot"><span>NT$250–450</span><span>cards OK</span></div>
+      </div>
+      <div class="pick">
+        <h4>Convenience-store snacks</h4>
+        <div class="zh">7-Eleven · FamilyMart</div>
+        <p>Tea eggs, rice triangles, sweet-potato from the warmer, milk tea in a carton, and pudding. Genuinely good, open all night, and you pay with the EasyCard.</p>
+        <div class="foot"><span>NT$20–60</span><span>EasyCard</span></div>
+      </div>
+      <div class="pick">
+        <h4>Shaved ice</h4>
+        <div class="zh">剉冰 · Yongkang Street</div>
+        <p>November is past mango season, so ask what fruit is good that week rather than ordering off the photo. Yongkang Street is by Dongmen, next to the Din Tai Fung branch.</p>
+        <div class="foot"><span>NT$180–280</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CASH ============ -->
+  <section id="cash">
+    <div class="sec-head">
+      <h2>Cash or card</h2>
+      <span class="count">what each stop takes</span>
+    </div>
+    <p class="lede">Taipei is still a cash city once you leave hotels and department stores. Take about <b>NT$10,000–12,000</b> for the three of you (roughly US$320–380) from the arrivals-hall ATM on Friday night, and ask for small notes or break big ones at a 7-Eleven. Stalls hate NT$1,000 notes.</p>
+    <div class="money">
+      <div class="pick pick--cash">
+        <h4>Bring cash</h4>
+        <ul>
+          <li><b>Both soy milk shops</b>: Fu Hang, Yonghe King</li>
+          <li><b>Lao Song Ji</b> beef noodles</li>
+          <li><b>Hong Huo</b> skewers</li>
+          <li><b>Every night market</b>: Raohe, Shilin, Ningxia, Linjiang</li>
+          <li><b>Shifen</b>: lanterns (NT$200–250) and street food</li>
+          <li><b>Jiufen</b> stalls; some teahouses take cards</li>
+          <li><b>Dihua Street</b> shops and the Cisheng Temple stalls</li>
+          <li><b>Yaoyue Teahouse</b>: probably; don’t count on a card</li>
+          <li><b>Temples</b>: free, but incense and donations are cash</li>
+        </ul>
+      </div>
+      <div class="pick pick--card">
+        <h4>Card is fine</h4>
+        <ul>
+          <li><b>Le Palais</b> (and the card on the booking)</li>
+          <li><b>Mala Hot Pot</b></li>
+          <li><b>Taipei 101</b> observatory and malls</li>
+          <li><b>National Palace Museum</b> tickets and shop</li>
+          <li><b>SunnyHills</b></li>
+          <li><b>Din Tai Fung</b></li>
+          <li><b>The hotel</b>, department stores, Eslite</li>
+          <li>Airport duty-free</li>
+        </ul>
+      </div>
+      <div class="pick pick--tap">
+        <h4>Tap the EasyCard</h4>
+        <ul>
+          <li><b>MRT</b>, including the Airport MRT</li>
+          <li><b>TRA trains</b> to Ruifang and the Pingxi line (buy the NT$120 day pass at Ruifang)</li>
+          <li><b>Buses</b>: 1062, S10, the Ruifang–Jiufen buses, the museum buses</li>
+          <li><b>Maokong gondola</b>, NT$180 a ride</li>
+          <li><b>7-Eleven and FamilyMart</b></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SOUVENIRS ============ -->
+  <section id="buy">
+    <div class="sec-head">
+      <h2>Souvenirs</h2>
+      <span class="count">what to bring home, and where it falls on the week</span>
+    </div>
+    <p class="lede">Most of these sit on the route already, so there’s no separate shopping trip. Pineapple cakes and tea are the classics. Remember US customs before you buy anything with meat in it.</p>
+    <div class="shelf">
+      <div class="pick">
+        <span class="call">Sat · SunnyHills</span>
+        <h4>Pineapple cakes, two ways</h4>
+        <div class="zh">鳳梨酥 · 微熱山丘 · 佳德</div>
+        <p>SunnyHills’ are all pineapple and a little tart. Chia Te’s, near Nanjing Sanmin, are the classic buttery kind. Both come in gift boxes and keep for weeks.</p>
+        <div class="foot"><span>NT$400–600 a box</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">Wed · Dihua Street</span>
+        <h4>Oolong and Tieguanyin tea</h4>
+        <div class="zh">林華泰茶行 · 茶葉</div>
+        <p>Lin Hua Tai, an old tea wholesaler at 重慶北路二段193號, a few minutes east of Dihua, sells good leaf by weight from big tins. Buy Muzha Tieguanyin at Maokong that afternoon to compare.</p>
+        <div class="foot"><span>NT$300–1,000</span><span class="cash">cash</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">Wed · Dihua Street</span>
+        <h4>Dried fruit and mullet roe</h4>
+        <div class="zh">果乾 · 烏魚子</div>
+        <p>Dried mango, guava and plum by the bag. Mullet roe is the luxury gift Taiwanese families give each other; it’s fish, so it’s allowed into the US, but declare it. Yongle Fabric Market is at the south end if anyone sews.</p>
+        <div class="foot"><span class="cash">cash, mostly</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">Tue · Palace Museum</span>
+        <h4>Museum shop</h4>
+        <div class="zh">故宮精品</div>
+        <p>One of the best museum shops anywhere: jadeite-cabbage everything, calligraphy sets, porcelain replicas and good-quality small gifts.</p>
+        <div class="foot"><span>cards OK</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">Mon · Jiufen &amp; Shifen</span>
+        <h4>Ocarinas, tea, lantern charms</h4>
+        <div class="zh">陶笛 · 茶 · 天燈</div>
+        <p>Jiufen’s ocarina shop plays them all day; teahouses sell their own leaf. Shifen has mini sky-lantern charms.</p>
+        <div class="foot"><span class="cash">cash</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">Anywhere</span>
+        <h4>Sheet masks and snacks</h4>
+        <div class="zh">面膜 · 零食</div>
+        <p>Watsons and Cosmed on every high street sell Taiwanese sheet masks cheaply in multipacks. Sugar &amp; Spice (糖村) nougat, from the flagship at 敦化南路一段158號, up the hotel’s own street by Zhongxiao Dunhua station.</p>
+        <div class="foot"><span>cards OK</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">Thu · airport</span>
+        <h4>Kavalan whisky</h4>
+        <div class="zh">噶瑪蘭</div>
+        <p>Taiwan’s award-winning single malt, at duty-free in Terminal 2. One litre per adult comes into the US duty-free.</p>
+        <div class="foot"><span>cards OK</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">If you want the big one</span>
+        <h4>A Tatung rice cooker</h4>
+        <div class="zh">大同電鍋</div>
+        <p>Every Taiwanese kitchen has one, and it runs on 110V, same as the US. Department stores and electronics shops; carry-on sized.</p>
+        <div class="foot"><span>NT$2,500–4,000</span></div>
+      </div>
+    </div>
+    <div class="note note--coral">
+      <b>US customs on the way home.</b> Declare all food on the form. <b>Not allowed:</b> anything with meat, including pork floss, jerky, sausages and meat-filled pastries or instant noodles with meat packets; fresh fruit; and pastries with salted egg yolk. <b>Fine if declared:</b> pineapple cakes, tea, nougat, packaged dried fruit, mullet roe.
+    </div>
+  </section>
+
+  <!-- ============ PHRASES ============ -->
+  <section id="phrases">
+    <div class="sec-head">
+      <h2>Say it in Mandarin</h2>
+      <span class="count">six to start · the rest on their own page</span>
+    </div>
+    <div class="say">
+      <div><div class="z">你好</div><div class="p">nǐ hǎo · nee how</div><div class="e">Hello</div></div>
+      <div><div class="z">謝謝</div><div class="p">xiè xie · shyeh-shyeh</div><div class="e">Thank you</div></div>
+      <div><div class="z">不好意思</div><div class="p">bù hǎo yì si · boo how ee-suh</div><div class="e">Excuse me, sorry</div></div>
+      <div><div class="z">這個</div><div class="p">zhè ge · juh-guh</div><div class="e">This one (and point)</div></div>
+      <div><div class="z">多少錢？</div><div class="p">duō shǎo qián · dwaw shaow chyen</div><div class="e">How much?</div></div>
+      <div><div class="z">不要辣</div><div class="p">bú yào là · boo yow lah</div><div class="e">Not spicy</div></div>
+    </div>
+    <div class="cta">
+      <p>Fifty-odd phrases for eating, getting around and shopping, with pinyin, a plain-English sound-alike and a button to hear each one.</p>
+      <a href="taipei-phrases.html">Open the phrasebook →</a>
+    </div>
+  </section>
+
+  <!-- ============ BASICS ============ -->
+  <section id="basics">
+    <div class="sec-head">
+      <h2>Ground rules</h2>
+      <span class="count">the boring, useful part</span>
+    </div>
+
+    <div class="basics">
+      <div class="basic">
+        <span class="lbl">Money</span>
+        <span class="txt">New Taiwan dollar (NT$). Roughly <b>NT$32 to US$1</b>, so NT$100 is about three dollars. Cards work in hotels, department stores and chains; night markets, temples, breakfast shops and small noodle shops are <b>cash only</b>. The full list is under <a href="#cash">cash or card</a>.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">EasyCard</span>
+        <span class="txt">The tap card that runs the whole week: MRT, Airport MRT, TRA trains, buses, the gondola, and paying at 7&#8209;Eleven and FamilyMart. Buy one each on arrival and load <b>NT$1,000</b>; the airport trains, the day trip and the gondola add up. Tap on and off on buses too.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Getting around</span>
+        <span class="txt"><b>No taxis this trip.</b> The MRT is clean, signed in English and runs from about 06:00 to midnight. Every station has lifts, and the platforms are level with the trains. Google Maps transit directions are accurate here; the Bus+ app shows live bus arrivals. No eating or drinking past the ticket gates, including water: it’s a fine.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Phones</span>
+        <span class="txt">Pick up prepaid tourist SIMs or eSIMs in the arrivals hall at Taoyuan: unlimited data for the week runs about NT$500–1,000 and takes ten minutes. Cheaper and simpler than US roaming plans, and the maps need it.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Weather &amp; packing</span>
+        <span class="txt">Early November is the good season: highs around <b>26°C / 79°F</b>, lows about <b>21°C / 70°F</b>, typhoon season over. Still humid, and the northeast monsoon brings sudden drizzle, more so at Jiufen and Maokong. Light layers, <b>comfortable walking shoes</b> (this plan walks a lot), a compact umbrella each, and one warm layer for the air conditioning.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Entry</span>
+        <span class="txt">US passports get <b>visa&#8209;free entry</b> to Taiwan for short stays. Fill in Taiwan’s online arrival card in the three days before you fly rather than on paper at the airport.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Plugs</span>
+        <span class="txt">Same as the US: <b>110V, type A/B</b>. No adapters needed.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Temples</span>
+        <span class="txt">All the temples on the plan are free and open early. Walk in through the right-hand door and out through the left; don’t step on the raised threshold. Photos are fine; flash and selfies in people’s faces while they pray are not.</span>
+      </div>
+      <div class="basic">
+        <span class="lbl">Etiquette</span>
+        <span class="txt">No tipping, anywhere. Queue properly; everyone else does. Stand on the right on escalators.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEXT ============ -->
+  <section id="next">
+    <div class="sec-head">
+      <h2>What I need from you</h2>
+      <span class="count">for the next pass</span>
+    </div>
+    <ol class="todo">
+      <li><b>Return flight times on the 12th.</b> They set Thursday: when to leave the hotel, and whether there’s one more breakfast.</li>
+      <li><b>Flight numbers, whenever.</b> The arrival time is what matters, and I have that.</li>
+      <li><b>A sit-down Taiwanese dinner, or all night markets?</b> If you book Fujin Tree for Saturday, tell me and I’ll fold it in.</li>
+      <li><b>How far Mom is happy to walk.</b> Saturday and Wednesday are the long ones; I can trim either.</li>
+    </ol>
+  </section>
+
+  <footer>
+    <p><b>Status.</b> Booked: Le Palais, Tuesday 10 November at 18:00. Locked: the dates, the two carriers, six nights at the Shangri&#8209;La, the 8 pm Friday landing, trains instead of taxis, and every row marked as your pick. Proposed: which day each pick falls on, and the temples, museums and night markets added around them. Hours, prices and closures were checked in October 2026; the Pingxi line and bus 1062 are the two to reconfirm the night before.</p>
+    <p style="margin-top:10px">Last updated 10 October 2026.</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var el = document.getElementById('countdown');
+  if(el){
+    var dep = new Date(2026, 10, 5);           // 5 Nov 2026, local
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var days = Math.round((dep - today) / 86400000);
+    el.textContent = days > 1 ? days + ' days'
+                   : days === 1 ? 'tomorrow'
+                   : days === 0 ? 'today'
+                   : 'in Taipei';
+  }
+  // reserve ticks stay on this device only
+  var boxes = document.querySelectorAll('.rlist input[data-key]');
+  for (var i = 0; i < boxes.length; i++) (function(b){
+    var k = 'taipei26-reserve-' + b.getAttribute('data-key');
+    try { b.checked = localStorage.getItem(k) === '1'; } catch(e) {}
+    b.addEventListener('change', function(){
+      try { localStorage.setItem(k, b.checked ? '1' : '0'); } catch(e) {}
+    });
+  })(boxes[i]);
+})();
+</script>
+</body>
+</html>
