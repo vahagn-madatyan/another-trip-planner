@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Mandarin phrases for a week in Taipei, with pinyin, plain-English sound-alikes and a button to hear each one.">
+<title>Taipei Phrasebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#f5f3ec; --surface:#fffefa; --surface-2:#ecebe1;
+  --line:#d8d6c8; --line-soft:#e6e4d8;
+  --ink:#1b2422; --ink-2:#4a5551; --ink-3:#79837e;
+  --jade:#0f7f68; --jade-ink:#0b5e4d; --jade-soft:#dcefe8;
+  --lantern:#b8651a; --lantern-soft:#f7e8d3; --lantern-ink:#8a4a10;
+  --shadow:0 1px 2px rgba(27,36,34,.05), 0 10px 28px -16px rgba(27,36,34,.28);
+  --f-display:'Archivo','Helvetica Neue',Arial,sans-serif;
+  --f-body:'Source Serif 4',Georgia,'Times New Roman',serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --f-zh:'PingFang TC','Noto Sans TC','Microsoft JhengHei','Heiti TC',sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#0b1615; --surface:#111f1d; --surface-2:#182927;
+    --line:#263a36; --line-soft:#1d2f2c;
+    --ink:#e9efec; --ink-2:#a2b2ad; --ink-3:#74847f;
+    --jade:#45d0ab; --jade-ink:#7fe0c4; --jade-soft:rgba(69,208,171,.13);
+    --lantern:#f0aa55; --lantern-soft:rgba(240,170,85,.13); --lantern-ink:#f6c27e;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 30px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#0b1615; --surface:#111f1d; --surface-2:#182927;
+  --line:#263a36; --line-soft:#1d2f2c;
+  --ink:#e9efec; --ink-2:#a2b2ad; --ink-3:#74847f;
+  --jade:#45d0ab; --jade-ink:#7fe0c4; --jade-soft:rgba(69,208,171,.13);
+  --lantern:#f0aa55; --lantern-soft:rgba(240,170,85,.13); --lantern-ink:#f6c27e;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 30px -18px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--f-body); font-size:16.5px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:860px; margin:0 auto; padding:0 20px 72px}
+@media (max-width:430px){.wrap{padding-inline:16px}}
+h1,h2,h3{font-family:var(--f-display); margin:0; letter-spacing:-.02em; text-wrap:balance}
+p{margin:0}
+a{color:var(--jade-ink); text-underline-offset:2px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--jade); outline-offset:3px; border-radius:4px}
+
+.top{padding-block:22px 0}
+.back{
+  font-family:var(--f-display); font-weight:600; font-size:.9rem; text-decoration:none;
+  display:inline-flex; gap:6px; align-items:center;
+}
+.masthead{padding-block:22px 26px; border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:var(--f-display); font-size:11px; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3);
+}
+.masthead h1{font-size:clamp(2.2rem,8vw,3.4rem); font-weight:800; line-height:.98; letter-spacing:-.04em; margin-top:12px}
+.masthead h1 em{font-style:normal; color:var(--jade)}
+.masthead .sub{color:var(--ink-2); margin-top:14px; max-width:60ch}
+.jump{display:flex; flex-wrap:wrap; gap:8px; margin-top:20px}
+.jump a{
+  font-family:var(--f-display); font-size:12.5px; font-weight:600;
+  padding:6px 12px; border-radius:20px; border:1px solid var(--line);
+  background:var(--surface); color:var(--ink); text-decoration:none; white-space:nowrap;
+}
+
+.how{
+  margin-top:26px; background:var(--surface); border:1px solid var(--line);
+  border-radius:12px; padding:16px 18px; font-size:.92rem; line-height:1.55;
+}
+.how b{font-family:var(--f-display)}
+.how dl{display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:6px 18px; margin:10px 0 0}
+.how dl div{display:flex; gap:8px; align-items:baseline}
+.how dt{font-family:var(--f-mono); font-weight:600; color:var(--jade-ink); min-width:2.2em}
+.how dd{margin:0; color:var(--ink-2)}
+.how p + p{margin-top:8px}
+
+section{padding-top:40px}
+.sec-head{
+  display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;
+  border-bottom:2px solid var(--ink); padding-bottom:8px; margin-bottom:14px;
+}
+.sec-head h2{font-size:1.35rem; font-weight:700; flex:1}
+.sec-head .count{font-family:var(--f-mono); font-size:12px; color:var(--ink-3)}
+
+.list{
+  display:grid; gap:1px; background:var(--line); border:1px solid var(--line);
+  border-radius:12px; overflow:hidden;
+}
+.ph{
+  background:var(--surface); padding:12px 14px;
+  display:grid; grid-template-columns:minmax(0,1fr) auto; gap:4px 12px; align-items:center;
+}
+.ph > :not(.play){grid-column:1}
+.ph__zh{
+  font-family:var(--f-zh); font-size:1.45rem; font-weight:600; letter-spacing:.04em;
+  line-height:1.3; background:none; border:0; padding:0; color:var(--ink);
+  text-align:left; cursor:zoom-in; overflow-wrap:anywhere;
+}
+.ph__py{font-family:var(--f-mono); font-size:12.5px; color:var(--jade-ink); margin-top:2px}
+.ph__say{font-family:var(--f-display); font-weight:700; font-size:.98rem; margin-top:2px}
+.ph__say::before{content:'say  '; font-family:var(--f-mono); font-weight:500; font-size:9.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--ink-3); white-space:pre}
+.ph__en{font-size:.9rem; color:var(--ink-2); margin-top:2px}
+.ph__en i{color:var(--ink-3)}
+.play{
+  grid-row:1 / span 4; grid-column:2;
+  width:44px; height:44px; border-radius:50%; flex:none;
+  border:1px solid var(--jade); background:var(--jade-soft); color:var(--jade-ink);
+  display:grid; place-items:center; cursor:pointer; padding:0;
+}
+.play svg{width:16px; height:16px; margin-left:2px}
+.play.is-on{background:var(--jade); color:var(--surface)}
+.no-tts .play{display:none}
+
+.nums{display:grid; grid-template-columns:repeat(6,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:12px; overflow:hidden}
+@media (max-width:620px){.nums{grid-template-columns:repeat(3,1fr)}}
+.nums button{
+  background:var(--surface); border:0; padding:12px 6px; text-align:center; cursor:pointer;
+  font:inherit; color:var(--ink);
+}
+.nums .z{font-family:var(--f-zh); font-size:1.5rem; font-weight:600; display:block}
+.nums .p{font-family:var(--f-mono); font-size:12px; color:var(--jade-ink); display:block}
+.nums .s{font-family:var(--f-display); font-weight:700; font-size:.9rem; display:block}
+.nums .e{font-size:.78rem; color:var(--ink-3); display:block}
+.tip{margin-top:12px; font-size:.9rem; color:var(--ink-2); line-height:1.55}
+.tip b{font-family:var(--f-display); color:var(--ink)}
+
+.note{
+  border-left:3px solid var(--lantern); background:var(--lantern-soft);
+  padding:13px 15px; border-radius:0 10px 10px 0; margin-top:14px;
+  font-size:.92rem; line-height:1.55;
+}
+.note b{font-family:var(--f-display)}
+
+/* show-this overlay */
+.show{
+  position:fixed; inset:0; z-index:10; background:var(--surface);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:24px; text-align:center; cursor:zoom-out;
+}
+.show[hidden]{display:none}
+.show__zh{font-family:var(--f-zh); font-weight:700; font-size:clamp(3rem,16vw,7rem); line-height:1.15; letter-spacing:.04em; overflow-wrap:anywhere}
+.show__en{font-family:var(--f-display); color:var(--ink-3); margin-top:18px; font-size:1rem}
+.show__x{font-family:var(--f-mono); font-size:12px; color:var(--ink-3); margin-top:28px; letter-spacing:.08em; text-transform:uppercase}
+
+footer{margin-top:48px; padding-top:18px; border-top:1px solid var(--line); font-size:.85rem; color:var(--ink-3)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top"><a class="back" href="taipei-2026.html">← Back to the trip</a></div>
+
+  <header class="masthead">
+    <div class="eyebrow">Taipei · 5–12 November 2026</div>
+    <h1>Say it in <em>Mandarin</em></h1>
+    <p class="sub">The phrases you’ll actually use this week. Each has the characters, the pinyin, a plain-English sound-alike, and a ▶ button that reads it aloud in a Taiwanese Mandarin voice where your phone has one. Tap the characters to show them full-screen to whoever you’re talking to.</p>
+    <nav class="jump" aria-label="Jump to">
+      <a href="#basics">Basics</a>
+      <a href="#eating">Eating</a>
+      <a href="#around">Getting around</a>
+      <a href="#shopping">Shopping</a>
+      <a href="#numbers">Numbers</a>
+      <a href="#help">Help</a>
+      <a href="#taiwanese">Taiwanese</a>
+    </nav>
+  </header>
+
+  <div class="how">
+    <p><b>Reading the pinyin.</b> The sound-alikes get you close; these are the letters that trip English speakers up.</p>
+    <dl>
+      <div><dt>x</dt><dd>“sh”, as in <i>she</i></dd></div>
+      <div><dt>q</dt><dd>“ch”, as in <i>cheese</i></dd></div>
+      <div><dt>zh</dt><dd>“j”, as in <i>jump</i></dd></div>
+      <div><dt>z</dt><dd>“dz”, as in <i>adze</i></dd></div>
+      <div><dt>c</dt><dd>“ts”, as in <i>cats</i></dd></div>
+      <div><dt>e</dt><dd>“uh”</dd></div>
+      <div><dt>ui</dt><dd>“way”</dd></div>
+      <div><dt>iu</dt><dd>“yo”</dd></div>
+    </dl>
+    <p><b>Tones.</b> The accent marks are the four tones: ā high and flat, á rising like a question, ǎ dipping, à falling sharply. Get them wrong and people will still understand you in context, especially if you point.</p>
+  </div>
+
+  <section id="basics">
+    <div class="sec-head"><h2>Basics</h2><span class="count">use these every day</span></div>
+    <div class="list">
+      <div class="ph" data-zh="你好" data-en="Hello"><button class="ph__zh">你好</button><div class="ph__py">nǐ hǎo</div><div class="ph__say">nee how</div><div class="ph__en">Hello</div></div>
+      <div class="ph" data-zh="謝謝" data-en="Thank you"><button class="ph__zh">謝謝</button><div class="ph__py">xiè xie</div><div class="ph__say">shyeh-shyeh</div><div class="ph__en">Thank you</div></div>
+      <div class="ph" data-zh="不客氣" data-en="You’re welcome"><button class="ph__zh">不客氣</button><div class="ph__py">bú kè qi</div><div class="ph__say">boo kuh-chee</div><div class="ph__en">You’re welcome</div></div>
+      <div class="ph" data-zh="不好意思" data-en="Excuse me / sorry"><button class="ph__zh">不好意思</button><div class="ph__py">bù hǎo yì si</div><div class="ph__say">boo how ee-suh</div><div class="ph__en">Excuse me, sorry <i>· the all-purpose one in Taiwan: to get past, to get attention, to apologise</i></div></div>
+      <div class="ph" data-zh="請問" data-en="May I ask…"><button class="ph__zh">請問</button><div class="ph__py">qǐng wèn</div><div class="ph__say">ching when</div><div class="ph__en">May I ask… <i>· start any question with it</i></div></div>
+      <div class="ph" data-zh="對" data-en="Yes, that’s right"><button class="ph__zh">對</button><div class="ph__py">duì</div><div class="ph__say">dway</div><div class="ph__en">Yes, that’s right</div></div>
+      <div class="ph" data-zh="不是" data-en="No, it isn’t"><button class="ph__zh">不是</button><div class="ph__py">bú shì</div><div class="ph__say">boo shir</div><div class="ph__en">No, it isn’t</div></div>
+      <div class="ph" data-zh="好" data-en="OK"><button class="ph__zh">好</button><div class="ph__py">hǎo</div><div class="ph__say">how</div><div class="ph__en">OK, good</div></div>
+      <div class="ph" data-zh="我聽不懂" data-en="I don’t understand"><button class="ph__zh">我聽不懂</button><div class="ph__py">wǒ tīng bù dǒng</div><div class="ph__say">waw ting boo dong</div><div class="ph__en">I don’t understand</div></div>
+      <div class="ph" data-zh="你會說英文嗎？" data-en="Do you speak English?"><button class="ph__zh">你會說英文嗎？</button><div class="ph__py">nǐ huì shuō yīng wén ma</div><div class="ph__say">nee hway shwaw ying-wen mah</div><div class="ph__en">Do you speak English?</div></div>
+      <div class="ph" data-zh="掰掰" data-en="Bye-bye"><button class="ph__zh">掰掰</button><div class="ph__py">bāi bāi</div><div class="ph__say">bye-bye</div><div class="ph__en">Bye <i>· what everyone actually says; 再見 (dzai jyen) is the formal one</i></div></div>
+    </div>
+  </section>
+
+  <section id="eating">
+    <div class="sec-head"><h2>Eating</h2><span class="count">restaurants, stalls, bubble tea</span></div>
+    <div class="list">
+      <div class="ph" data-zh="三位" data-en="Three people"><button class="ph__zh">三位</button><div class="ph__py">sān wèi</div><div class="ph__say">sahn way</div><div class="ph__en">Three people <i>· at the door, holding up three fingers</i></div></div>
+      <div class="ph" data-zh="我有訂位" data-en="I have a reservation"><button class="ph__zh">我有訂位</button><div class="ph__py">wǒ yǒu dìng wèi</div><div class="ph__say">waw yo ding way</div><div class="ph__en">I have a reservation</div></div>
+      <div class="ph" data-zh="菜單" data-en="Menu"><button class="ph__zh">菜單</button><div class="ph__py">cài dān</div><div class="ph__say">tsai dahn</div><div class="ph__en">Menu <i>· add 英文 (ying-wen) for an English one</i></div></div>
+      <div class="ph" data-zh="這個" data-en="This one"><button class="ph__zh">這個</button><div class="ph__py">zhè ge</div><div class="ph__say">juh-guh</div><div class="ph__en">This one <i>· and point; it gets you through any stall</i></div></div>
+      <div class="ph" data-zh="一個、兩個、三個" data-en="One, two, three of them"><button class="ph__zh">一個 · 兩個 · 三個</button><div class="ph__py">yí ge · liǎng ge · sān ge</div><div class="ph__say">ee-guh · lyahng-guh · sahn-guh</div><div class="ph__en">One, two, three of them</div></div>
+      <div class="ph" data-zh="內用" data-en="Eat here"><button class="ph__zh">內用</button><div class="ph__py">nèi yòng</div><div class="ph__say">nay yong</div><div class="ph__en">Eat here</div></div>
+      <div class="ph" data-zh="外帶" data-en="To go"><button class="ph__zh">外帶</button><div class="ph__py">wài dài</div><div class="ph__say">why dye</div><div class="ph__en">To go</div></div>
+      <div class="ph" data-zh="不要辣" data-en="Not spicy"><button class="ph__zh">不要辣</button><div class="ph__py">bú yào là</div><div class="ph__say">boo yow lah</div><div class="ph__en">Not spicy</div></div>
+      <div class="ph" data-zh="小辣" data-en="A little spicy"><button class="ph__zh">小辣</button><div class="ph__py">xiǎo là</div><div class="ph__say">shyaow lah</div><div class="ph__en">A little spicy <i>· 大辣 (dah lah) is very</i></div></div>
+      <div class="ph" data-zh="不要香菜" data-en="No coriander"><button class="ph__zh">不要香菜</button><div class="ph__py">bú yào xiāng cài</div><div class="ph__say">boo yow shyahng tsai</div><div class="ph__en">No coriander (cilantro) <i>· it goes on everything</i></div></div>
+      <div class="ph" data-zh="少糖" data-en="Less sugar"><button class="ph__zh">少糖</button><div class="ph__py">shǎo táng</div><div class="ph__say">shaow tahng</div><div class="ph__en">Less sugar <i>· for bubble tea; 半糖 (bahn tahng) is half, 無糖 (woo tahng) is none</i></div></div>
+      <div class="ph" data-zh="去冰" data-en="No ice"><button class="ph__zh">去冰</button><div class="ph__py">qù bīng</div><div class="ph__say">chyew bing</div><div class="ph__en">No ice <i>· 少冰 (shaow bing) is less ice</i></div></div>
+      <div class="ph" data-zh="熱的" data-en="Hot"><button class="ph__zh">熱的</button><div class="ph__py">rè de</div><div class="ph__say">ruh duh</div><div class="ph__en">Hot (a drink) <i>· 冰的 (bing duh) is iced</i></div></div>
+      <div class="ph" data-zh="水" data-en="Water"><button class="ph__zh">水</button><div class="ph__py">shuǐ</div><div class="ph__say">shway</div><div class="ph__en">Water</div></div>
+      <div class="ph" data-zh="好吃！" data-en="Delicious!"><button class="ph__zh">好吃！</button><div class="ph__py">hǎo chī</div><div class="ph__say">how chir</div><div class="ph__en">Delicious! <i>· the stallholders love hearing it</i></div></div>
+      <div class="ph" data-zh="買單" data-en="The bill, please"><button class="ph__zh">買單</button><div class="ph__py">mǎi dān</div><div class="ph__say">my dahn</div><div class="ph__en">The bill, please <i>· or 結帳 (jyeh jahng)</i></div></div>
+    </div>
+  </section>
+
+  <section id="around">
+    <div class="sec-head"><h2>Getting around</h2><span class="count">MRT, trains, buses, on foot</span></div>
+    <div class="list">
+      <div class="ph" data-zh="在哪裡？" data-en="Where is it?"><button class="ph__zh">……在哪裡？</button><div class="ph__py">… zài nǎ lǐ</div><div class="ph__say">… dzai nah-lee</div><div class="ph__en">Where is …? <i>· put the place first: 捷運站在哪裡？</i></div></div>
+      <div class="ph" data-zh="廁所在哪裡？" data-en="Where’s the toilet?"><button class="ph__zh">廁所在哪裡？</button><div class="ph__py">cè suǒ zài nǎ lǐ</div><div class="ph__say">tsuh-swaw dzai nah-lee</div><div class="ph__en">Where’s the toilet?</div></div>
+      <div class="ph" data-zh="捷運站" data-en="MRT station"><button class="ph__zh">捷運站</button><div class="ph__py">jié yùn zhàn</div><div class="ph__say">jyeh-yoon jahn</div><div class="ph__en">MRT station</div></div>
+      <div class="ph" data-zh="火車站" data-en="Train station"><button class="ph__zh">火車站</button><div class="ph__py">huǒ chē zhàn</div><div class="ph__say">hwaw-chuh jahn</div><div class="ph__en">Train station</div></div>
+      <div class="ph" data-zh="公車站" data-en="Bus stop"><button class="ph__zh">公車站</button><div class="ph__py">gōng chē zhàn</div><div class="ph__say">gong-chuh jahn</div><div class="ph__en">Bus stop</div></div>
+      <div class="ph" data-zh="電梯" data-en="Lift"><button class="ph__zh">電梯</button><div class="ph__py">diàn tī</div><div class="ph__say">dyen tee</div><div class="ph__en">Lift, elevator</div></div>
+      <div class="ph" data-zh="出口" data-en="Exit"><button class="ph__zh">出口</button><div class="ph__py">chū kǒu</div><div class="ph__say">choo ko</div><div class="ph__en">Exit <i>· 入口 (roo ko) is entrance</i></div></div>
+      <div class="ph" data-zh="這班車到瑞芳嗎？" data-en="Does this train go to Ruifang?"><button class="ph__zh">這班車到瑞芳嗎？</button><div class="ph__py">zhè bān chē dào Ruìfāng ma</div><div class="ph__say">juh bahn chuh dow ray-fahng mah</div><div class="ph__en">Does this train go to Ruifang? <i>· swap in any place below</i></div></div>
+      <div class="ph" data-zh="台北車站" data-en="Taipei Main Station"><button class="ph__zh">台北車站</button><div class="ph__py">Táiběi chē zhàn</div><div class="ph__say">tie-bay chuh-jahn</div><div class="ph__en">Taipei Main Station</div></div>
+      <div class="ph" data-zh="十分" data-en="Shifen"><button class="ph__zh">十分</button><div class="ph__py">Shífēn</div><div class="ph__say">shir-fun</div><div class="ph__en">Shifen</div></div>
+      <div class="ph" data-zh="九份" data-en="Jiufen"><button class="ph__zh">九份</button><div class="ph__py">Jiǔfèn</div><div class="ph__say">jyoh-fun</div><div class="ph__en">Jiufen</div></div>
+      <div class="ph" data-zh="貓空" data-en="Maokong"><button class="ph__zh">貓空</button><div class="ph__py">Māokōng</div><div class="ph__say">maow-kong</div><div class="ph__en">Maokong</div></div>
+      <div class="ph" data-zh="故宮博物院" data-en="National Palace Museum"><button class="ph__zh">故宮博物院</button><div class="ph__py">Gùgōng bówùyuàn</div><div class="ph__say">goo-gong bwaw-woo-ywen</div><div class="ph__en">National Palace Museum <i>· locals just say 故宮 (goo-gong)</i></div></div>
+      <div class="ph" data-zh="香格里拉" data-en="Shangri-La"><button class="ph__zh">遠東香格里拉</button><div class="ph__py">Yuǎndōng Xiānggélǐlā</div><div class="ph__say">ywen-dong shyahng-guh-lee-lah</div><div class="ph__en">The hotel, the Far Eastern Shangri-La</div></div>
+    </div>
+  </section>
+
+  <section id="shopping">
+    <div class="sec-head"><h2>Shopping and paying</h2><span class="count">markets, shops, 7-Eleven</span></div>
+    <div class="list">
+      <div class="ph" data-zh="多少錢？" data-en="How much?"><button class="ph__zh">多少錢？</button><div class="ph__py">duō shǎo qián</div><div class="ph__say">dwaw shaow chyen</div><div class="ph__en">How much?</div></div>
+      <div class="ph" data-zh="可以刷卡嗎？" data-en="Can I pay by card?"><button class="ph__zh">可以刷卡嗎？</button><div class="ph__py">kě yǐ shuā kǎ ma</div><div class="ph__say">kuh-ee shwah kah mah</div><div class="ph__en">Can I pay by card?</div></div>
+      <div class="ph" data-zh="只收現金" data-en="Cash only"><button class="ph__zh">只收現金</button><div class="ph__py">zhǐ shōu xiàn jīn</div><div class="ph__say">jir show shyen jin</div><div class="ph__en">Cash only <i>· you’ll see it on signs more than hear it</i></div></div>
+      <div class="ph" data-zh="我看看" data-en="Just looking"><button class="ph__zh">我看看</button><div class="ph__py">wǒ kàn kan</div><div class="ph__say">waw kahn-kahn</div><div class="ph__en">Just looking</div></div>
+      <div class="ph" data-zh="太貴了" data-en="Too expensive"><button class="ph__zh">太貴了</button><div class="ph__py">tài guì le</div><div class="ph__say">tie gway luh</div><div class="ph__en">Too expensive <i>· market stalls only, with a smile; shops have fixed prices</i></div></div>
+      <div class="ph" data-zh="要袋子嗎？" data-en="Do you need a bag?"><button class="ph__zh">要袋子嗎？</button><div class="ph__py">yào dài zi ma</div><div class="ph__say">yow dye-dzuh mah</div><div class="ph__en">Do you need a bag? <i>· the 7-Eleven question; bags cost NT$1–2</i></div></div>
+      <div class="ph" data-zh="不用，謝謝" data-en="No need, thanks"><button class="ph__zh">不用，謝謝</button><div class="ph__py">bú yòng, xiè xie</div><div class="ph__say">boo yong, shyeh-shyeh</div><div class="ph__en">No need, thanks <i>· the answer to the bag, and to the receipt-barcode question (載具) they also ask</i></div></div>
+      <div class="ph" data-zh="可以試吃嗎？" data-en="Can I try one?"><button class="ph__zh">可以試吃嗎？</button><div class="ph__py">kě yǐ shì chī ma</div><div class="ph__say">kuh-ee shir chir mah</div><div class="ph__en">Can I try one? <i>· pineapple cake and tea shops usually say yes</i></div></div>
+    </div>
+  </section>
+
+  <section id="numbers">
+    <div class="sec-head"><h2>Numbers</h2><span class="count">tap one to hear it</span></div>
+    <div class="nums">
+      <button data-zh="一" data-en="1"><span class="z">一</span><span class="p">yī</span><span class="s">ee</span><span class="e">1</span></button>
+      <button data-zh="二" data-en="2"><span class="z">二</span><span class="p">èr</span><span class="s">are</span><span class="e">2</span></button>
+      <button data-zh="三" data-en="3"><span class="z">三</span><span class="p">sān</span><span class="s">sahn</span><span class="e">3</span></button>
+      <button data-zh="四" data-en="4"><span class="z">四</span><span class="p">sì</span><span class="s">suh</span><span class="e">4</span></button>
+      <button data-zh="五" data-en="5"><span class="z">五</span><span class="p">wǔ</span><span class="s">woo</span><span class="e">5</span></button>
+      <button data-zh="六" data-en="6"><span class="z">六</span><span class="p">liù</span><span class="s">lyoh</span><span class="e">6</span></button>
+      <button data-zh="七" data-en="7"><span class="z">七</span><span class="p">qī</span><span class="s">chee</span><span class="e">7</span></button>
+      <button data-zh="八" data-en="8"><span class="z">八</span><span class="p">bā</span><span class="s">bah</span><span class="e">8</span></button>
+      <button data-zh="九" data-en="9"><span class="z">九</span><span class="p">jiǔ</span><span class="s">jyoh</span><span class="e">9</span></button>
+      <button data-zh="十" data-en="10"><span class="z">十</span><span class="p">shí</span><span class="s">shir</span><span class="e">10</span></button>
+      <button data-zh="一百" data-en="100"><span class="z">百</span><span class="p">bǎi</span><span class="s">bye</span><span class="e">100</span></button>
+      <button data-zh="一千" data-en="1,000"><span class="z">千</span><span class="p">qiān</span><span class="s">chyen</span><span class="e">1,000</span></button>
+    </div>
+    <p class="tip"><b>Prices are said as they’re written.</b> NT$150 is 一百五 (ee bye woo), NT$80 is 八十 (bah shir). For two <i>of something</i> use 兩 (lyahng): 兩個, two of them. Stallholders will often just show you the number on a calculator or their phone.</p>
+  </section>
+
+  <section id="help">
+    <div class="sec-head"><h2>Help</h2><span class="count">hopefully never</span></div>
+    <div class="list">
+      <div class="ph" data-zh="請幫我" data-en="Please help me"><button class="ph__zh">請幫我</button><div class="ph__py">qǐng bāng wǒ</div><div class="ph__say">ching bahng waw</div><div class="ph__en">Please help me</div></div>
+      <div class="ph" data-zh="我迷路了" data-en="I’m lost"><button class="ph__zh">我迷路了</button><div class="ph__py">wǒ mí lù le</div><div class="ph__say">waw mee loo luh</div><div class="ph__en">I’m lost</div></div>
+      <div class="ph" data-zh="請寫下來" data-en="Please write it down"><button class="ph__zh">請寫下來</button><div class="ph__py">qǐng xiě xià lái</div><div class="ph__say">ching shyeh shyah lie</div><div class="ph__en">Please write it down</div></div>
+      <div class="ph" data-zh="藥局" data-en="Pharmacy"><button class="ph__zh">藥局</button><div class="ph__py">yào jú</div><div class="ph__say">yow jyew</div><div class="ph__en">Pharmacy</div></div>
+      <div class="ph" data-zh="醫院" data-en="Hospital"><button class="ph__zh">醫院</button><div class="ph__py">yī yuàn</div><div class="ph__say">ee ywen</div><div class="ph__en">Hospital</div></div>
+      <div class="ph" data-zh="救命！" data-en="Help!"><button class="ph__zh">救命！</button><div class="ph__py">jiù mìng</div><div class="ph__say">jyoh ming</div><div class="ph__en">Help! <i>· emergency: dial 119 for ambulance or fire, 110 for police</i></div></div>
+    </div>
+  </section>
+
+  <section id="taiwanese">
+    <div class="sec-head"><h2>A little Taiwanese</h2><span class="count">for the older stallholders</span></div>
+    <div class="list">
+      <div class="ph" data-en="Thank you (Taiwanese)"><button class="ph__zh">多謝</button><div class="ph__py">to-siā</div><div class="ph__say">doh-shyah</div><div class="ph__en">Thank you, in Taiwanese Hokkien</div></div>
+      <div class="ph" data-en="Delicious (Taiwanese)"><button class="ph__zh">好食</button><div class="ph__py">hó-tsia̍h</div><div class="ph__say">hoh-jyah</div><div class="ph__en">Delicious</div></div>
+      <div class="ph" data-en="Have you eaten? (Taiwanese)"><button class="ph__zh">食飽未？</button><div class="ph__py">tsia̍h-pá-buē</div><div class="ph__say">jyah-bah-bway</div><div class="ph__en">Have you eaten? <i>· the Taiwanese “how are you”</i></div></div>
+    </div>
+    <div class="note"><b>Why bother?</b> Most people in Taipei speak Mandarin, but many older Taiwanese grew up speaking Hokkien at home. A <i>doh-shyah</i> at a night-market stall usually gets a big smile. The ▶ voice only does Mandarin, so these have no button.</div>
+  </section>
+
+  <footer>
+    <p>Taiwan writes traditional characters (謝謝, not 谢谢); everything here is in them. The read-aloud uses your phone’s own voices, so it sounds best on a phone with a Chinese (Taiwan) voice installed.</p>
+    <p style="margin-top:10px"><a href="taipei-2026.html">← Back to the trip</a></p>
+  </footer>
+</div>
+
+<div class="show" id="show" hidden role="dialog" aria-modal="true" aria-label="Show this phrase">
+  <div class="show__zh" id="showZh"></div>
+  <div class="show__en" id="showEn"></div>
+  <div class="show__x">tap anywhere to close</div>
+</div>
+
+<script>
+(function(){
+  var synth = window.speechSynthesis;
+  var voice = null;
+  function pickVoice(){
+    if(!synth) return;
+    var vs = synth.getVoices() || [];
+    var tw = null, zh = null;
+    for (var i = 0; i < vs.length; i++){
+      var l = (vs[i].lang || '').toLowerCase().replace('_','-');
+      if (!tw && (l === 'zh-tw' || l.indexOf('zh-hant') === 0)) tw = vs[i];
+      if (!zh && l.indexOf('zh') === 0) zh = vs[i];
+    }
+    voice = tw || zh;
+  }
+  if (!synth || typeof SpeechSynthesisUtterance === 'undefined'){
+    document.documentElement.className += ' no-tts';
+  } else {
+    pickVoice();
+    if ('onvoiceschanged' in synth) synth.onvoiceschanged = pickVoice;
+  }
+  var icon = '<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M3 1.8v12.4c0 .6.7 1 1.2.6l9.6-6.2c.5-.3.5-1 0-1.3L4.2 1.2C3.7.9 3 1.2 3 1.8z"/></svg>';
+  var current = null;
+  function speak(text, btn){
+    if (!synth) return;
+    synth.cancel();
+    if (current) current.classList.remove('is-on');
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = voice ? voice.lang : 'zh-TW';
+    if (voice) u.voice = voice;
+    u.rate = 0.8;
+    if (btn){
+      btn.classList.add('is-on'); current = btn;
+      u.onend = u.onerror = function(){ btn.classList.remove('is-on'); };
+    }
+    synth.speak(u);
+  }
+  var rows = document.querySelectorAll('.ph');
+  for (var i = 0; i < rows.length; i++){
+    var r = rows[i], z = r.getAttribute('data-zh');
+    if (z){
+      var b = document.createElement('button');
+      b.className = 'play'; b.type = 'button'; b.innerHTML = icon;
+      b.setAttribute('aria-label', 'Hear ' + (r.getAttribute('data-en') || 'it'));
+      b.addEventListener('click', (function(t, btn){ return function(){ speak(t, btn); }; })(z, b));
+      r.appendChild(b);
+    }
+  }
+  var nums = document.querySelectorAll('.nums button');
+  for (var j = 0; j < nums.length; j++){
+    nums[j].addEventListener('click', (function(t){ return function(){ speak(t); }; })(nums[j].getAttribute('data-zh')));
+  }
+  // tap characters to show them big
+  var show = document.getElementById('show');
+  var sz = document.getElementById('showZh'), se = document.getElementById('showEn');
+  var zhs = document.querySelectorAll('.ph__zh');
+  for (var k = 0; k < zhs.length; k++){
+    zhs[k].addEventListener('click', function(){
+      var row = this.closest('.ph');
+      sz.textContent = this.textContent;
+      se.textContent = row.getAttribute('data-en') || '';
+      show.hidden = false;
+    });
+  }
+  show.addEventListener('click', function(){ show.hidden = true; });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') show.hidden = true; });
+})();
+</script>
+</body>
+</html>
