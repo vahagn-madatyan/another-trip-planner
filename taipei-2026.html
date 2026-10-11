@@ -471,6 +471,17 @@ footer{
   border-top:1px solid var(--alert-line);
 }
 .alert__opt b{font-family:var(--f-display)}
+.alert__done{font-size:.9rem; color:var(--ink-2); padding:12px 0; border-top:1px solid var(--alert-line)}
+.alert__done b{font-family:var(--f-display); color:var(--jade-ink)}
+.done{
+  display:inline-flex; align-items:baseline; gap:7px; max-width:100%;
+  padding:2px 9px; border-radius:6px; background:var(--jade); color:var(--surface);
+  font-family:var(--f-display); font-weight:600; font-size:.84rem; line-height:1.5;
+}
+.done::before{
+  content:'done'; flex:none; font-family:var(--f-mono); font-size:9.5px; font-weight:600;
+  letter-spacing:.1em; text-transform:uppercase; opacity:.85;
+}
 
 .slot--alert{box-shadow:inset 4px 0 0 var(--alert)}
 .rsv{
@@ -571,7 +582,7 @@ footer{
       <a href="#week">The week</a>
       <a href="#eat">Eating</a>
       <a href="#cash">Cash or card</a>
-      <a href="#buy">Souvenirs</a>
+      <a href="#buy">Shopping</a>
       <a href="taipei-phrases.html">Phrasebook</a>
       <a href="#basics">Ground rules</a>
     </nav>
@@ -582,27 +593,24 @@ footer{
     <div class="alert">
       <div class="alert__head">
         <span class="alert__badge">Reserve</span>
-        <h3>Four things only you can do</h3>
+        <h3>Three things only you can do</h3>
       </div>
-      <p class="alert__sub">Everything else on this page is walk-up. Tick them off as you go; the ticks stay on this phone.</p>
+      <p class="alert__sub">Everything else on this page is walk-up. Tick them off as you go; the ticks stay on this phone. Sunday moved an hour later, so if you already booked the old times, change them.</p>
       <ul class="rlist">
         <li>
-          <input type="checkbox" id="r1" data-key="duck">
-          <label for="r1"><span class="when">Now · by phone</span><b>Pre-order the duck at Le Palais</b>Call <span class="nw">02-2181-9985</span> and add the flaming sliced duck four ways (火焰片皮鴨四吃) to Tuesday 10 Nov, 18:00, for three. The table is booked; the duck isn’t.</label>
+          <input type="checkbox" id="r2" data-key="mala-1230">
+          <label for="r2"><span class="when">Now · phone or Klook</span><b>Mala Hot Pot, Xinyi: Sun 8 Nov, 12:30, three people</b><span class="nw">02-2720-5726</span>. Two-hour all-you-can-eat seating; lunch runs until 16:00, and Sunday fills up.</label>
         </li>
         <li>
-          <input type="checkbox" id="r2" data-key="mala">
-          <label for="r2"><span class="when">Now · phone or Klook</span><b>Mala Hot Pot, Xinyi: Sun 8 Nov, 11:30, three people</b><span class="nw">02-2720-5726</span>. Two-hour all-you-can-eat seating, and Sunday lunch fills up.</label>
-        </li>
-        <li>
-          <input type="checkbox" id="r3" data-key="101">
-          <label for="r3"><span class="when">A week out · online</span><b>Taipei 101 Observatory: Sun 8 Nov, 10:00, three tickets</b>On the official site or Klook. The QR code gets you into the faster line.</label>
+          <input type="checkbox" id="r3" data-key="101-1100">
+          <label for="r3"><span class="when">A week out · online</span><b>Taipei 101 Observatory: Sun 8 Nov, 11:00, three tickets</b>On the official site or Klook. The QR code gets you into the faster line.</label>
         </li>
         <li>
           <input type="checkbox" id="r4" data-key="hotel">
           <label for="r4"><span class="when">Before you fly · email</span><b>Tell the Shangri&#8209;La two things</b>Check-in will be about 22:45 on Fri 6 Nov, after the train in. And you need bedding for three: a king or twins plus a rollaway, or connecting rooms.</label>
         </li>
       </ul>
+      <p class="alert__done"><b>Done:</b> Le Palais, Tue 10 Nov at 18:00 for three, with the Cantonese-style crispy roast duck course pre-ordered (NT$5,880).</p>
       <p class="alert__opt"><b>Only if you want one:</b> a sit-down Taiwanese dinner. Every evening now ends at a night market, so a dinner booking would replace one. The best fit is Fujin Tree on Saturday at 17:00, a walk from SunnyHills, then Raohe for dessert. Details in <a href="#eat">the eating list</a>.</p>
     </div>
   </section>
@@ -735,7 +743,8 @@ footer{
         <li>The Maokong gondola shuts on Mondays for maintenance, so Maokong is Wednesday.</li>
         <li>Jiufen is packed at weekends, so the day trip is Monday, with Sunday as the rain swap.</li>
         <li>Both soy milk shops close on Mondays, so the traditional breakfasts are Sunday and Wednesday.</li>
-        <li>The Palace Museum and Confucius Temple close on Mondays, so they’re Tuesday morning, finishing in time to be back at the hotel by about 16:00 with an hour to change for Le Palais.</li>
+        <li>Taipei 101 is at 11:00, an hour after the memorial hall’s first guard change, and Sunday afternoon is the big Xinyi malls, all joined by skybridges, with the Pokémon Center and the first boba chain among them.</li>
+        <li>The Palace Museum closes on Mondays, so it’s Tuesday morning, then the anime and figure shops of Ximending, back at the hotel by about 16:00 with an hour to change for Le Palais.</li>
         <li>Every evening in town ends at a night market, best first: Raohe, then Shilin, Ningxia and the local Linjiang Street. Monday’s market is Jiufen’s lantern-lit old street.</li>
       </ul>
     </div>
@@ -893,9 +902,9 @@ footer{
           <div class="day__head">
             <span class="day__num">SUN</span>
             <span class="day__date">8 November</span>
-            <span class="day__tag">Xinyi · Shilin</span>
+            <span class="day__tag">Xinyi · malls</span>
           </div>
-          <div class="day__theme">Soy milk, the memorial hall, the tower, hot pot, Shilin</div>
+          <div class="day__theme">Soy milk, the memorial hall, the tower, hot pot, the big malls, Shilin</div>
           <div class="slots">
             <div class="slot slot--yours">
               <div class="slot__when">06:00</div>
@@ -910,45 +919,64 @@ footer{
             </div>
             <div class="slot">
               <div class="slot__when">08:00</div>
-              <div class="slot__what"><b>Chiang Kai-shek Memorial Hall <span class="zhn">中正紀念堂</span></b>Blue line one stop to Taipei Main, red two stops. Early on, the gardens are full of people doing tai chi, and the white hall, the gate and the two theatres face each other across the plaza. The hall opens at 9:00, and the honour guard changes outdoors on the hour from 9:00. Free.
+              <div class="slot__what"><b>Chiang Kai-shek Memorial Hall <span class="zhn">中正紀念堂</span></b>Blue line one stop to Taipei Main, red two stops. Early on, the gardens are full of people doing tai chi, and the white hall, the gate and the two theatres face each other across the plaza. The hall opens at 9:00 and the honour guard changes outdoors on the hour: watch the 9:00 change, go up into the hall, and leave about 9:45. Free.
                 <div class="slot__foot">
                   <span class="mrt ln-red">Chiang Kai-shek Memorial Hall</span>
                   <span class="hrs">hall 09:00–18:00 · guard on the hour, not in heavy rain</span>
                 </div>
               </div>
             </div>
-            <div class="slot slot--yours slot--alert">
+            <div class="slot">
               <div class="slot__when">10:00</div>
-              <div class="slot__what"><b>Taipei 101 Observatory <span class="zhn">台北101觀景台</span></b>Red line direct from the memorial hall, about 10 minutes. The 89th floor is NT$600, and the walk round passes the giant gold wind damper.
+              <div class="slot__what"><b>Four Four South Village <span class="zhn">四四南村</span></b>Red line direct from the memorial hall to Taipei 101, about 10 minutes, then 10 minutes on foot. The low brick houses of a 1948 military-families village, kept at the foot of the tower; the contrast makes the classic photo of 101. Free, and a calm half hour before the observatory.
+                <div class="slot__foot"><span class="mrt ln-red">Taipei 101 / World Trade Center</span></div>
+              </div>
+            </div>
+            <div class="slot slot--yours slot--alert">
+              <div class="slot__when">11:00</div>
+              <div class="slot__what"><b>Taipei 101 Observatory <span class="zhn">台北101觀景台</span></b>The entrance is inside the mall at the foot of the tower. The 89th floor is NT$600, and the walk round passes the giant gold wind damper. Allow about an hour.
                 <div class="slot__foot">
-                  <span class="rsv">10:00 tickets online</span>
-                  <span class="mrt ln-red">Taipei 101 / World Trade Center</span>
+                  <span class="rsv">11:00 tickets online</span>
                   <span class="hrs">10:00–21:00</span>
                 </div>
               </div>
             </div>
             <div class="slot slot--yours slot--alert">
-              <div class="slot__when">11:30</div>
+              <div class="slot__when">12:30</div>
               <div class="slot__what"><b>Mala Hot Pot, Xinyi <span class="zhn">馬辣頂級麻辣鴛鴦火鍋 信義店</span></b>All you can eat with two-hour seating, on the 3rd floor of NEO19, five minutes’ walk from 101. The split pot has a numbing-spicy side and a mild side, so the table can divide by tolerance.
                 <div class="slot__foot">
-                  <span class="rsv">call 02-2720-5726</span>
+                  <span class="rsv">12:30 · call 02-2720-5726</span>
                   <span class="drv">台北市信義區松壽路22號3樓</span>
                 </div>
               </div>
             </div>
             <div class="slot">
-              <div class="slot__when">13:45</div>
-              <div class="slot__what"><b>Four Four South Village <span class="zhn">四四南村</span></b>Ten minutes’ walk: the low brick houses of a 1948 military-families village, kept at the foot of 101. The contrast makes the classic photo of the tower. Free; the Good Cho’s café inside is a good sit-down.</div>
+              <div class="slot__when">14:45</div>
+              <div class="slot__what"><b>Pokémon Center Taipei <span class="zhn">寶可夢中心</span></b>A few minutes’ walk along Songshou Road, on the 3rd floor of Shin Kong Mitsukoshi A11. Only the second Pokémon Center outside Japan: plush, cards, figures and Taipei-only pieces. On busy weekends they hand out timed entry tickets, so come here first; if there’s a wait, take a ticket and shop the other buildings until your time.
+                <div class="slot__foot">
+                  <span class="mrt ln-blue">Taipei City Hall, Exit 3</span>
+                  <span class="hrs">11:00–21:30</span>
+                </div>
+              </div>
             </div>
             <div class="slot">
-              <div class="slot__when">15:00</div>
-              <div class="slot__what"><b>Shilin Official Residence gardens <span class="zhn">士林官邸</span></b>Red line direct from Taipei 101 to Shilin, about 30 minutes, then 10 minutes on foot. Chiang Kai-shek’s home for 25 years, with rose gardens, a European garden and a chapel. The gardens are free and flat: an easy afternoon walk before the market. Then one stop back down the red line to Jiantan.
-                <div class="slot__foot"><span class="mrt ln-red">Shilin, Exit 2</span></div>
+              <div class="slot__when">15:15</div>
+              <div class="slot__what"><b>The big Xinyi malls <span class="zhn">信義商圈</span></b>Taipei’s department-store district is a grid of malls joined by covered skybridges, so you can shop it without going outside. Taipei 101 Mall for luxury brands; Shin Kong Mitsukoshi’s four buildings (A4, A8, A9, A11) for Japanese-style department-store floors; Breeze Nan Shan, with its food hall; Bellavita; ATT 4 FUN; and Eslite Xinyi for books, stationery and Taiwanese design. Spend NT$2,000 or more in one shop on one day and ask for the tourist tax refund: bring passports.
+                <div class="slot__foot">
+                  <span class="hrs">most open 11:00–21:30</span>
+                  <span class="hrs">cards OK</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">16:30</div>
+              <div class="slot__what"><b>Pearl milk tea at Chun Shui Tang <span class="zhn">春水堂</span></b>The first boba shop isn’t on the way: Chun Shui Tang says it invented pearl milk tea in 1987 at its original teahouse in Taichung, an hour south by high-speed train (Tainan’s Hanlin Tea Room disputes the claim). Its Taipei branches serve the same drink, and two are in these malls: Shin Kong Mitsukoshi A9, and the 4th floor of Far Eastern Department Store A13. Order the classic 珍珠奶茶. It’s a sit-down teahouse, so it doubles as the afternoon rest.
+                <div class="slot__foot"><span class="hrs">check the floor on Google Maps</span></div>
               </div>
             </div>
             <div class="slot slot--market">
-              <div class="slot__when">17:00</div>
-              <div class="slot__what"><b>Shilin night market <span class="zhn">士林夜市</span></b>The biggest and best known. After hot pot at lunch, treat it as a stroll: one shared fried chicken cutlet the size of a face, pepper squid, bubble tea, and the arcade games. The basement food court is under the old market building. Home is the red line straight from Jiantan to Xinyi Anhe.
+              <div class="slot__when">17:45</div>
+              <div class="slot__what"><b>Shilin night market <span class="zhn">士林夜市</span></b>Walk back to Taipei 101 station; the red line runs direct to Jiantan, about 30 minutes. The biggest and best-known market. After hot pot at lunch, treat it as a stroll: one shared fried chicken cutlet the size of a face, pepper squid and the arcade games. The basement food court is under the old market building. Home is the red line straight from Jiantan to Xinyi Anhe. If legs are done after the malls, go straight home instead; Ningxia and Linjiang are still to come.
                 <div class="slot__foot">
                   <span class="mrt ln-red">Jiantan, Exit 1</span>
                   <span class="hrs">≈ 16:00–24:00</span>
@@ -1030,7 +1058,7 @@ footer{
             <span class="day__date">10 November</span>
             <span class="day__tag">Le Palais</span>
           </div>
-          <div class="day__theme">The Palace Museum, two temples, an hour to change, the duck</div>
+          <div class="day__theme">The Palace Museum, anime in Ximending, an hour to change, the duck</div>
           <div class="slots">
             <div class="slot slot--yours">
               <div class="slot__when">07:30</div>
@@ -1047,31 +1075,32 @@ footer{
               </div>
             </div>
             <div class="slot">
-              <div class="slot__when">13:15</div>
-              <div class="slot__what"><b>Bao’an Temple and the Confucius Temple <span class="zhn">大龍峒保安宮 · 孔廟</span></b>Bus back to Shilin, then two stops on the red line to Yuanshan and 10 minutes on foot. Bao’an is the most beautifully restored temple in the city, full of painted beams and carvings, with a UNESCO conservation award. The quiet Confucius Temple is next door. Both free.
+              <div class="slot__when">12:30</div>
+              <div class="slot__what"><b>Ximending: anime, figures and Pop Mart <span class="zhn">西門町</span></b>Leave the museum about 12:30: bus back to Shilin, red line to Taipei Main, then the blue line one stop to Ximen, about 45 minutes, which leaves two hours here. Taipei’s youth and pop-culture district. Wannien Building (萬年大樓) is the classic stop for anime figures, model kits and gachapon, floor after floor of small shops. Pop Mart’s four-floor flagship is on the pedestrian streets, and the Undercity Ximen mall runs underground north of the station, with an Animate shop and café. Capsule-toy machines line the streets outside Exit 6; keep NT$10 and NT$50 coins for them.
                 <div class="slot__foot">
-                  <span class="mrt ln-red">Yuanshan, Exit 2</span>
-                  <span class="hrs">Confucius Temple 08:30–21:00 · closed Mon</span>
+                  <span class="mrt ln-blue">Ximen, Exit 6</span>
+                  <span class="drv">台北市萬華區西寧南路70號</span>
+                  <span class="cash">cash for small shops</span>
                 </div>
               </div>
             </div>
             <div class="slot slot--fixed">
-              <div class="slot__when">15:00</div>
-              <div class="slot__what"><b>Back to the hotel to change</b>Red line from Yuanshan straight to Xinyi Anhe, about 25 minutes, then the walk. In the door by about 16:00, with an hour to rest and change before leaving at 17:15.
-                <div class="slot__foot"><span class="mrt ln-red">Yuanshan → Xinyi Anhe</span></div>
+              <div class="slot__when">15:15</div>
+              <div class="slot__what"><b>Back to the hotel to change</b>Blue line from Ximen to Zhongxiao Fuxing, brown three stops to Liuzhangli, then 7 minutes on foot: about 35 minutes. In the door by about 16:00, with an hour to rest and change before leaving at 17:15.
+                <div class="slot__foot"><span class="mrt ln-blue">Ximen</span><span class="mrt ln-brown">Liuzhangli</span></div>
               </div>
             </div>
             <div class="slot slot--fixed">
               <div class="slot__when">17:15</div>
-              <div class="slot__what"><b>Leave for Le Palais</b>Walk to Xinyi Anhe, red line six stops to Taipei Main. Underground, follow signs for Exit Y5 and turn right on Chengde Road: the Palais de Chine Hotel is a minute away, about 5–8 minutes from the ticket gates. You can also walk through the Q Square mall, which shares the building.
+              <div class="slot__what"><b>Leave for Le Palais</b>Walk to Xinyi Anhe, red line six stops to Taipei Main. Underground, follow signs for Exit Y5 and turn right on Chengde Road: the Palais de Chine Hotel is a minute away, about 5–8 minutes from the ticket gates. You can also walk through the Q Square mall, which shares the building. If you’re early, the Taipei City Mall’s figure and model shops (around Y13–Y22) are a few minutes further along the same underground street.
                 <div class="slot__foot"><span class="mrt ln-red">Taipei Main, Exit Y5</span></div>
               </div>
             </div>
             <div class="slot slot--booked">
               <div class="slot__when">18:00</div>
-              <div class="slot__what"><b>Le Palais <span class="zhn">頤宮</span></b>Three Michelin stars nine years running, and the duck is the reason to go: the flaming sliced duck served four ways (火焰片皮鴨四吃). Recent reviews put it at about NT$5,880 a duck. 17th floor of the Palais de Chine Hotel.
+              <div class="slot__what"><b>Le Palais <span class="zhn">頤宮</span></b>Three Michelin stars nine years running, and the duck is the reason to go. The Cantonese-style crispy roast duck course is pre-ordered (NT$5,880). 17th floor of the Palais de Chine Hotel.
                 <div class="slot__foot">
-                  <span class="rsv">pre-order the duck</span>
+                  <span class="done">roast duck course pre-ordered</span>
                   <span class="drv">台北市大同區承德路一段3號17樓</span>
                   <span class="hrs"><span class="nw">02-2181-9985</span> · late cancellation or no-show up to NT$1,500</span>
                 </div>
@@ -1216,10 +1245,10 @@ footer{
       <b>Getting around with no taxis.</b> The red line is the spine of the week: from Xinyi Anhe it runs without a change to Taipei 101, the memorial hall, Taipei Main, Le Palais, Ningxia, Yuanshan, Shilin and the Palace Museum bus. The brown line from Liuzhangli covers Anju Street, Maokong and the Zoo. Every MRT station has lifts. Trains run from about 06:00 to midnight.
     </div>
     <div class="note">
-      <b>If Monday is a washout, swap it with Sunday.</b> Check the forecast on Saturday night. The day trip runs on Sunday (busier, but dry), and Taipei 101, the hot pot and Shilin move to Monday; call Mala to move the booking. Fu Hang is closed on Mondays, so do it on Tuesday at 6:00 before the museum instead.
+      <b>If Monday is a washout, swap it with Sunday.</b> Check the forecast on Saturday night. The day trip runs on Sunday (busier, but dry), and Sunday’s Xinyi day (Taipei 101, the hot pot, the malls) and Shilin move to Monday; move the Mala and 101 bookings to match. Fu Hang is closed on Mondays, so do it on Tuesday at 6:00 before the museum instead.
     </div>
     <div class="note note--jade">
-      <b>Swap-ins if a day runs short or rains.</b> Xingtian Temple (行天宮), where locals come to have their fortunes read; Huashan 1914, the old winery arts park across the road from Fu Hang; Ximending for an evening of youth culture and neon; Elephant Mountain, a steep 20-minute climb for the classic view of 101; Songshan Cultural and Creative Park, an old tobacco factory with a design museum. Sun Yat-sen Memorial Hall is closed for renovation until 2027.
+      <b>Swap-ins if a day runs short or rains.</b> Bao’an Temple and the Confucius Temple at Yuanshan, the most beautifully restored temple in the city with a quiet Confucian one next door (Confucius Temple closed Mondays); the Shilin Official Residence gardens, Chiang Kai-shek’s old home, by Shilin station; Xingtian Temple (行天宮), where locals come to have their fortunes read; Huashan 1914, the old winery arts park across the road from Fu Hang; Elephant Mountain, a steep 20-minute climb for the classic view of 101; Songshan Cultural and Creative Park, an old tobacco factory with a design museum. Sun Yat-sen Memorial Hall is closed for renovation until 2027.
     </div>
   </section>
 
@@ -1237,8 +1266,8 @@ footer{
         <h4>Le Palais</h4>
         <div class="zh">頤宮 · Palais de Chine Hotel, 17F</div>
         <div class="tier">3 Michelin stars · Cantonese</div>
-        <p>Three stars nine years running. The reason to go is the flaming sliced duck served four ways (火焰片皮鴨四吃), and it has to be pre-ordered: call and add it to the booking. Recent reviews put it at about NT$5,880 for the duck. The card hold on the booking means a no-show or late cancellation costs up to NT$1,500.</p>
-        <div class="foot"><span class="rsv">pre-order the duck</span><span class="nw">02-2181-9985</span><span>red line to Taipei Main, Exit Y5</span><span>台北市大同區承德路一段3號17樓</span></div>
+        <p>Three stars nine years running. Booked for three, with the Cantonese-style crispy roast duck course pre-ordered (NT$5,880). The card hold on the booking means a no-show or late cancellation costs up to NT$1,500.</p>
+        <div class="foot"><span class="done">duck pre-ordered</span><span class="nw">02-2181-9985</span><span>red line to Taipei Main, Exit Y5</span><span>台北市大同區承德路一段3號17樓</span></div>
       </div>
     </div>
 
@@ -1388,6 +1417,7 @@ footer{
           <li><b>Jiufen</b> stalls; some teahouses take cards</li>
           <li><b>Dihua Street</b> shops and the Cisheng Temple stalls</li>
           <li><b>Yaoyue Teahouse</b>: probably; don’t count on a card</li>
+          <li><b>Ximending</b>: small figure shops and gachapon (NT$10 and NT$50 coins)</li>
           <li><b>Temples</b>: free, but incense and donations are cash</li>
         </ul>
       </div>
@@ -1399,6 +1429,7 @@ footer{
           <li><b>Taipei 101</b> observatory and malls</li>
           <li><b>National Palace Museum</b> tickets and shop</li>
           <li><b>SunnyHills</b></li>
+          <li><b>Xinyi malls</b>, the Pokémon Center, Pop Mart</li>
           <li><b>Din Tai Fung</b></li>
           <li><b>The hotel</b>, department stores, Eslite</li>
           <li>Airport duty-free</li>
@@ -1420,10 +1451,45 @@ footer{
   <!-- ============ SOUVENIRS ============ -->
   <section id="buy">
     <div class="sec-head">
-      <h2>Souvenirs</h2>
-      <span class="count">what to bring home, and where it falls on the week</span>
+      <h2>Shopping and souvenirs</h2>
+      <span class="count">malls, anime, and what to bring home</span>
     </div>
-    <p class="lede">Most of these sit on the route already, so there’s no separate shopping trip. Pineapple cakes and tea are the classics. Remember US customs before you buy anything with meat in it.</p>
+
+    <h3 class="subhead subhead--first">Malls and anime</h3>
+    <p class="lede">Two shopping blocks are built into the week: Sunday afternoon in the big Xinyi malls, and Tuesday afternoon in Ximending for anime and figures.</p>
+    <div class="pair">
+      <div class="pick">
+        <span class="call">Sun · after the hot pot</span>
+        <h4>The Xinyi mall district</h4>
+        <div class="zh">信義商圈</div>
+        <p>Taipei 101 Mall, Shin Kong Mitsukoshi A4, A8, A9 and A11, Breeze Nan Shan, Bellavita, ATT 4 FUN and Eslite Xinyi, all joined by skybridges. Department-store floors, Japanese and Korean brands, beauty halls and good food courts.</p>
+        <div class="foot"><span>Taipei City Hall · Taipei 101</span><span>≈ 11:00–21:30</span><span>cards OK</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">Sun · A11, 3rd floor</span>
+        <h4>Pokémon Center Taipei</h4>
+        <div class="zh">寶可夢中心</div>
+        <p>Opened in December 2023, the second permanent Pokémon Center outside Japan. Plush, trading cards, figures and Taipei-only designs. Timed entry tickets on busy weekends.</p>
+        <div class="foot"><span>Taipei City Hall, Exit 3</span><span>11:00–21:30</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">Tue · Ximending</span>
+        <h4>Wannien Building, Pop Mart, Undercity</h4>
+        <div class="zh">萬年大樓 · 西門町</div>
+        <p>Wannien Building (西寧南路70號) is the old-school stack of figure, model-kit and gachapon shops. Pop Mart’s four-floor flagship is a few streets away, and the Undercity Ximen underground mall has an Animate shop and café.</p>
+        <div class="foot"><span>Ximen, Exit 6</span><span class="cash">cash for small shops</span></div>
+      </div>
+      <div class="pick">
+        <span class="call">Tue · on the way to Le Palais</span>
+        <h4>Taipei City Mall and Q Square</h4>
+        <div class="zh">台北地下街 · 京站</div>
+        <p>The long underground street from Taipei Main toward Beimen has a run of anime figure and model shops around Y13–Y22. Q Square, a big mall over the bus station, shares a building with Le Palais.</p>
+        <div class="foot"><span>Taipei Main · Beimen</span></div>
+      </div>
+    </div>
+
+    <h3 class="subhead">To bring home</h3>
+    <p class="lede">Most of these sit on the route already. Pineapple cakes and tea are the classics. Remember US customs before you buy anything with meat in it.</p>
     <div class="shelf">
       <div class="pick">
         <span class="call">Sat · SunnyHills</span>
@@ -1540,6 +1606,10 @@ footer{
         <span class="txt">US passports get <b>visa&#8209;free entry</b> to Taiwan for short stays. Fill in Taiwan’s online arrival card in the three days before you fly rather than on paper at the airport.</span>
       </div>
       <div class="basic">
+        <span class="lbl">Tax refund</span>
+        <span class="txt">Shops showing the blue <b>TRS</b> sign refund Taiwan’s 5% VAT to visitors. Spend NT$2,000 or more in one shop on one day and show your passport. Many department stores refund small amounts on the spot; otherwise claim at the airport before check-in.</span>
+      </div>
+      <div class="basic">
         <span class="lbl">Plugs</span>
         <span class="txt">Same as the US: <b>110V, type A/B</b>. No adapters needed.</span>
       </div>
@@ -1569,8 +1639,8 @@ footer{
   </section>
 
   <footer>
-    <p><b>Status.</b> Booked: Le Palais, Tuesday 10 November at 18:00. Locked: the dates, the two carriers, six nights at the Shangri&#8209;La, the 8 pm Friday landing, trains instead of taxis, and every row marked as your pick. Proposed: which day each pick falls on, and the temples, museums and night markets added around them. Hours, prices and closures were checked in October 2026; the Pingxi line and bus 1062 are the two to reconfirm the night before.</p>
-    <p style="margin-top:10px">Last updated 10 October 2026.</p>
+    <p><b>Status.</b> Booked: Le Palais, Tuesday 10 November at 18:00, with the Cantonese-style crispy roast duck course pre-ordered. Locked: the dates, the two carriers, six nights at the Shangri&#8209;La, the 8 pm Friday landing, trains instead of taxis, and every row marked as your pick. Proposed: which day each pick falls on, and the temples, museums, malls and night markets added around them. Hours, prices and closures were checked in October 2026; the Pingxi line and bus 1062 are the two to reconfirm the night before.</p>
+    <p style="margin-top:10px">Last updated 11 October 2026.</p>
   </footer>
 
 </div>
