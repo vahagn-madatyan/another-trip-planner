@@ -520,6 +520,53 @@ footer{
 .pick--card{border-top:3px solid var(--jade)}
 .pick--tap{border-top:3px solid var(--mrt-purple)}
 
+/* ---- must-try dishes: a tick list, lunch first ---- */
+.try-count{font-family:var(--f-mono); font-size:12px; color:var(--ink-3); margin-bottom:10px}
+.try-count b{color:var(--jade-ink); font-weight:600}
+.try-label{font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin:26px 0 10px}
+.try-list{list-style:none; margin:0; padding:0; background:var(--surface); border:1px solid var(--line); border-radius:14px; overflow:hidden}
+.dish{
+  display:grid; grid-template-columns:22px minmax(0,1fr) auto; column-gap:12px; align-items:start;
+  padding:14px 16px; border-top:1px solid var(--line-soft);
+}
+.dish:first-child{border-top:0}
+.dish__main{min-width:0}
+.try-box{width:20px; height:20px; margin:3px 0 0; accent-color:var(--jade); cursor:pointer}
+.dish__name{font-family:var(--f-display); font-weight:700; font-size:1.05rem; letter-spacing:-.01em; cursor:pointer}
+.dish__line{display:flex; flex-wrap:wrap; align-items:baseline; gap:4px 10px; margin-top:3px}
+.dish__say{font-family:var(--f-display); font-weight:800; font-size:1.15rem; color:var(--jade-ink); letter-spacing:-.01em}
+.dish__zh,.mt__zh{
+  font-family:var(--f-zh); font-weight:500; line-height:1.4; color:var(--ink);
+  background:var(--surface-2); border:0; border-radius:7px; padding:1px 8px; cursor:pointer;
+}
+.dish__zh{font-size:1.15rem}
+.mt__zh{font-size:1rem; white-space:nowrap}
+.dish__zh:hover,.mt__zh:hover{background:var(--jade-soft)}
+.dish__py{font-family:var(--f-mono); font-size:.82rem; color:var(--ink-3)}
+.dish__txt{font-size:.92rem; color:var(--ink-2); line-height:1.55; margin-top:6px; max-width:66ch}
+.on-plan{
+  display:inline-block; margin-top:8px; font-family:var(--f-mono); font-size:10.5px; font-weight:600;
+  letter-spacing:.06em; text-transform:uppercase; padding:2px 8px; border-radius:5px;
+  background:var(--jade-soft); color:var(--jade-ink);
+}
+.on-plan--idea{background:var(--surface-2); color:var(--ink-2)}
+.dish > .pp-play{width:40px; height:40px; margin-top:2px}
+.dish > .pp-play svg{width:14px; height:14px}
+.dish:has(.try-box:checked) .dish__name,
+.mt:has(.try-box:checked) label{text-decoration:line-through; text-decoration-color:var(--jade)}
+.dish:has(.try-box:checked) .dish__main{opacity:.6}
+.also{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; align-items:start}
+@media (max-width:760px){.also{grid-template-columns:1fr}}
+.also ul{list-style:none; margin:8px 0 0; padding:0}
+.mt{
+  display:grid; grid-template-columns:22px minmax(0,1fr) auto; column-gap:10px; row-gap:4px; align-items:center;
+  padding:9px 0; border-top:1px solid var(--line-soft);
+}
+.mt:first-child{border-top:0}
+.mt label{font-size:.92rem; line-height:1.35; cursor:pointer; min-width:0}
+.mt .try-box{margin:0}
+.mt .on-plan{grid-column:2 / -1; justify-self:start; margin-top:0}
+
 /* ---- phrases: the sound-alike is the loudest line on each card ---- */
 :root{--on-jade:#ffffff; --scrim:rgba(11,22,21,.94); --scrim-ink:#f5f3ec; --scrim-say:#7fe0c4; --f-zh:'PingFang TC','Noto Sans TC','Microsoft JhengHei','Heiti TC',sans-serif}
 @media (prefers-color-scheme: dark){
@@ -1305,10 +1352,151 @@ footer{
   <section id="eat">
     <div class="sec-head">
       <h2>The eating list</h2>
-      <span class="count">big dinner · night markets · breakfast · extras</span>
+      <span class="count">must-try · dinner · night markets · breakfast</span>
     </div>
 
-    <h3 class="subhead subhead--first">Booked</h3>
+    <h3 class="subhead subhead--first" id="try">Must-try dishes, lunch first</h3>
+    <p class="try-count"><b id="triedCount">0</b> of <span id="triedTotal">26</span> tried · ticks stay on this phone</p>
+    <p class="lede">The classics to eat at least once. No spots to pick: the lunch dishes are on the wall menu of ordinary lunch shops all over town. Green tags are already on the plan; grey tags are a good moment for one.</p>
+    <div class="note note--jade">
+      <b>How lunch works.</b> Many small lunch shops hand you a paper menu and a pencil: write how many of each dish next to it, hand it back, and pay at the counter, usually in cash. Tap any characters below to show them full-screen, and ▶ to hear the name.
+    </div>
+
+    <h4 class="try-label">Lunch</h4>
+    <ul class="try-list">
+      <li class="dish" data-zh="牛肉麵" data-say="nyo-roh myen" data-en="Beef noodle soup">
+        <input type="checkbox" class="try-box" id="t-beef-noodles" data-key="beef-noodles">
+        <div class="dish__main">
+          <label class="dish__name" for="t-beef-noodles">Beef noodle soup</label>
+          <div class="dish__line"><span class="dish__say">nyo-roh myen</span><button class="dish__zh" type="button" lang="zh-Hant-TW">牛肉麵</button><span class="dish__py">niú ròu miàn</span></div>
+          <p class="dish__txt">Taiwan’s national dish. Braised (紅燒) is the rich, dark one; clear broth (清燉) is lighter.</p>
+          <span class="on-plan">On the plan · Sat, Lao Song Ji</span>
+        </div>
+        <button class="pp-play" type="button" aria-label="Hear: Beef noodle soup"></button>
+      </li>
+      <li class="dish" data-zh="滷肉飯" data-say="loo-roh fahn" data-en="Braised pork rice">
+        <input type="checkbox" class="try-box" id="t-pork-rice" data-key="pork-rice">
+        <div class="dish__main">
+          <label class="dish__name" for="t-pork-rice">Braised pork rice</label>
+          <div class="dish__line"><span class="dish__say">loo-roh fahn</span><button class="dish__zh" type="button" lang="zh-Hant-TW">滷肉飯</button><span class="dish__py">lǔ ròu fàn</span></div>
+          <p class="dish__txt">Chopped pork belly stewed in soy, spooned over rice. About NT$40–60 a bowl, every lunch shop has it, and a small bowl goes with anything.</p>
+          <span class="on-plan">On the plan · Wed, Cisheng Temple stalls</span>
+        </div>
+        <button class="pp-play" type="button" aria-label="Hear: Braised pork rice"></button>
+      </li>
+      <li class="dish" data-zh="雞肉飯" data-say="jee-roh fahn" data-en="Chicken rice">
+        <input type="checkbox" class="try-box" id="t-chicken-rice" data-key="chicken-rice">
+        <div class="dish__main">
+          <label class="dish__name" for="t-chicken-rice">Chicken rice</label>
+          <div class="dish__line"><span class="dish__say">jee-roh fahn</span><button class="dish__zh" type="button" lang="zh-Hant-TW">雞肉飯</button><span class="dish__py">jī ròu fàn</span></div>
+          <p class="dish__txt">Shredded chicken (often turkey) with shallot oil over rice. Order it next to the pork rice and compare.</p>
+        </div>
+        <button class="pp-play" type="button" aria-label="Hear: Chicken rice"></button>
+      </li>
+      <li class="dish" data-zh="貢丸湯" data-say="gong-wahn tahng" data-en="Pork meatball soup">
+        <input type="checkbox" class="try-box" id="t-meatball-soup" data-key="meatball-soup">
+        <div class="dish__main">
+          <label class="dish__name" for="t-meatball-soup">Pork meatball soup</label>
+          <div class="dish__line"><span class="dish__say">gong-wahn tahng</span><button class="dish__zh" type="button" lang="zh-Hant-TW">貢丸湯</button><span class="dish__py">gòng wán tāng</span></div>
+          <p class="dish__txt">The soup everyone orders with a rice bowl: bouncy pork balls in clear broth with celery on top.</p>
+        </div>
+        <button class="pp-play" type="button" aria-label="Hear: Pork meatball soup"></button>
+      </li>
+      <li class="dish" data-zh="小籠包" data-say="shyaow-long bow" data-en="Soup dumplings">
+        <input type="checkbox" class="try-box" id="t-xlb" data-key="xiaolongbao">
+        <div class="dish__main">
+          <label class="dish__name" for="t-xlb">Soup dumplings</label>
+          <div class="dish__line"><span class="dish__say">shyaow-long bow</span><button class="dish__zh" type="button" lang="zh-Hant-TW">小籠包</button><span class="dish__py">xiǎo lóng bāo</span></div>
+          <p class="dish__txt">Thin skin with hot broth inside. Bite a corner, let it cool for a second, then sip.</p>
+          <span class="on-plan on-plan--idea">Din Tai Fung, under “If there’s room”</span>
+        </div>
+        <button class="pp-play" type="button" aria-label="Hear: Soup dumplings"></button>
+      </li>
+      <li class="dish" data-zh="水餃" data-say="shway-jyaow" data-en="Dumplings">
+        <input type="checkbox" class="try-box" id="t-dumplings" data-key="dumplings">
+        <div class="dish__main">
+          <label class="dish__name" for="t-dumplings">Boiled dumplings</label>
+          <div class="dish__line"><span class="dish__say">shway-jyaow</span><button class="dish__zh" type="button" lang="zh-Hant-TW">水餃</button><span class="dish__py">shuǐ jiǎo</span></div>
+          <p class="dish__txt">Ordered by the piece; ten each makes a lunch. Pan-fried pot stickers are 鍋貼 (gwaw-tyeh).</p>
+        </div>
+        <button class="pp-play" type="button" aria-label="Hear: Dumplings"></button>
+      </li>
+      <li class="dish" data-zh="排骨飯" data-say="pie-goo fahn" data-en="Pork chop rice">
+        <input type="checkbox" class="try-box" id="t-pork-chop" data-key="pork-chop">
+        <div class="dish__main">
+          <label class="dish__name" for="t-pork-chop">Pork chop rice</label>
+          <div class="dish__line"><span class="dish__say">pie-goo fahn</span><button class="dish__zh" type="button" lang="zh-Hant-TW">排骨飯</button><span class="dish__py">pái gǔ fàn</span></div>
+          <p class="dish__txt">A fried, marinated pork chop on rice with pickles and greens. The railway bento (台鐵便當) is the boxed version, sold in the TRA hall at Taipei Main.</p>
+          <span class="on-plan on-plan--idea">Good for Mon, before the train</span>
+        </div>
+        <button class="pp-play" type="button" aria-label="Hear: Pork chop rice"></button>
+      </li>
+      <li class="dish" data-zh="蚵仔麵線" data-say="oh-ah mee-swah" data-en="Oyster vermicelli">
+        <input type="checkbox" class="try-box" id="t-misua" data-key="oyster-misua">
+        <div class="dish__main">
+          <label class="dish__name" for="t-misua">Oyster vermicelli</label>
+          <div class="dish__line"><span class="dish__say">oh-ah mee-swah</span><button class="dish__zh" type="button" lang="zh-Hant-TW">蚵仔麵線</button><span class="dish__py">said in Taiwanese</span></div>
+          <p class="dish__txt">Thin noodles in thick bonito broth with oysters and pork intestine, eaten standing up. Ay-Chung (阿宗) in Ximending is the famous stall.</p>
+          <span class="on-plan on-plan--idea">Good for Tue, in Ximending</span>
+        </div>
+        <button class="pp-play" type="button" aria-label="Hear: Oyster vermicelli"></button>
+      </li>
+      <li class="dish" data-zh="擔仔麵" data-say="dahn-dzai myen" data-en="Danzai noodles">
+        <input type="checkbox" class="try-box" id="t-danzai" data-key="danzai">
+        <div class="dish__main">
+          <label class="dish__name" for="t-danzai">Danzai noodles</label>
+          <div class="dish__line"><span class="dish__say">dahn-dzai myen</span><button class="dish__zh" type="button" lang="zh-Hant-TW">擔仔麵</button><span class="dish__py">dàn zǎi miàn</span></div>
+          <p class="dish__txt">A small bowl of noodles in shrimp broth with minced pork and a prawn. Snack-sized, so add a side.</p>
+        </div>
+        <button class="pp-play" type="button" aria-label="Hear: Danzai noodles"></button>
+      </li>
+      <li class="dish" data-zh="三杯雞" data-say="sahn-bay jee" data-en="Three-cup chicken">
+        <input type="checkbox" class="try-box" id="t-three-cup" data-key="three-cup">
+        <div class="dish__main">
+          <label class="dish__name" for="t-three-cup">Three-cup chicken</label>
+          <div class="dish__line"><span class="dish__say">sahn-bay jee</span><button class="dish__zh" type="button" lang="zh-Hant-TW">三杯雞</button><span class="dish__py">sān bēi jī</span></div>
+          <p class="dish__txt">Chicken cooked in sesame oil, soy and rice wine with a pile of basil, served sizzling in a clay pot. A sit-down dish: look for it at Taiwanese restaurants and stir-fry places (熱炒).</p>
+        </div>
+        <button class="pp-play" type="button" aria-label="Hear: Three-cup chicken"></button>
+      </li>
+    </ul>
+
+    <h4 class="try-label">Also on the list</h4>
+    <div class="also">
+      <div class="pick">
+        <h4>Night-market bites</h4>
+        <ul>
+          <li class="mt" data-zh="蚵仔煎" data-say="oh-ah-jen" data-en="Oyster omelette"><input type="checkbox" class="try-box" id="t-oyster-omelette" data-key="oyster-omelette"><label for="t-oyster-omelette">Oyster omelette</label><button class="mt__zh" type="button" lang="zh-Hant-TW">蚵仔煎</button></li>
+          <li class="mt" data-zh="胡椒餅" data-say="hoo-jyaow bing" data-en="Pepper bun"><input type="checkbox" class="try-box" id="t-pepper-bun" data-key="pepper-bun"><label for="t-pepper-bun">Pepper bun</label><button class="mt__zh" type="button" lang="zh-Hant-TW">胡椒餅</button><span class="on-plan">Sat · Raohe</span></li>
+          <li class="mt" data-zh="割包" data-say="gwah-bow" data-en="Gua bao"><input type="checkbox" class="try-box" id="t-gua-bao" data-key="gua-bao"><label for="t-gua-bao">Gua bao, pork belly bun</label><button class="mt__zh" type="button" lang="zh-Hant-TW">割包</button></li>
+          <li class="mt" data-zh="雞排" data-say="jee-pie" data-en="Fried chicken cutlet"><input type="checkbox" class="try-box" id="t-chicken-cutlet" data-key="chicken-cutlet"><label for="t-chicken-cutlet">Fried chicken cutlet</label><button class="mt__zh" type="button" lang="zh-Hant-TW">雞排</button><span class="on-plan">Sun · Shilin</span></li>
+          <li class="mt" data-zh="臭豆腐" data-say="choh doh-foo" data-en="Stinky tofu"><input type="checkbox" class="try-box" id="t-stinky-tofu" data-key="stinky-tofu"><label for="t-stinky-tofu">Stinky tofu</label><button class="mt__zh" type="button" lang="zh-Hant-TW">臭豆腐</button></li>
+          <li class="mt" data-zh="大腸包小腸" data-say="dah-chahng bow shyaow-chahng" data-en="Sausage in a sticky-rice bun"><input type="checkbox" class="try-box" id="t-sausage" data-key="sausage"><label for="t-sausage">Sausage in a sticky-rice bun</label><button class="mt__zh" type="button" lang="zh-Hant-TW">大腸包小腸</button></li>
+          <li class="mt" data-zh="蔥抓餅" data-say="tsong-jwah bing" data-en="Scallion pancake"><input type="checkbox" class="try-box" id="t-scallion" data-key="scallion-pancake"><label for="t-scallion">Scallion pancake</label><button class="mt__zh" type="button" lang="zh-Hant-TW">蔥抓餅</button></li>
+        </ul>
+      </div>
+      <div class="pick">
+        <h4>Breakfast</h4>
+        <ul>
+          <li class="mt" data-zh="鹹豆漿" data-say="shyen doh-jyahng" data-en="Salty soy milk"><input type="checkbox" class="try-box" id="t-salty-soy" data-key="salty-soy-milk"><label for="t-salty-soy">Salty soy milk</label><button class="mt__zh" type="button" lang="zh-Hant-TW">鹹豆漿</button><span class="on-plan">Sun &amp; Wed</span></li>
+          <li class="mt" data-zh="燒餅油條" data-say="shaow-bing yo-tyaow" data-en="Sesame flatbread with fried dough"><input type="checkbox" class="try-box" id="t-shaobing" data-key="shaobing-youtiao"><label for="t-shaobing">Sesame flatbread with fried dough</label><button class="mt__zh" type="button" lang="zh-Hant-TW">燒餅油條</button><span class="on-plan">Sun &amp; Wed</span></li>
+          <li class="mt" data-zh="蛋餅" data-say="dahn-bing" data-en="Egg crêpe"><input type="checkbox" class="try-box" id="t-dan-bing" data-key="dan-bing"><label for="t-dan-bing">Egg crêpe</label><button class="mt__zh" type="button" lang="zh-Hant-TW">蛋餅</button><span class="on-plan">Sun &amp; Wed</span></li>
+          <li class="mt" data-zh="飯糰" data-say="fahn-twahn" data-en="Sticky-rice roll"><input type="checkbox" class="try-box" id="t-fan-tuan" data-key="fan-tuan"><label for="t-fan-tuan">Sticky-rice roll</label><button class="mt__zh" type="button" lang="zh-Hant-TW">飯糰</button><span class="on-plan">Sun &amp; Wed</span></li>
+        </ul>
+      </div>
+      <div class="pick">
+        <h4>Sweet things</h4>
+        <ul>
+          <li class="mt" data-zh="珍珠奶茶" data-say="jun-joo nai-chah" data-en="Bubble tea"><input type="checkbox" class="try-box" id="t-bubble-tea" data-key="bubble-tea"><label for="t-bubble-tea">Bubble tea</label><button class="mt__zh" type="button" lang="zh-Hant-TW">珍珠奶茶</button><span class="on-plan">Sun · Chun Shui Tang</span></li>
+          <li class="mt" data-zh="鳳梨酥" data-say="fung-lee-soo" data-en="Pineapple cake"><input type="checkbox" class="try-box" id="t-pineapple-cake" data-key="pineapple-cake"><label for="t-pineapple-cake">Pineapple cake</label><button class="mt__zh" type="button" lang="zh-Hant-TW">鳳梨酥</button><span class="on-plan">Sat · SunnyHills</span></li>
+          <li class="mt" data-zh="芋圓" data-say="yoo-ywen" data-en="Taro balls"><input type="checkbox" class="try-box" id="t-taro-balls" data-key="taro-balls"><label for="t-taro-balls">Taro balls in sweet soup</label><button class="mt__zh" type="button" lang="zh-Hant-TW">芋圓</button><span class="on-plan on-plan--idea">Good for Mon, Jiufen</span></li>
+          <li class="mt" data-zh="豆花" data-say="doh-hwah" data-en="Tofu pudding"><input type="checkbox" class="try-box" id="t-douhua" data-key="douhua"><label for="t-douhua">Tofu pudding</label><button class="mt__zh" type="button" lang="zh-Hant-TW">豆花</button></li>
+          <li class="mt" data-zh="剉冰" data-say="tsaw-bing" data-en="Shaved ice"><input type="checkbox" class="try-box" id="t-shaved-ice" data-key="shaved-ice"><label for="t-shaved-ice">Shaved ice</label><button class="mt__zh" type="button" lang="zh-Hant-TW">剉冰</button></li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="subhead">Booked</h3>
     <div class="shelf">
       <div class="pick pick--top pick--booked">
         <span class="call call--booked">Tue 10 Nov · 18:00 · for three</span>
@@ -1793,7 +1981,7 @@ footer{
 
   <footer>
     <p><b>Status.</b> Booked: Le Palais, Tuesday 10 November at 18:00, with the Cantonese-style crispy roast duck course pre-ordered; Mala Hot Pot, Sunday 8 November at 12:30; Taipei 101 Top Deck, Sunday 8 November at 11:00. Locked: the dates, the two carriers, six nights at the Shangri&#8209;La, the 8 pm Friday landing, trains instead of taxis, and every row marked as your pick. Proposed: which day each pick falls on, and the temples, museums, malls and night markets added around them. Hours, prices and closures were checked in October 2026; the Pingxi line and bus 1062 are the two to reconfirm the night before.</p>
-    <p style="margin-top:10px">Last updated 5 November 2026.</p>
+    <p style="margin-top:10px">Last updated 6 November 2026.</p>
   </footer>
 
 </div>
@@ -1820,6 +2008,27 @@ footer{
       try { localStorage.setItem(k, b.checked ? '1' : '0'); } catch(e) {}
     });
   })(boxes[i]);
+})();
+// must-try ticks stay on this device only
+(function(){
+  var boxes = document.querySelectorAll('.try-box[data-key]');
+  var out = document.getElementById('triedCount'), total = document.getElementById('triedTotal');
+  if (total) total.textContent = boxes.length;
+  function count(){
+    if (!out) return;
+    var n = 0;
+    for (var i = 0; i < boxes.length; i++) if (boxes[i].checked) n++;
+    out.textContent = n;
+  }
+  for (var i = 0; i < boxes.length; i++) (function(b){
+    var k = 'taipei26-tried-' + b.getAttribute('data-key');
+    try { b.checked = localStorage.getItem(k) === '1'; } catch(e) {}
+    b.addEventListener('change', function(){
+      try { localStorage.setItem(k, b.checked ? '1' : '0'); } catch(e) {}
+      count();
+    });
+  })(boxes[i]);
+  count();
 })();
 // phrases: read aloud with the phone's Chinese voice, and show characters full-screen
 (function(){
@@ -1867,10 +2076,10 @@ footer{
   var show = document.getElementById('ppShow');
   if (!show) return;
   var sz = document.getElementById('ppShowZh'), ss = document.getElementById('ppShowSay'), se = document.getElementById('ppShowEn');
-  var zhs = document.querySelectorAll('.pp__zh');
+  var zhs = document.querySelectorAll('.pp__zh, .dish__zh, .mt__zh');
   for (var k = 0; k < zhs.length; k++){
     zhs[k].addEventListener('click', function(){
-      var card = this.closest('.pp');
+      var card = this.closest('[data-zh]');
       sz.textContent = card.getAttribute('data-zh');
       ss.textContent = card.getAttribute('data-say') || '';
       se.textContent = card.getAttribute('data-en') || '';
