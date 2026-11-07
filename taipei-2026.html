@@ -520,6 +520,23 @@ footer{
 .pick--card{border-top:3px solid var(--jade)}
 .pick--tap{border-top:3px solid var(--mrt-purple)}
 
+/* ---- past days fold away; a Today chip jumps to the current day ---- */
+.past{margin-bottom:22px; border:1px solid var(--line); border-radius:12px; background:var(--surface)}
+.past > summary{
+  cursor:pointer; list-style:none; padding:12px 16px;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  font-family:var(--f-display); font-weight:700; font-size:.95rem; color:var(--ink-2);
+}
+.past > summary::-webkit-details-marker{display:none}
+.past > summary::after{
+  content:'Show'; flex:none; font-family:var(--f-mono); font-size:11px; font-weight:600;
+  letter-spacing:.08em; text-transform:uppercase; color:var(--jade-ink);
+}
+.past[open] > summary::after{content:'Hide'}
+.past__body{padding:0 10px 4px; border-top:1px solid var(--line-soft)}
+.day.is-today .day__dot{background:var(--jade)}
+.jump a.is-today{border-color:var(--jade); background:var(--jade-soft); color:var(--jade-ink)}
+
 /* ---- must-try dishes: a tick list, lunch first ---- */
 .try-count{font-family:var(--f-mono); font-size:12px; color:var(--ink-3); margin-bottom:10px}
 .try-count b{color:var(--jade-ink); font-weight:600}
@@ -844,15 +861,15 @@ footer{
         <li>The Maokong gondola shuts on Mondays for maintenance, so Maokong is Wednesday.</li>
         <li>Jiufen is packed at weekends, so the day trip is Monday, with Sunday as the rain swap.</li>
         <li>Both soy milk shops close on Mondays, so the traditional breakfasts are Sunday and Wednesday.</li>
-        <li>Taipei 101 is at 11:00, an hour after the memorial hall’s first guard change, and Sunday afternoon is the big Xinyi malls, all joined by skybridges, with the Pokémon Center and the first boba chain among them.</li>
-        <li>The Palace Museum closes on Mondays, so it’s Tuesday morning, then the anime and figure shops of Ximending, back at the hotel by about 16:00 with an hour to change for Le Palais.</li>
-        <li>Every evening in town ends at a night market, best first: Raohe, then Shilin, Ningxia and the local Linjiang Street. Monday’s market is Jiufen’s lantern-lit old street.</li>
+        <li>Taipei 101 is at 11:00, an hour after the memorial hall’s first guard change. Sunday afternoon is the big Xinyi malls, all joined by skybridges, with the Pokémon Center and the first boba chain among them, and the evening is Ximending’s anime and figure shops, one blue-line ride away.</li>
+        <li>The Palace Museum closes on Mondays, so it’s Tuesday morning, then back to the hotel by about 14:00 to rest and change for Le Palais.</li>
+        <li>Every evening in town ends at a night market or its street food: Raohe on Saturday, Ximending on Sunday, Jiufen’s lantern-lit old street on Monday, Ningxia on Tuesday and the local Linjiang Street on Wednesday. Shilin is off the plan now; swap it in for Linjiang if you miss it.</li>
       </ul>
     </div>
 
     <div class="week">
 
-      <div class="day day--transit">
+      <div class="day day--transit" id="day-2026-11-05" data-date="2026-11-05">
         <div class="day__rail"><span class="day__dot"></span></div>
         <div class="day__body">
           <div class="day__head">
@@ -874,7 +891,7 @@ footer{
         </div>
       </div>
 
-      <div class="day">
+      <div class="day" id="day-2026-11-06" data-date="2026-11-06">
         <div class="day__rail"><span class="day__dot"></span></div>
         <div class="day__body">
           <div class="day__head">
@@ -918,7 +935,7 @@ footer{
         </div>
       </div>
 
-      <div class="day">
+      <div class="day" id="day-2026-11-07" data-date="2026-11-07">
         <div class="day__rail"><span class="day__dot"></span></div>
         <div class="day__body">
           <div class="day__head">
@@ -926,7 +943,7 @@ footer{
             <span class="day__date">7 November</span>
             <span class="day__tag">Old Taipei</span>
           </div>
-          <div class="day__theme">A temple at dawn, beef noodles, two pineapple cakes, Raohe</div>
+          <div class="day__theme">A temple at dawn, beef noodles, the zoo, two pineapple cakes, Raohe</div>
           <div class="slots">
             <div class="slot slot--yours">
               <div class="slot__when">07:00</div>
@@ -948,19 +965,29 @@ footer{
               </div>
             </div>
             <div class="slot slot--yours">
-              <div class="slot__when">10:50</div>
+              <div class="slot__when">11:20</div>
               <div class="slot__what"><b>Lao Song Ji beef noodles <span class="zhn">老宋記真善美牛肉麵</span></b>Blue line back to Zhongxiao Fuxing, brown to Liuzhangli, and be in the queue before it opens. Get one braised (紅燒) and one clear-broth (清燉) bowl to compare, plus the platter of braised sides (滷味) that every table orders.
                 <div class="slot__foot">
                   <span class="drv">台北市大安區安居街47號</span>
                   <span class="mrt ln-brown">Liuzhangli</span>
-                  <span class="hrs">≈ 11:00–14:30 · 17:20–21:00 · closed Mon (some say Tue too)</span>
+                  <span class="hrs">opens 11:30 · 17:20–21:00 · closed Mon (some say Tue too)</span>
                   <span class="cash">cash only</span>
                 </div>
               </div>
             </div>
             <div class="slot slot--yours">
-              <div class="slot__when">13:00</div>
-              <div class="slot__what"><b>SunnyHills, Minsheng Park <span class="zhn">微熱山丘</span></b>Brown line north to Nanjing Fuxing, green two stops to Nanjing Sanmin, then 15–20 minutes’ walk north through the leafy Minsheng Community. Sit down and they bring each of you a pineapple cake and a cup of tea, free. Buy boxes to take home here; they travel well.
+              <div class="slot__when">12:30</div>
+              <div class="slot__what"><b>Taipei Zoo <span class="zhn">臺北市立動物園</span></b>Back to Liuzhangli and the brown line south to the end of the line, Taipei Zoo, about 15 minutes. Head first for the giant pandas, then the koalas, the penguins and the Formosan animals (black bears, pangolins). The park is big and climbs toward the back, so ride the little park train if legs are tired. Allow about 2½ hours and leave by 15:00. Wednesday’s Maokong gondola starts from right beside the station.
+                <div class="slot__foot">
+                  <span class="mrt ln-brown">Taipei Zoo</span>
+                  <span class="hrs">09:00–17:00 · last entry 16:00</span>
+                  <span class="hrs">about NT$60 · EasyCard at the gate</span>
+                </div>
+              </div>
+            </div>
+            <div class="slot slot--yours">
+              <div class="slot__when">15:45</div>
+              <div class="slot__what"><b>SunnyHills, Minsheng Park <span class="zhn">微熱山丘</span></b>Brown line from Taipei Zoo north to Nanjing Fuxing, about 25 minutes, green two stops to Nanjing Sanmin, then 15–20 minutes’ walk north through the leafy Minsheng Community. Sit down and they bring each of you a pineapple cake and a cup of tea, free. Buy boxes to take home here; they travel well.
                 <div class="slot__foot">
                   <span class="drv">台北市松山區民生東路五段36巷4弄1號</span>
                   <span class="mrt ln-green">Nanjing Sanmin</span>
@@ -969,7 +996,7 @@ footer{
               </div>
             </div>
             <div class="slot">
-              <div class="slot__when">14:45</div>
+              <div class="slot__when">16:45</div>
               <div class="slot__what"><b>Chia Te bakery <span class="zhn">佳德糕餅</span></b>On the walk back, by Nanjing Sanmin station: the other famous pineapple cake, the classic buttery kind, so you can settle which you prefer. Expect a queue. Skip it if the bags are already full.
                 <div class="slot__foot">
                   <span class="drv">台北市松山區南京東路五段88號</span>
@@ -978,13 +1005,13 @@ footer{
               </div>
             </div>
             <div class="slot">
-              <div class="slot__when">15:45</div>
-              <div class="slot__what"><b>Songshan Ciyou Temple <span class="zhn">松山慈祐宮</span></b>One stop east to Songshan, Exit 5. This 1750s Mazu temple stands at the gate of Raohe, carved and gilded floor after floor. Climb to the upper levels for the roofline. Then the Rainbow Bridge over the river behind it for sunset, about 17:08.
+              <div class="slot__when">17:15</div>
+              <div class="slot__what"><b>Songshan Ciyou Temple <span class="zhn">松山慈祐宮</span></b>One stop east to Songshan, Exit 5. This 1750s Mazu temple stands at the gate of Raohe, carved and gilded floor after floor, and lit up after dark. Climb to the upper levels for the roofline. The Rainbow Bridge over the river behind it is lit at night too.
                 <div class="slot__foot"><span class="mrt ln-green">Songshan</span><span class="hrs">free</span></div>
               </div>
             </div>
             <div class="slot slot--market">
-              <div class="slot__when">17:15</div>
+              <div class="slot__when">17:45</div>
               <div class="slot__what"><b>Raohe Street night market <span class="zhn">饒河街觀光夜市</span></b>The best first: one compact street, easy to walk with Mom. Queue at the temple end for the Michelin-listed Fuzhou pepper buns (福州世祖胡椒餅), baked on the wall of a clay oven, and try the herbal pork-rib soup at Chen Dong (陳董藥燉排骨). Home is green line to Nanjing Fuxing, brown to Liuzhangli, about 30 minutes.
                 <div class="slot__foot">
                   <span class="mrt ln-green">Songshan, Exit 5</span>
@@ -997,15 +1024,15 @@ footer{
         </div>
       </div>
 
-      <div class="day">
+      <div class="day" id="day-2026-11-08" data-date="2026-11-08">
         <div class="day__rail"><span class="day__dot"></span></div>
         <div class="day__body">
           <div class="day__head">
             <span class="day__num">SUN</span>
             <span class="day__date">8 November</span>
-            <span class="day__tag">Xinyi · malls</span>
+            <span class="day__tag">Xinyi · Ximending</span>
           </div>
-          <div class="day__theme">Soy milk, the memorial hall, the tower, hot pot, the big malls, Shilin</div>
+          <div class="day__theme">Soy milk, the memorial hall, the tower, hot pot, the big malls, Ximending</div>
           <div class="slots">
             <div class="slot slot--yours">
               <div class="slot__when">06:00</div>
@@ -1077,20 +1104,22 @@ footer{
               </div>
             </div>
             <div class="slot slot--market">
-              <div class="slot__when">17:45</div>
-              <div class="slot__what"><b>Shilin night market <span class="zhn">士林夜市</span></b>Walk back to Taipei 101 station; the red line runs direct to Jiantan, about 30 minutes. The biggest and best-known market. After hot pot at lunch, treat it as a stroll: one shared fried chicken cutlet the size of a face, pepper squid and the arcade games. The basement food court is under the old market building. Home is the red line straight from Jiantan to Xinyi Anhe. If legs are done after the malls, go straight home instead; Ningxia and Linjiang are still to come.
+              <div class="slot__when">17:30</div>
+              <div class="slot__what"><b>Ximending: anime, figures and Pop Mart <span class="zhn">西門町</span></b>From the malls, the blue line runs straight from Taipei City Hall to Ximen, about 15 minutes. Taipei’s youth and pop-culture district, at its busiest on a weekend evening. Wannien Building (萬年大樓) is the classic stop for anime figures, model kits and gachapon, floor after floor of small shops. Pop Mart’s four-floor flagship is on the pedestrian streets, and the Undercity Ximen mall runs underground north of the station, with an Animate shop and café. Capsule-toy machines line the streets outside Exit 6; keep NT$10 and NT$50 coins for them. Dinner is street food as you go: Ay-Chung’s oyster vermicelli (阿宗麵線) is the famous stand. This replaces Shilin tonight; swap Shilin in for Linjiang on Wednesday if you miss it. Home is the blue line to Zhongxiao Fuxing, then brown to Liuzhangli, about 30 minutes.
                 <div class="slot__foot">
-                  <span class="mrt ln-red">Jiantan, Exit 1</span>
-                  <span class="hrs">≈ 16:00–24:00</span>
-                  <span class="cash">cash only</span>
+                  <span class="mrt ln-blue">Ximen, Exit 6</span>
+                  <span class="drv">台北市萬華區西寧南路70號</span>
+                  <span class="cash">cash for small shops</span>
                 </div>
+              </div>
+            </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="day">
+      <div class="day" id="day-2026-11-09" data-date="2026-11-09">
         <div class="day__rail"><span class="day__dot"></span></div>
         <div class="day__body">
           <div class="day__head">
@@ -1152,7 +1181,7 @@ footer{
         </div>
       </div>
 
-      <div class="day">
+      <div class="day" id="day-2026-11-10" data-date="2026-11-10">
         <div class="day__rail"><span class="day__dot"></span></div>
         <div class="day__body">
           <div class="day__head">
@@ -1160,7 +1189,7 @@ footer{
             <span class="day__date">10 November</span>
             <span class="day__tag">Le Palais</span>
           </div>
-          <div class="day__theme">The Palace Museum, anime in Ximending, an hour to change, the duck</div>
+          <div class="day__theme">The Palace Museum, an afternoon’s rest, the duck</div>
           <div class="slots">
             <div class="slot slot--yours">
               <div class="slot__when">07:30</div>
@@ -1176,20 +1205,10 @@ footer{
                 </div>
               </div>
             </div>
-            <div class="slot">
-              <div class="slot__when">12:30</div>
-              <div class="slot__what"><b>Ximending: anime, figures and Pop Mart <span class="zhn">西門町</span></b>Leave the museum about 12:30: bus back to Shilin, red line to Taipei Main, then the blue line one stop to Ximen, about 45 minutes, which leaves two hours here. Taipei’s youth and pop-culture district. Wannien Building (萬年大樓) is the classic stop for anime figures, model kits and gachapon, floor after floor of small shops. Pop Mart’s four-floor flagship is on the pedestrian streets, and the Undercity Ximen mall runs underground north of the station, with an Animate shop and café. Capsule-toy machines line the streets outside Exit 6; keep NT$10 and NT$50 coins for them.
-                <div class="slot__foot">
-                  <span class="mrt ln-blue">Ximen, Exit 6</span>
-                  <span class="drv">台北市萬華區西寧南路70號</span>
-                  <span class="cash">cash for small shops</span>
-                </div>
-              </div>
-            </div>
             <div class="slot slot--fixed">
-              <div class="slot__when">15:15</div>
-              <div class="slot__what"><b>Back to the hotel to change</b>Blue line from Ximen to Zhongxiao Fuxing, brown three stops to Liuzhangli, then 7 minutes on foot: about 35 minutes. In the door by about 16:00, with an hour to rest and change before leaving at 17:15.
-                <div class="slot__foot"><span class="mrt ln-blue">Ximen</span><span class="mrt ln-brown">Liuzhangli</span></div>
+              <div class="slot__when">12:30</div>
+              <div class="slot__what"><b>Lunch, then back to the hotel to rest</b>Keep lunch light at the museum, then bus back to Shilin and the red line straight to Xinyi Anhe, 12–15 minutes on foot from there: about 50 minutes in all. In by about 14:00, with the afternoon free to rest and change before leaving at 17:15. Ximending has moved to Sunday evening.
+                <div class="slot__foot"><span class="mrt ln-red">Shilin → Xinyi Anhe</span></div>
               </div>
             </div>
             <div class="slot slot--fixed">
@@ -1222,7 +1241,7 @@ footer{
         </div>
       </div>
 
-      <div class="day">
+      <div class="day" id="day-2026-11-11" data-date="2026-11-11">
         <div class="day__rail"><span class="day__dot"></span></div>
         <div class="day__body">
           <div class="day__head">
@@ -1311,7 +1330,7 @@ footer{
         </div>
       </div>
 
-      <div class="day day--transit">
+      <div class="day day--transit" id="day-2026-11-12" data-date="2026-11-12">
         <div class="day__rail"><span class="day__dot"></span></div>
         <div class="day__body">
           <div class="day__head">
@@ -1347,7 +1366,7 @@ footer{
       <b>Getting around with no taxis.</b> The red line is the spine of the week: from Xinyi Anhe it runs without a change to Taipei 101, the memorial hall, Taipei Main, Le Palais, Ningxia, Yuanshan, Shilin and the Palace Museum bus. The brown line from Liuzhangli covers Anju Street, Maokong and the Zoo. Every MRT station has lifts. Trains run from about 06:00 to midnight.
     </div>
     <div class="note">
-      <b>If Monday is a washout, swap it with Sunday.</b> Check the forecast on Saturday night. The day trip runs on Sunday (busier, but dry), and Sunday’s Xinyi day (Taipei 101, the hot pot, the malls) and Shilin move to Monday; move the Mala and 101 bookings to match. Fu Hang is closed on Mondays, so do it on Tuesday at 6:00 before the museum instead.
+      <b>If Monday is a washout, swap it with Sunday.</b> Check the forecast on Saturday night. The day trip runs on Sunday (busier, but dry), and Sunday’s Xinyi day (Taipei 101, the hot pot, the malls) and Ximending move to Monday; move the Mala and 101 bookings to match. Fu Hang is closed on Mondays, so do it on Tuesday at 6:00 before the museum instead.
     </div>
     <div class="note note--jade">
       <b>Swap-ins if a day runs short or rains.</b> Bao’an Temple and the Confucius Temple at Yuanshan, the most beautifully restored temple in the city with a quiet Confucian one next door (Confucius Temple closed Mondays); the Shilin Official Residence gardens, Chiang Kai-shek’s old home, by Shilin station; Xingtian Temple (行天宮), where locals come to have their fortunes read; Huashan 1914, the old winery arts park across the road from Fu Hang; Elephant Mountain, a steep 20-minute climb for the classic view of 101; Songshan Cultural and Creative Park, an old tobacco factory with a design museum. Sun Yat-sen Memorial Hall is closed for renovation until 2027.
@@ -1443,7 +1462,7 @@ footer{
           <label class="dish__name" for="t-misua">Oyster vermicelli</label>
           <div class="dish__line"><span class="dish__say">oh-ah mee-swah</span><button class="dish__zh" type="button" lang="zh-Hant-TW">蚵仔麵線</button><span class="dish__py">said in Taiwanese</span></div>
           <p class="dish__txt">Thin noodles in thick bonito broth with oysters and pork intestine, eaten standing up. Ay-Chung (阿宗) in Ximending is the famous stall.</p>
-          <span class="on-plan on-plan--idea">Good for Tue, in Ximending</span>
+          <span class="on-plan on-plan--idea">Good for Sun, in Ximending</span>
         </div>
         <button class="pp-play" type="button" aria-label="Hear: Oyster vermicelli"></button>
       </li>
@@ -1475,7 +1494,7 @@ footer{
           <li class="mt" data-zh="蚵仔煎" data-say="oh-ah-jen" data-en="Oyster omelette"><input type="checkbox" class="try-box" id="t-oyster-omelette" data-key="oyster-omelette"><label for="t-oyster-omelette">Oyster omelette</label><button class="mt__zh" type="button" lang="zh-Hant-TW">蚵仔煎</button></li>
           <li class="mt" data-zh="胡椒餅" data-say="hoo-jyaow bing" data-en="Pepper bun"><input type="checkbox" class="try-box" id="t-pepper-bun" data-key="pepper-bun"><label for="t-pepper-bun">Pepper bun</label><button class="mt__zh" type="button" lang="zh-Hant-TW">胡椒餅</button><span class="on-plan">Sat · Raohe</span></li>
           <li class="mt" data-zh="割包" data-say="gwah-bow" data-en="Gua bao"><input type="checkbox" class="try-box" id="t-gua-bao" data-key="gua-bao"><label for="t-gua-bao">Gua bao, pork belly bun</label><button class="mt__zh" type="button" lang="zh-Hant-TW">割包</button></li>
-          <li class="mt" data-zh="雞排" data-say="jee-pie" data-en="Fried chicken cutlet"><input type="checkbox" class="try-box" id="t-chicken-cutlet" data-key="chicken-cutlet"><label for="t-chicken-cutlet">Fried chicken cutlet</label><button class="mt__zh" type="button" lang="zh-Hant-TW">雞排</button><span class="on-plan">Sun · Shilin</span></li>
+          <li class="mt" data-zh="雞排" data-say="jee-pie" data-en="Fried chicken cutlet"><input type="checkbox" class="try-box" id="t-chicken-cutlet" data-key="chicken-cutlet"><label for="t-chicken-cutlet">Fried chicken cutlet</label><button class="mt__zh" type="button" lang="zh-Hant-TW">雞排</button><span class="on-plan on-plan--idea">Any night market</span></li>
           <li class="mt" data-zh="臭豆腐" data-say="choh doh-foo" data-en="Stinky tofu"><input type="checkbox" class="try-box" id="t-stinky-tofu" data-key="stinky-tofu"><label for="t-stinky-tofu">Stinky tofu</label><button class="mt__zh" type="button" lang="zh-Hant-TW">臭豆腐</button></li>
           <li class="mt" data-zh="大腸包小腸" data-say="dah-chahng bow shyaow-chahng" data-en="Sausage in a sticky-rice bun"><input type="checkbox" class="try-box" id="t-sausage" data-key="sausage"><label for="t-sausage">Sausage in a sticky-rice bun</label><button class="mt__zh" type="button" lang="zh-Hant-TW">大腸包小腸</button></li>
           <li class="mt" data-zh="蔥抓餅" data-say="tsong-jwah bing" data-en="Scallion pancake"><input type="checkbox" class="try-box" id="t-scallion" data-key="scallion-pancake"><label for="t-scallion">Scallion pancake</label><button class="mt__zh" type="button" lang="zh-Hant-TW">蔥抓餅</button></li>
@@ -1525,10 +1544,10 @@ footer{
         <div class="foot"><span>Songshan, Exit 5</span><span>≈ 17:00–24:00</span><span class="cash">cash</span></div>
       </div>
       <div class="pick">
-        <span class="call">Sun 8</span>
+        <span class="call">Swap-in</span>
         <h4>Shilin</h4>
         <div class="zh">士林夜市</div>
-        <p>The biggest and most famous, sprawling over several blocks with games, clothes and a basement food court. Get the giant fried chicken cutlet (大雞排) to share, and pepper squid.</p>
+        <p>The biggest and most famous, sprawling over several blocks with games, clothes and a basement food court. Get the giant fried chicken cutlet (大雞排) to share, and pepper squid. No longer on the plan since Ximending took Sunday evening; swap it in for Linjiang on Wednesday if you want it.</p>
         <div class="foot"><span>Jiantan, Exit 1</span><span>≈ 16:00–24:00</span><span class="cash">cash</span></div>
       </div>
       <div class="pick">
@@ -1699,7 +1718,7 @@ footer{
     </div>
 
     <h3 class="subhead subhead--first">Malls and anime</h3>
-    <p class="lede">Two shopping blocks are built into the week: Sunday afternoon in the big Xinyi malls, and Tuesday afternoon in Ximending for anime and figures.</p>
+    <p class="lede">Both shopping blocks are on Sunday: the afternoon in the big Xinyi malls, and the evening in Ximending for anime and figures.</p>
     <div class="pair">
       <div class="pick">
         <span class="call">Sun · after the hot pot</span>
@@ -1716,7 +1735,7 @@ footer{
         <div class="foot"><span>Taipei City Hall, Exit 3</span><span>11:00–21:30</span></div>
       </div>
       <div class="pick">
-        <span class="call">Tue · Ximending</span>
+        <span class="call">Sun · Ximending</span>
         <h4>Wannien Building, Pop Mart, Undercity</h4>
         <div class="zh">萬年大樓 · 西門町</div>
         <p>Wannien Building (西寧南路70號) is the old-school stack of figure, model-kit and gachapon shops. Pop Mart’s four-floor flagship is a few streets away, and the Undercity Ximen underground mall has an Animate shop and café.</p>
@@ -2103,6 +2122,48 @@ footer{
       try { localStorage.setItem(k, b.checked ? '1' : '0'); } catch(e) {}
     });
   })(boxes[i]);
+})();
+// days before today (Taipei time) fold into "Earlier days"; a Today chip jumps to today
+(function(){
+  var week = document.querySelector('.week');
+  if (!week) return;
+  var today = new Date(Date.now() + 8 * 3600000).toISOString().slice(0, 10);
+  var days = week.querySelectorAll('.day[data-date]');
+  var past = [], current = null;
+  for (var i = 0; i < days.length; i++){
+    var d = days[i].getAttribute('data-date');
+    if (d < today) past.push(days[i]);
+    else if (d === today) current = days[i];
+  }
+  if (past.length){
+    var box = document.createElement('details');
+    box.className = 'past';
+    var sum = document.createElement('summary');
+    var last = past[past.length - 1];
+    var label = function(day){ return day.querySelector('.day__num').textContent + ' ' + day.querySelector('.day__date').textContent.replace(' November', ''); };
+    sum.textContent = 'Earlier days · ' + (past.length === 1 ? label(past[0]) : label(past[0]) + ' – ' + label(last)) + ' Nov';
+    var body = document.createElement('div');
+    body.className = 'past__body';
+    box.appendChild(sum); box.appendChild(body);
+    week.parentNode.insertBefore(box, week);
+    for (var j = 0; j < past.length; j++){
+      var w = document.createElement('div');
+      w.className = 'week';
+      body.appendChild(w);
+      w.appendChild(past[j]);
+    }
+  }
+  if (current){
+    current.classList.add('is-today');
+    var nav = document.querySelector('.jump');
+    if (nav){
+      var a = document.createElement('a');
+      a.href = '#' + current.id;
+      a.className = 'is-today';
+      a.textContent = 'Today';
+      nav.insertBefore(a, nav.firstChild);
+    }
+  }
 })();
 // must-try ticks stay on this device only
 (function(){
