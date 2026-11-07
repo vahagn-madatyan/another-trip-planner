@@ -522,20 +522,38 @@ footer{
 
 /* ---- past days fold away; a Today chip jumps to the current day ---- */
 .past{margin-bottom:22px; border:1px solid var(--line); border-radius:12px; background:var(--surface)}
-.past > summary{
+.past > summary,.shops > summary{
   cursor:pointer; list-style:none; padding:12px 16px;
   display:flex; align-items:center; justify-content:space-between; gap:12px;
   font-family:var(--f-display); font-weight:700; font-size:.95rem; color:var(--ink-2);
 }
-.past > summary::-webkit-details-marker{display:none}
-.past > summary::after{
+.past > summary::-webkit-details-marker,.shops > summary::-webkit-details-marker{display:none}
+.past > summary::after,.shops > summary::after{
   content:'Show'; flex:none; font-family:var(--f-mono); font-size:11px; font-weight:600;
   letter-spacing:.08em; text-transform:uppercase; color:var(--jade-ink);
 }
-.past[open] > summary::after{content:'Hide'}
+.past[open] > summary::after,.shops[open] > summary::after{content:'Hide'}
 .past__body{padding:0 10px 4px; border-top:1px solid var(--line-soft)}
 .day.is-today .day__dot{background:var(--jade)}
 .jump a.is-today{border-color:var(--jade); background:var(--jade-soft); color:var(--jade-ink)}
+
+/* ---- Sunday's shop list folds like the past days ---- */
+.shops{margin-top:12px; border:1px solid var(--line); border-radius:11px; background:var(--surface)}
+.shops__body{padding:0 15px 10px; border-top:1px solid var(--line-soft)}
+.shops__lede{font-size:.88rem; color:var(--ink-2); line-height:1.55; margin:12px 0 0; max-width:66ch}
+.shops__grid{display:grid; grid-template-columns:1fr 1fr; gap:0 28px; align-items:start}
+@media (max-width:760px){.shops__grid{grid-template-columns:1fr}}
+.shops__grid > div{min-width:0}
+.shops h4{font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin:18px 0 2px}
+.shops ul{list-style:none; margin:0; padding:0}
+.shops li{padding:9px 0; border-top:1px solid var(--line-soft); font-size:.88rem; line-height:1.5; color:var(--ink-2)}
+.shops li:first-child{border-top:0}
+.shops li b{display:block; font-family:var(--f-display); font-weight:600; font-size:.95rem; color:var(--ink)}
+.shops li .zhn{font-weight:500; color:var(--ink-3); letter-spacing:.02em}
+.shops li .hrs{display:block; margin-top:3px}
+.slot__alt{margin-top:9px; padding-top:8px; border-top:1px dashed var(--line); font-size:.85rem; color:var(--ink-3)}
+.slot__alt b{display:inline; font-size:inherit; margin:0; color:var(--ink-2)}
+.slot__what .slot__alt b::after{content:none}
 
 /* ---- must-try dishes: a tick list, lunch first ---- */
 .try-count{font-family:var(--f-mono); font-size:12px; color:var(--ink-3); margin-bottom:10px}
@@ -977,11 +995,12 @@ footer{
             </div>
             <div class="slot slot--yours">
               <div class="slot__when">12:30</div>
-              <div class="slot__what"><b>Taipei Zoo <span class="zhn">臺北市立動物園</span></b>Back to Liuzhangli and the brown line south to the end of the line, Taipei Zoo, about 15 minutes. Head first for the giant pandas, then the koalas, the penguins and the Formosan animals (black bears, pangolins). The park is big and climbs toward the back, so ride the little park train if legs are tired. Allow about 2½ hours and leave by 15:00. Wednesday’s Maokong gondola starts from right beside the station.
+              <div class="slot__what"><b>Taipei Zoo <span class="zhn">臺北市立動物園</span></b>Back to Liuzhangli and the brown line south to the end of the line, Taipei Zoo, about 15 minutes. Head first for the giant pandas: on weekends expect a 20–30 minute queue, or a free timed ticket at the door. The koalas are next door, then the penguins (with an underwater window) and the Formosan animals (black bears, pangolins). The park climbs toward the back, so ride the little park train up (NT$5) and walk back down. Leave by 15:00; that covers the highlights, not the whole park. Wednesday’s Maokong gondola starts from right beside the station.
                 <div class="slot__foot">
                   <span class="mrt ln-brown">Taipei Zoo</span>
                   <span class="hrs">09:00–17:00 · last entry 16:00</span>
-                  <span class="hrs">about NT$60 · EasyCard at the gate</span>
+                  <span class="hrs">NT$100 adults · 65+ may be free: show a passport</span>
+                  <span class="hrs">EasyCard at the gate</span>
                 </div>
               </div>
             </div>
@@ -1032,7 +1051,7 @@ footer{
             <span class="day__date">8 November</span>
             <span class="day__tag">Xinyi · Ximending</span>
           </div>
-          <div class="day__theme">Soy milk, the memorial hall, the tower, hot pot, the big malls, Ximending</div>
+          <div class="day__theme">Soy milk, the memorial hall, the tower, hot pot, the big malls, fresh beans, Ximending</div>
           <div class="slots">
             <div class="slot slot--yours">
               <div class="slot__when">06:00</div>
@@ -1103,9 +1122,21 @@ footer{
                 <div class="slot__foot"><span class="hrs">check the floor on Google Maps</span></div>
               </div>
             </div>
-            <div class="slot slot--market">
+            <div class="slot slot--yours">
               <div class="slot__when">17:30</div>
-              <div class="slot__what"><b>Ximending: anime, figures and Pop Mart <span class="zhn">西門町</span></b>From the malls, the blue line runs straight from Taipei City Hall to Ximen, about 15 minutes. Taipei’s youth and pop-culture district, at its busiest on a weekend evening. Wannien Building (萬年大樓) is the classic stop for anime figures, model kits and gachapon, floor after floor of small shops. Pop Mart’s four-floor flagship is on the pedestrian streets, and the Undercity Ximen mall runs underground north of the station, with an Animate shop and café. Capsule-toy machines line the streets outside Exit 6; keep NT$10 and NT$50 coins for them. Dinner is street food as you go: Ay-Chung’s oyster vermicelli (阿宗麵線) is the famous stand. This replaces Shilin tonight; swap Shilin in for Linjiang on Wednesday if you miss it. Home is the blue line to Zhongxiao Fuxing, then brown to Liuzhangli, about 30 minutes.
+              <div class="slot__what"><b>Fresh beans at SanFormosan <span class="zhn">森高砂咖啡館 中山店</span></b>Red line straight from Taipei 101 to Zhongshan, about 20 minutes. The roaster for Taiwan-grown coffee: it sells only beans from Taiwan’s own farms, from Alishan and Nantou in the mountains to Pingtung and Taitung in the south, each sold by its region. Sit down for a pour-over if you want a cup, then buy bags to take home. If they ask 要磨嗎？ (yow mwo mah?, “grind it?”), say 不要 (boo yow, “no”): whole beans stay fresh for the flight. Taiwan-grown beans are small-batch and cost more than imports. No Taipei shop we found sells Yunnan beans from China, so Taiwan’s own are the regional pick. Declare them as food at US customs.
+                <div class="slot__foot">
+                  <span class="drv">台北市中山區中山北路一段133號</span>
+                  <span class="mrt ln-red">Zhongshan</span>
+                  <span class="hrs">Sun 11:00–20:00</span>
+                  <span class="hrs"><span class="nw">02-2568-1517</span></span>
+                </div>
+                <div class="slot__alt">On the blue line instead, and an Alishan specialist: <b>Goodman Roaster, Huashan</b> 台北市中山區新生北路一段17號, by Zhongxiao Xinsheng, Sun 11:00–18:00.</div>
+              </div>
+            </div>
+            <div class="slot slot--market">
+              <div class="slot__when">18:15</div>
+              <div class="slot__what"><b>Ximending: anime, figures and Pop Mart <span class="zhn">西門町</span></b>From Zhongshan, the green line runs two stops to Ximen, about 5 minutes (skipping the coffee, it’s the blue line straight from Taipei City Hall, about 15). Taipei’s youth and pop-culture district, at its busiest on a weekend evening. Wannien Building (萬年大樓) is the classic stop: its 4th floor is small shops of anime figures, model kits, gachapon and ichiban-kuji prize draws. Pop Mart’s four-floor flagship is on Emei Street (峨眉街), and DON DON DONKI, Watsons and Cosmed cover skincare; the full shop list is just below. Capsule-toy machines line the streets outside Exit 6; keep NT$10 and NT$50 coins for them. Dinner is street food as you go: Ay-Chung’s oyster vermicelli (阿宗麵線) is the famous stand. This replaces Shilin tonight; swap Shilin in for Linjiang on Wednesday if you miss it. Home is the blue line to Zhongxiao Fuxing, then brown to Liuzhangli, about 30 minutes.
                 <div class="slot__foot">
                   <span class="mrt ln-blue">Ximen, Exit 6</span>
                   <span class="drv">台北市萬華區西寧南路70號</span>
@@ -1113,9 +1144,47 @@ footer{
                 </div>
               </div>
             </div>
+          </div>
+          <details class="shops">
+            <summary>Shop list: skincare, makeup and anime</summary>
+            <div class="shops__body">
+              <p class="shops__lede">In the order you pass them. Hours are from shop pages and recent guides; anything marked “check” couldn’t be confirmed, so look on Google Maps first. Spend NT$2,000 or more in one shop and ask for the tourist tax refund: bring passports.</p>
+              <div class="shops__grid">
+                <div>
+                  <h4>Xinyi, afternoon</h4>
+                  <ul>
+                    <li><b>Shin Kong Mitsukoshi <span class="zhn">新光三越</span></b>Japanese, Korean and Western beauty counters across A4, A8, A9 and A11; the floor guide is by each lift.<span class="hrs">11:00–21:30</span></li>
+                    <li><b>Taipei 101 Mall, ground floor <span class="zhn">台北101購物中心</span></b>Dior Beauty and Chanel Beauty boutiques, for the luxury makeup counters.<span class="hrs">11:00–21:30</span></li>
+                    <li><b>Breeze Nan Shan <span class="zhn">微風南山</span></b>Next to 101, with a beauty floor and the food hall.<span class="hrs">11:00–21:30 · floor: check</span></li>
+                    <li><b>Pokémon Center <span class="zhn">寶可夢中心</span></b>Already in the plan: A11, 3rd floor. On busy days entry is by ticket from 08:00 at A11’s ground floor; check Pokémon Taiwan’s Instagram that morning.<span class="hrs">11:00–21:30</span></li>
+                  </ul>
+                  <h4>Near the coffee stop</h4>
+                  <ul>
+                    <li><b>CHIIKAWA SHOP in TAIPEI <span class="zhn">吉伊卡哇</span></b>Taiwan’s first permanent Chiikawa shop, opened December 2025, at 長安西路19號, near exit R4 of the Zhongshan underground mall. A short walk south of SanFormosan: check the route on Google Maps.<span class="hrs">12:00–20:00</span></li>
+                    <li><b>The Gundam Base Taiwan <span class="zhn">鋼彈基地</span></b>Gunpla kits, on the 6th floor of Syntrend (三創), by Zhongxiao Xinsheng on the blue line. Only if you ride the blue line instead of the red.<span class="hrs">≈ 11:00–21:30</span></li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Ximending, evening</h4>
+                  <ul>
+                    <li><b>DON DON DONKI <span class="zhn">唐吉訶德 西門店</span></b>Three floors of Japanese drugstore skincare, makeup and snacks. 西寧南路123號, entrance on 武昌街二段58號, about 6 minutes from Exit 6.<span class="hrs">open 24 hours</span></li>
+                    <li><b>Watsons <span class="zhn">屈臣氏</span> and Cosmed <span class="zhn">康是美</span></b>Taiwan’s two drugstore chains, with branches on most blocks. This is where the Taiwanese brands below are sold.<span class="hrs">most till about 22:00 · check</span></li>
+                    <li><b>Matsumoto Kiyoshi <span class="zhn">松本清</span></b>The Japanese drugstore’s Ximen flagship, with cosmetics on the ground floor and tax-free checkout.<span class="hrs">opened 2019 · check it’s still there</span></li>
+                    <li><b>Wannien Building, 4th floor <span class="zhn">萬年大樓</span></b>Anime figures, model kits, gachapon and ichiban-kuji. 西寧南路70號, at Emei Street.<span class="hrs">shops ≈ 12:00–21:30</span></li>
+                    <li><b>Pop Mart flagship <span class="zhn">泡泡瑪特</span></b>Four floors of blind-box figures on Emei Street (峨眉街).<span class="hrs">Sun 11:00–22:00</span></li>
+                    <li><b>Animate <span class="zhn">安利美特</span></b>The Japanese anime-goods chain. One guide puts it at 中華路一段39號B1, but that couldn’t be confirmed.<span class="hrs">address and hours: check</span></li>
+                  </ul>
+                  <h4>Taiwanese skincare to look for</h4>
+                  <ul>
+                    <li><b>DR.WU <span class="zhn">達爾膚</span></b>The hyaluronic toner and serum, on the 2025 best-seller lists at both Watsons and Cosmed.</li>
+                    <li><b>Neogence <span class="zhn">霓淨思</span></b>The retinol (A醇) serum.</li>
+                    <li><b>Naruko <span class="zhn">牛爾</span></b>A popular Taiwanese drugstore line of serums and masks.</li>
+                    <li><b>My Beauty Diary <span class="zhn">我的美麗日記</span></b>Sheet masks, the classic gift to bring home, if you see them.</li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
+          </details>
         </div>
       </div>
 
@@ -1718,7 +1787,7 @@ footer{
     </div>
 
     <h3 class="subhead subhead--first">Malls and anime</h3>
-    <p class="lede">Both shopping blocks are on Sunday: the afternoon in the big Xinyi malls, and the evening in Ximending for anime and figures.</p>
+    <p class="lede">Both shopping blocks are on Sunday: the afternoon in the big Xinyi malls, and the evening in Ximending for anime and figures. Sunday’s day also has a shop list for skincare, makeup and anime.</p>
     <div class="pair">
       <div class="pick">
         <span class="call">Sun · after the hot pot</span>
@@ -2095,7 +2164,7 @@ footer{
 
   <footer>
     <p><b>Status.</b> Booked: Le Palais, Tuesday 10 November at 18:00, with the Cantonese-style crispy roast duck course pre-ordered; Mala Hot Pot, Sunday 8 November at 12:30; Taipei 101 Top Deck, Sunday 8 November at 11:00. Locked: the dates, the two carriers, six nights at the Shangri&#8209;La, the 8 pm Friday landing, trains instead of taxis, and every row marked as your pick. Proposed: which day each pick falls on, and the temples, museums, malls and night markets added around them. Hours, prices and closures were checked in October 2026; the Pingxi line and bus 1062 are the two to reconfirm the night before.</p>
-    <p style="margin-top:10px">Last updated 6 November 2026.</p>
+    <p style="margin-top:10px">Last updated 7 November 2026.</p>
   </footer>
 
 </div>
