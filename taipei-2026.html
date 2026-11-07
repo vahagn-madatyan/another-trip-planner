@@ -577,6 +577,9 @@ footer{
 @media (max-width:760px){.pp-cols{grid-template-columns:1fr; gap:26px}}
 .pp-group{min-width:0}
 .pp-stack{display:flex; flex-direction:column; gap:26px; min-width:0}
+.pp-first{margin-bottom:28px}
+.pp-grid{display:grid; grid-template-columns:1fr 1fr; gap:12px 28px; align-items:start}
+@media (max-width:760px){.pp-grid{grid-template-columns:1fr}}
 .pp-tip{font-size:.9rem; color:var(--ink-2); line-height:1.55; margin-top:12px}
 .pp-tip b{font-family:var(--f-display); font-weight:700; color:var(--ink)}
 .pp-group > h3{font-size:11px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); margin-bottom:12px}
@@ -1797,9 +1800,56 @@ footer{
   <section id="phrases">
     <div class="sec-head">
       <h2>Say it in Mandarin</h2>
-      <span class="count">eleven you’ll use every day</span>
+      <span class="count">fifteen you’ll use every day</span>
     </div>
     <p class="lede">Said the way people in Taipei say them. Read the green line out loud; close is good enough. ▶ plays it, and tapping the characters shows them full-screen for staff.</p>
+
+    <div class="pp-group pp-first">
+      <h3>Pointing, yes and no</h3>
+      <div class="pp-grid">
+
+        <article class="pp" data-zh="對" data-en="Yes, that’s right" data-say="dway">
+          <h4 class="pp__en">Yes, that’s right</h4>
+          <p class="pp__say">dway</p>
+          <div class="pp__line"><button class="pp__zh" type="button" lang="zh-Hant-TW">對</button><span class="pp__py">duì</span></div>
+          <button class="pp-play" type="button" aria-label="Hear: Yes, that’s right"></button>
+          <p class="pp__note">The everyday yes. When they point at something and ask, say “dway”; people often say it twice, “dway dway”.</p>
+          <div class="pp-hear" data-zh="這個嗎？">
+            <div>
+              <p class="pp-hear__lbl">They’ll ask</p>
+              <p class="pp-hear__main"><span class="pp-hear__zh" lang="zh-Hant-TW">這個嗎？</span><span class="pp-hear__say">juh-guh mah?</span></p>
+              <p class="pp-hear__en">“This one?”</p>
+            </div>
+            <button class="pp-play" type="button" aria-label="Hear: This one?"></button>
+          </div>
+        </article>
+
+        <article class="pp" data-zh="這個" data-en="This one" data-say="juh-guh">
+          <h4 class="pp__en">This one</h4>
+          <p class="pp__say">juh-guh</p>
+          <div class="pp__line"><button class="pp__zh" type="button" lang="zh-Hant-TW">這個</button><span class="pp__py">zhè ge</span></div>
+          <button class="pp-play" type="button" aria-label="Hear: This one"></button>
+          <p class="pp__note">Point and say it. Hold up fingers for how many.</p>
+        </article>
+
+        <article class="pp" data-zh="不是" data-en="No, not that one" data-say="boo shr">
+          <h4 class="pp__en">No, not that one</h4>
+          <p class="pp__say">boo shr</p>
+          <div class="pp__line"><button class="pp__zh" type="button" lang="zh-Hant-TW">不是</button><span class="pp__py">bú shì</span></div>
+          <button class="pp-play" type="button" aria-label="Hear: No, not that one"></button>
+          <p class="pp__note">If they point at the wrong thing. Then point again and say “juh-guh”.</p>
+        </article>
+
+        <article class="pp" data-zh="好" data-en="OK" data-say="how">
+          <h4 class="pp__en">OK, sure</h4>
+          <p class="pp__say">how</p>
+          <div class="pp__line"><button class="pp__zh" type="button" lang="zh-Hant-TW">好</button><span class="pp__py">hǎo</span></div>
+          <button class="pp-play" type="button" aria-label="Hear: OK"></button>
+          <p class="pp__note">The answer to almost any offer or suggestion.</p>
+        </article>
+
+      </div>
+    </div>
 
     <div class="pp-cols">
       <div class="pp-group">
